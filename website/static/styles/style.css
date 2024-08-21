@@ -1,0 +1,103 @@
+@font-face {
+  font-family: "mainFont";
+  src: url(Resources/VCR_OSD_Mono.ttf) format(truetype);
+}
+
+body {
+  font-family: "mainFont";
+  /* font-family: "Lucida Console", "Courier New", monospace; */
+}
+
+h1 {
+  font-weight: 800;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none !important;
+}
+
+.main {
+  min-height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  background-color: rgb(221, 221, 221);
+}
+
+#sidebar {
+  max-width: 220px;
+  min-width: 220px;
+  transition: all 0.35s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  background-color: black;
+}
+
+#sidebar.collapsed {
+  margin-left: -220px;
+}
+
+.toggler-btn {
+  background-color: transparent;
+  cursor: pointer;
+  border: 0;
+}
+
+.toggler-btn i {
+  font: 24px;
+  color: black;
+  font-weight: 1000;
+}
+
+.navbar {
+  padding: 18px 24px;
+  border-bottom: 2px dashed #b3a8a8;
+}
+
+.sidebar-nav {
+  flex: 1 1 auto;
+}
+
+.sidebar-logo {
+  padding-top: 20px;
+  padding: auto;
+  font-weight: 800;
+  text-align: center;
+  font-size: x-large;
+}
+
+.sidebar-logo a {
+  color: #fff;
+  font-weight: 800;
+  padding: 24px 24px 6px;
+}
+
+a.sidebar-link {
+  padding: 10px 26px;
+  color: #fff;
+  position: relative;
+  transition: all 0.35s;
+  display: block;
+  font-size: 20px;
+}
+
+a:hover {
+  color: rgb(150, 93, 150); 
+}
+
+.sidebar-item {
+  padding-top: 15px;
+}
+
+@media (max-width: 768px) {
+  .sidebar-toggle {
+    margin-left: -220px;
+  }
+
+  #sidebar.collapsed {
+    margin-left: 0;
+  }
+}
