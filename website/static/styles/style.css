@@ -84,6 +84,10 @@ a.sidebar-link {
   font-size: 20px;
 }
 
+a:hover {
+  color: rgb(150, 93, 150); 
+}
+
 .sidebar-item {
   padding-top: 15px;
 }
