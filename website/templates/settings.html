@@ -1,0 +1,69 @@
+{% extends "base.html" %} {% block title %}Settings{% endblock %}
+{% block body %}
+
+<div class = "container">
+    <div>
+        <h1>Settings</h1>
+    </div>
+    <div>
+        <div>
+            <label for="togg-1">
+                <span>Dark Mode</span>
+                <input type="checkbox" name="" id="togg-1">
+                <div class="toggle-container">
+                    <span class="toggle"></span>
+                    <span class="toggle-c"></span>
+            </label>
+        </div>
+        <div>
+            <label for="togg-2">
+                <span>24 hour time</span>
+                <input type="checkbox" name="" id="togg-2">
+                <div class="toggle-container">
+                    <span class="toggle"></span>
+                    <span class="toggle-c"></span>
+            </label>
+        </div>
+        <div>
+            <label for="togg-3">
+                <span>Sound</span>
+                <input type="checkbox" name="" id="togg-3">
+                <div class="toggle-container">
+                    <span class="toggle"></span>
+                    <span class="toggle-c"></span>
+            </label>
+        </div>
+        <div>
+            <span>Volume</span>
+            <form oninput="x.value=parseInt(a.value)+parseInt(b.value)">
+                <input type="range" id="a" value="100">
+                =<output name="x" for="a b"></output>
+            </form>
+        </div>
+        <div>
+            <h3>Background Options</h3>
+        </div>  
+        
+        <div>
+            <input type="radio" name="background" value="background_1">
+            <label for="background_1">background_1</label>
+            <br>
+            <input type="radio" name="background" value="background_2">
+            <label for="background_1">background_2</label>
+            <br>  
+            <input type="radio" name="background" value="background_3">
+            <label for="background_1">background_3</label>
+            <br> 
+            <input type="radio" name="background" value="background_4">
+            <label for="background_1">background_4</label>
+            <br> 
+
+            <input type="submit" value="Submit">
+            
+        </div> 
+    </div>
+
+</div>
+
+{% endblock %}
+
