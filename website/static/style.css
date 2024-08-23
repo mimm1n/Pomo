@@ -7,6 +7,16 @@ body {
   font-family: "mainFont";
 }
 
+/* .hero-image {
+  background-image: url("styles/resources/pixel_camp.jpg");
+  background-color: #cccccc;
+  height: 500px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative;
+} */
+
 h1 {
   font-weight: 800;
 }
