@@ -5,7 +5,16 @@
 
 body {
   font-family: "mainFont";
-  /* font-family: "Lucida Console", "Courier New", monospace; */
+}
+
+.hero-image {
+  background-image: url("https://mrwallpaper.com/images/hd/4k-eagle-in-mountains-3hx4ybfus71fibgd.jpg");
+  /* background-color: #cccccc; */
+  height: 650px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative;
 }
 
 h1 {
@@ -23,8 +32,8 @@ a {
 .main {
   min-height: 100vh;
   width: 100%;
-  overflow: hidden;
-  background-color: rgb(221, 221, 221);
+  /* overflow: hidden; */
+  /* background-color: rgb(221, 221, 221); */
 }
 
 #sidebar {
@@ -46,6 +55,12 @@ a {
   border: 0;
 }
 
+.fa-star:hover {
+  color: rgb(150, 93, 150);
+  opacity: 50%;
+  transition: 0.5s;
+}
+
 .toggler-btn i {
   font: 24px;
   color: black;
@@ -54,7 +69,7 @@ a {
 
 .navbar {
   padding: 18px 24px;
-  border-bottom: 2px dashed #b3a8a8;
+  /* border-bottom: 2px dashed #b3a8a8; */
 }
 
 .sidebar-nav {
@@ -85,7 +100,7 @@ a.sidebar-link {
 }
 
 a:hover {
-  color: rgb(150, 93, 150); 
+  color: rgb(150, 93, 150);
 }
 
 .sidebar-item {
@@ -101,3 +116,40 @@ a:hover {
     margin-left: 0;
   }
 }
+
+.form-signin {
+  max-width: 380px;
+  padding: 15px 35px 45px;
+  margin: 0 auto;
+  background: transparent;
+}
+
+  .form-signin-heading,
+	.checkbox {
+    text-align: center;
+	  margin-bottom: 30px;
+	}
+
+  .form-control {
+	  position: relative;
+	  font-size: 16px;
+	  height: auto;
+	  padding: 10px;
+		box-sizing: border-box;
+
+		&:focus {
+		  z-index: 2;
+		}
+	}
+
+	input[type="text"] {
+	  margin-bottom: -1px;
+	  border-bottom-left-radius: 0;
+	  border-bottom-right-radius: 0;
+	}
+
+	input[type="password"] {
+	  margin-bottom: 20px;
+	  border-top-left-radius: 0;
+	  border-top-right-radius: 0;
+	}
