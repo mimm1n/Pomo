@@ -9,5 +9,9 @@ def home():
 @views.route('/settings')
 def settings():
     return render_template('settings.html')
+
+@views.route('/sign-up')
+def sign_up():
+    return render_template('sign_up.html')
  
  
