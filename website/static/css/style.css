@@ -8,9 +8,9 @@ body {
 }
 
 .hero-image {
-  background-image: url("https://mrwallpaper.com/images/hd/4k-eagle-in-mountains-3hx4ybfus71fibgd.jpg");
+  background-image: url("pixel_camp.jpg");
   /* background-color: #cccccc; */
-  height: 650px;
+  object-fit: cover;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -42,7 +42,7 @@ a {
   transition: all 0.35s ease-in-out;
   display: flex;
   flex-direction: column;
-  background-color: black;
+  background-color: rgb(83, 43, 83);
 }
 
 #sidebar.collapsed {
@@ -63,7 +63,7 @@ a {
 
 .toggler-btn i {
   font: 24px;
-  color: black;
+  color: rgb(240, 240, 240);
   font-weight: 1000;
 }
 
