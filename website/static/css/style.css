@@ -179,13 +179,13 @@ input[type="password"] {
   gap: 10px;
 }
 
-.toggle-container{
+.toggle-container {
   position: relative;
   width: fit-content;
   height: fit-content;
 }
 
-.toggle{ 
+.toggle {
   width: 60px;
   height: 35px;
   border-radius: 40px;
@@ -200,9 +200,31 @@ input[type="password"] {
   background-color: #fff;
   display: inline-block;
   position: absolute;
-  left: 5px; 
+  left: 5px;
   top: 5px;
   transition: 0.3s all;
   border: 1px solid #793636;
 }
 
+/* login.html */
+
+.lg-container {
+  width: 400px;
+  border-radius: 8px;
+  padding: 30px;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(9px);
+  -webkit-backdrop-filter: blur(9px);
+}
+
+.login form {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-field {
+  position: relative;
+  margin-bottom: 20px;
+  color: #fff;
+}
