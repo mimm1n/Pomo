@@ -13,5 +13,9 @@ def settings():
 @views.route('/sign-up')
 def sign_up():
     return render_template('sign_up.html')
+
+@views.route('/login')
+def login():
+    return render_template('login.html')
  
  
