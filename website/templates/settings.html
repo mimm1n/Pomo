@@ -1,71 +1,70 @@
 {% extends "base.html" %} {% block title %}Settings{% endblock %} {% block body
 %}
 
-<div>
+<div class="container">
+  <form>
+    <table width="900" cellpadding="0" cellspacing="0" align="center"></table>
+  </form>
+
   <div>
-    <h1>Settings</h1>
+    <label for="togg-DarkMode">
+      <span>Dark Mode</span>
+      <input type="checkbox" name="" id="toggle-DarkMode" />
+      <div class="toggle-container">
+        <span class="toggle"></span>
+        <span class="toggle-c"></span>
+      </div>
+    </label>
   </div>
 
-  <div class="container-st" id="st-div">
-    <div>
-      <label for="togg-DarkMode">
-        <span>Dark Mode</span>
-        <input type="checkbox" name="" id="toggle-DarkMode" />
-        <div class="toggle-container">
-          <span class="toggle"></span>
-          <span class="toggle-c"></span>
-        </div>
-      </label>
-    </div>
-    <div>
-      <label for="togg-24hrs">
-        <span>24 hour time</span>
-        <input type="checkbox" name="" id="togg-24hrs" />
-        <div class="toggle-container">
-          <span class="toggle"></span>
-          <span class="toggle-c"></span>
-        </div>
-      </label>
-    </div>
-    <div>
-      <label for="togg-Sound">
-        <span>Sound</span>
-        <input type="checkbox" name="" id="togg-Sound" />
-        <div class="toggle-container">
-          <span class="toggle"></span>
-          <span class="toggle-c"></span>
-        </div>
-      </label>
-    </div>
-    <div>
-      <span>Volume</span>
-      <form oninput="x.value=parseInt(a.value)+parseInt(b.value)">
-        <input type="range" id="a" value="100" />
-        =<output name="x" for="a b"></output>
-      </form>
-    </div>
+  <div>
+    <label for="togg-24hrs">
+      <span>24 hour time</span>
+      <input type="checkbox" name="" id="togg-24hrs" />
+      <div class="toggle-container">
+        <span class="toggle"></span>
+        <span class="toggle-c"></span>
+      </div>
+    </label>
+  </div>
 
-    <div>
-      <h3>Background Options</h3>
-    </div>
+  <div>
+    <label for="togg-3">
+      <span>Sound</span>
+      <input type="checkbox" name="" id="togg-3" />
+      <div class="toggle-container">
+        <span class="toggle"></span>
+        <span class="toggle-c"></span>
+      </div>
+    </label>
+  </div>
 
-    <div>
-      <input type="radio" name="background" value="background_1" />
-      <label for="background_1">background_1</label>
-      <br />
-      <input type="radio" name="background" value="background_2" />
-      <label for="background_1">background_2</label>
-      <br />
-      <input type="radio" name="background" value="background_3" />
-      <label for="background_1">background_3</label>
-      <br />
-      <input type="radio" name="background" value="background_4" />
-      <label for="background_1">background_4</label>
+  <div>
+    <span>Volume</span>
+    <input type="range" id="vol" name="vol" min="0" max="100" />
+    <audio id="audio" src=""></audio>
+  </div>
 
-      <br />
+  <div>
+    <h3>Background Options</h3>
+  </div>
 
-      <input type="submit" value="Submit" />
-    </div>
+  <div>
+    <input type="radio" name="background" value="background_1" />
+    <label for="background_1">background_1</label>
+    <br />
+    <input type="radio" name="background" value="background_2" />
+    <label for="background_1">background_2</label>
+    <br />
+    <input type="radio" name="background" value="background_3" />
+    <label for="background_1">background_3</label>
+    <br />
+    <input type="radio" name="background" value="background_4" />
+    <label for="background_1">background_4</label>
+
+    <br />
+
+    <input type="submit" value="Submit" />
   </div>
 </div>
 
