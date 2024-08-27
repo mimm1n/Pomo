@@ -1,6 +1,6 @@
 @font-face {
   font-family: "mainFont";
-  src: url(Resources/VCR_OSD_Mono.ttf) format(truetype);
+  src: url("https://www.dafont.com/pixel-operator.font.ttf") format(truetype);
 }
 
 body {
@@ -23,8 +23,10 @@ body {
 } */
 
 h1 {
+  font-family: "mainFont";
   font-weight: 800;
-  color: #000000 !important;
+  color: #4f2d59 !important;
+  font-variant: small-caps;
 }
 
 span {
@@ -52,7 +54,7 @@ a {
   transition: all 0.35s ease-in-out;
   display: flex;
   flex-direction: column;
-  background-color: rgb(83, 43, 83);
+  background-color: #341c4c;
 }
 
 #sidebar.collapsed {
@@ -127,7 +129,6 @@ a:hover {
   }
 }
 
-
 /* settings.html centric */
 
 #st-div {
@@ -175,6 +176,7 @@ a:hover {
   transition: 0.3s all;
   border: 1px solid #793636;
 }
+
 .form-signin {
   max-width: 380px;
   padding: 15px 35px 45px;
@@ -215,13 +217,9 @@ input[type="password"] {
 /* login.html */
 
 .lg-container {
-  width: 400px;
-  border-radius: 8px;
-  padding: 30px;
+  width: 500px;
+  padding: 5px;
   text-align: center;
-  border: 1px solid rgb(85,52,101);
-  backdrop-filter: blur(9px);
-  -webkit-backdrop-filter: blur(9px);
 }
 
 .lg-container a {
@@ -240,8 +238,8 @@ input[type="password"] {
 
 .input-field {
   position: relative;
-  margin-bottom: 20px;
-  margin: 15px 0;
+
+  margin: 20px 0;
 }
 
 .input-field label {
@@ -249,20 +247,18 @@ input[type="password"] {
   top: 50%;
   left: 0;
   transform: translateY(-50%);
-  color: #000000;
+  color: #4f2d59;
   font-size: 16px;
   pointer-events: none;
   transition: 0.15s ease;
 }
 
 .input-field input {
-  width: 1005;
-  height: 40px;
-  background: transparent;
-  border: rgb(85,52,101) dotted 1px;
-  outline: none;
+  width: 1000;
+  height: 45px;
+  border: rgb(85, 52, 101) line 5px;
   font-size: 16px;
-  color: #000000;
+  color: #4f2d59;
 }
 
 .input-field input:focus ~ label,
@@ -289,32 +285,31 @@ input[type="password"] {
   margin-left: 8px;
 }
 
-button {
-  background: #d2d2d2;
-  color: #000;
-  font-weight: 600;
-  border: none;
-  padding: 12px 20px;
-  cursor: pointer;
-  border-radius: 3px;
-  font-size: 16px;
-  border: 2px solid transparent;
+.no-acc {
+  align-content: left !important;
 }
 
 #remember {
   accent-color: #4f2d59;
 }
 
+.rememberid label input {
+  margin-right: 5px;
+}
 .modal-backdrop {
-  background-color:rgb(0, 0, 0)!important;
+  background-color: rgb(0, 0, 0) !important;
 }
 
 .modal-content {
-  background-color:#ab9dc9!important;
-  
+  background-color: #ab9dc9 !important;
+}
+
+.modal-body {
+  justify-content: center;
+  display: flex;
+  align-items: center;
 }
 
 .btn-primary {
-  background-color: #5e4080!important;
+  background-color: #5e4080 !important;
 }
-

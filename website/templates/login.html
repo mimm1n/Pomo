@@ -1,5 +1,4 @@
-{% extends "base.html" %} {% block title %}Sign Up{% endblock %} {% block body
-%}
+{% extends "base.html" %} {% block title %}Log In{% endblock %} {% block body %}
 
 <!-- <body class="login">
   <div class="lg-container">
@@ -54,7 +53,7 @@
 </body> -->
 
 <!-- Modal -->
- 
+
 <div
   class="modal fade"
   id="staticBackdrop"
@@ -66,16 +65,14 @@
 >
   <div class="modal-dialog">
     <div class="modal-content">
-
-
       <div class="modal-header">
         <h1
           class="form-signin-heading modal-title fs-5"
           id="staticBackdropLabel"
         >
-          Please login
+          Login
         </h1>
-        
+
         <button
           type="button"
           class="btn-close"
@@ -84,9 +81,7 @@
         ></button>
       </div>
 
-
       <div class="modal-body">
-
         <div class="lg-container">
           <form class="form-signin">
             <div class="input-field">
@@ -110,38 +105,32 @@
             </div>
 
             <div class="forget">
-              <label for="remember">
-                <input
-                  type="checkbox"
-                  value="remember-me"
-                  id="remember"
-                  name="rememberMe"
-                />
-                Remember me
-              </label>
+              <div id="rememberid">
+                <label for="remember">
+                  <input
+                    type="checkbox"
+                    value="remember-me"
+                    id="remember"
+                    name="rememberMe"
+                  />
+                  Remember me
+                </label>
+              </div>
 
               <a href="#">Forgot password?</a>
             </div>
-
-            <button class="btn btn-lg btn-primary btn-block" type="submit">
-              Login
-            </button>
-
-            <br />
-
-            <div>
-              <p>Don't have an account? <a href="#">Register</a></p>
-            </div>
-
           </form>
         </div>
       </div>
 
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-          Close
+        <div class="no-acc">
+          <p>Don't have an account? <a href="#">Register</a></p>
+        </div>
+
+        <button type="submit" class="btn btn-lg btn-primary btn-block">
+          Login
         </button>
-        <button type="button" class="btn btn-primary">Understood</button>
       </div>
     </div>
   </div>
