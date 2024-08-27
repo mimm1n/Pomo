@@ -1,4 +1,4 @@
-{% extends "base.html" %} {% block body
+{% extends "base.html" %} {% block title %}Sign Up{% endblock %} {% block body
 %}
 <form method="POST">
     <h3 class="form-signin-heading">Sign Up</h3>
@@ -21,6 +21,15 @@
         name="firstName"
         placeholder="Enter first name"
       />
+      <div class="form-group">
+        <label for="lastName">Last Name</label>
+        <input
+          type="text"
+          class="form-control"
+          id="lastName"
+          name="lastName"
+          placeholder="Enter last name"
+        />
     </div>
     <div class="form-group">
       <label for="password1">Password</label>
