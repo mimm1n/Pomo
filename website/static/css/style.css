@@ -1,6 +1,6 @@
 @font-face {
   font-family: "mainFont";
-  src: url("https://www.dafont.com/pixel-operator.font.ttf") format(truetype);
+  src: url("PixelOperator.ttf") format(truetype);
 }
 
 body {
@@ -24,9 +24,8 @@ body {
 
 h1 {
   font-family: "mainFont";
-  font-weight: 800;
   color: #4f2d59 !important;
-  font-variant: small-caps;
+  font-size: 50px;
 }
 
 span {
@@ -62,6 +61,7 @@ a {
 }
 
 .toggler-btn {
+  padding-top: 20px;
   background-color: transparent;
   cursor: pointer;
   border: 0;
@@ -93,7 +93,8 @@ a {
   padding: auto;
   font-weight: 800;
   text-align: center;
-  font-size: x-large;
+  font-size: 37px;
+  font-family: "mainFont";
 }
 
 .sidebar-logo a {
@@ -108,7 +109,8 @@ a.sidebar-link {
   position: relative;
   transition: all 0.35s;
   display: inline-block;
-  font-size: 20px;
+  font-size: 30px;
+  font-family: "mainFont";
 }
 
 a:hover {
@@ -238,7 +240,6 @@ input[type="password"] {
 
 .input-field {
   position: relative;
-
   margin: 20px 0;
 }
 
@@ -257,15 +258,9 @@ input[type="password"] {
   width: 1000;
   height: 45px;
   border: rgb(85, 52, 101) line 5px;
-  font-size: 16px;
+  font-size: 18px;
   color: #4f2d59;
-}
-
-.input-field input:focus ~ label,
-.input-field input:valid ~ label {
-  font-size: 13px;
-  top: 10px;
-  transform: translateY(-120%);
+  font-family: "mainFont";
 }
 
 .forget {
@@ -274,6 +269,8 @@ input[type="password"] {
   justify-content: space-between;
   margin: 25px 0 35px 0;
   color: #4f2d59;
+  font-family: "mainFont";
+  font-size: 20px;
 }
 
 .forget label {
@@ -285,8 +282,22 @@ input[type="password"] {
   margin-left: 8px;
 }
 
+.forget a:hover{
+  color: #dadada;
+}
+
 .no-acc {
-  align-content: left !important;
+align-items: center;
+font-family: "mainFont";
+font-size: 20px;
+}
+
+.no-acc a:hover{
+  color: #dadada;
+}
+
+#rememberid label{
+  gap: 10px ;
 }
 
 #remember {
@@ -312,4 +323,9 @@ input[type="password"] {
 
 .btn-primary {
   background-color: #5e4080 !important;
+}
+
+.modal-footer button {
+  font-family: "mainFont";
+  font-size: 20px;
 }
