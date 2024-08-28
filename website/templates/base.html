@@ -20,7 +20,6 @@
       integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
       crossorigin="anonymous"
     />
-  
   </head>
 
   <body>
@@ -30,7 +29,15 @@
         <div class="sidebar-logo">
           <a href="home.html">PomoDream</a>
         </div>
+        
         <ul class="sidebar-nav p-0">
+          <li class="sidebar-item">
+            <a href="{{ url_for('views.sign_up' )}}" class="sidebar-link">
+              <i class="fa-solid fa-user"></i>
+              <span>Sign Up</span>
+            </a>
+          </li>
+
           <li class="sidebar-item">
             <a
               href="{{ url_for('views.login') }}"
