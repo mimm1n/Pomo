@@ -23,53 +23,66 @@
   </head>
 
   <body>
-    <div class="hero-image">
-      <div class="d-flex">
-        <aside id="sidebar" class="sidebar-toggle">
-          <div class="sidebar-logo">
-            <a href="home.html">PomoDream</a>
-          </div>
-          <ul class="sidebar-nav p-0">
-            <li class="sidebar-item">
-              <a href="{{ url_for('views.login') }}" class="sidebar-link">
-                <i class="fa-solid fa-user"></i>
-                <span>Login</span>
-              </a>
-            </li>
-
-            <li class="sidebar-item">
-              <a href="#" class="sidebar-link">
-                <i class="fa-solid fa-paintbrush"></i>
-                <span>Profile</span>
-              </a>
-            </li>
-
-            <li class="sidebar-item">
-              <a href="{{ url_for('views.settings') }}" class="sidebar-link">
-                <i class="fa-solid fa-gear"></i>
-                <span>Settings</span>
-              </a>
-            </li>
-          </ul>
-          <br />
-
-          <div class="sidebar-footer">
-            <a href="#" class="sidebar-link">
-              <i class="fa-solid fa-right-from-bracket"></i>
-              <span>Logout</span>
-            </a>
-          </div>
-        </aside>
-
-        <div class="main">
-          <nav class="navbar navbar-expand">
-            <button class="toggler-btn" type="button">
-              <i class="fa-solid fa-star fa-2xl"></i>
-            </button>
-          </nav>
+    <!-- <div class="hero-image"> -->
+    <div class="d-flex">
+      <aside id="sidebar" class="sidebar-toggle">
+        <div class="sidebar-logo">
+          <a href="home.html">PomoDream</a>
         </div>
+        
+        <ul class="sidebar-nav p-0">
+          <li class="sidebar-item">
+            <a href="{{ url_for('views.sign_up' )}}" class="sidebar-link">
+              <i class="fa-solid fa-user"></i>
+              <span>Sign Up</span>
+            </a>
+          </li>
+
+          <li class="sidebar-item">
+            <a
+              href="{{ url_for('views.login') }}"
+              class="sidebar-link"
+              data-bs-toggle="modal"
+              data-bs-target="#staticBackdrop"
+            >
+              <i class="fa-solid fa-user"></i>
+              <span>Login</span>
+            </a>
+          </li>
+
+          <li class="sidebar-item">
+            <a href="#" class="sidebar-link">
+              <i class="fa-solid fa-paintbrush"></i>
+              <span>Profile</span>
+            </a>
+          </li>
+
+          <li class="sidebar-item">
+            <a href="{{ url_for('views.settings') }}" class="sidebar-link">
+              <i class="fa-solid fa-gear"></i>
+              <span>Settings</span>
+            </a>
+          </li>
+        </ul>
+        <br />
+
+        <div class="sidebar-footer">
+          <a href="#" class="sidebar-link">
+            <i class="fa-solid fa-right-from-bracket"></i>
+            <span>Logout</span>
+          </a>
+        </div>
+      </aside>
+
+      <div class="main">
+        <nav class="navbar navbar-expand">
+          <button class="toggler-btn" type="button">
+            <i class="fa-solid fa-star fa-2xl"></i>
+          </button>
+        </nav>
       </div>
     </div>
+    <!-- </div> -->
 
     <div class="container">{% block body %}{% endblock %}</div>
 
