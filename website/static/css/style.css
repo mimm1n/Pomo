@@ -169,22 +169,6 @@ a:hover {
   border: 1px solid #793636;
 }
 
-&:focus {
-  z-index: 2;
-}
-
-input[type="text"] {
-  margin-bottom: -1px;
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
-}
-
-input[type="password"] {
-  margin-bottom: 20px;
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
-}
-
 /* login.html */
 
 .lg-container {
@@ -299,7 +283,6 @@ input[type="password"] {
   font-size: 20px;
 }
 
-
 /* signup.html */
 
 .form-signin {
@@ -321,4 +304,20 @@ input[type="password"] {
   height: auto;
   padding: 10px;
   box-sizing: border-box;
+}
+
+&:focus {
+  z-index: 2;
+}
+
+input[type="text"] {
+  margin-bottom: -1px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+input[type="password"] {
+  margin-bottom: 20px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
 }
