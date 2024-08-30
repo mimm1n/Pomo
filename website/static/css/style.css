@@ -260,6 +260,11 @@ a:hover {
 .rememberid label input {
   margin-right: 5px;
 }
+
+.modal-dialog {
+  pointer-events: all!important;
+}
+
 .modal-backdrop {
   background-color: rgb(0, 0, 0) !important;
 }
