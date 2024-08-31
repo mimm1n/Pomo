@@ -12,6 +12,13 @@ body {
   background-repeat: no-repeat;
 }
 
+.container {
+  border: 1px solid #000;
+  height: 700px;
+  margin-left: 500px;
+  padding: 10px;
+}
+
 h1 {
   font-family: "mainFont";
   color: #4f2d59 !important;
@@ -38,16 +45,17 @@ a {
 }
 
 #sidebar {
-  max-width: 220px;
-  min-width: 220px;
+  max-width: 200px;
+  min-width: 200px;
   transition: all 0.35s ease-in-out;
   display: flex;
   flex-direction: column;
   background-color: #341c4c;
+  position: relative;
 }
 
 #sidebar.collapsed {
-  margin-left: -220px;
+  margin-left: -200px;
 }
 
 .toggler-btn {
