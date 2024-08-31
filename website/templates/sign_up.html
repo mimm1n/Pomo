@@ -1,65 +1,77 @@
 {% extends "base.html" %} {% block title %}Sign Up{% endblock %} {% block body
 %}
 
-<form method="POST">
-  <h3 class="form-signin-heading">Sign Up</h3>
-
-  <div class="form-group">
-    <label for="email">Email Address</label>
-    <input
-      type="email"
-      class="form-control"
-      id="email"
-      name="email"
-      placeholder="Enter email"
-    />
-  </div>
-
-  <div class="form-group">
-    <label for="firstName">First Name</label>
-    <input
-      type="text"
-      class="form-control"
-      id="firstName"
-      name="firstName"
-      placeholder="Enter first name"
-    />
+<div class="sgn-container">
+  <form method="POST">
+    <h1 class="form-signin-heading">Sign Up</h1>
 
     <div class="form-group">
-      <label for="lastName">Last Name</label>
+      <label for="email">Email Address</label>
+      <input
+        type="email"
+        class="form-control"
+        id="email"
+        name="email"
+        placeholder="Enter email"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="firstName">First Name</label>
       <input
         type="text"
         class="form-control"
-        id="lastName"
-        name="lastName"
-        placeholder="Enter last name"
+        id="firstName"
+        name="firstName"
+        placeholder="Enter first name"
+      />
+
+      <div class="form-group">
+        <label for="lastName">Last Name</label>
+        <input
+          type="text"
+          class="form-control"
+          id="lastName"
+          name="lastName"
+          placeholder="Enter last name"
+        />
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="password1">Password</label>
+      <input
+        type="password"
+        class="form-control"
+        id="password1"
+        name="password1"
+        placeholder="Enter password"
       />
     </div>
-  </div>
 
-  <div class="form-group">
-    <label for="password1">Password</label>
-    <input
-      type="password"
-      class="form-control"
-      id="password1"
-      name="password1"
-      placeholder="Enter password"
-    />
-  </div>
-  <div class="form-group">
-    <label for="password2">Password (Confirm)</label>
-    <input
-      type="password"
-      class="form-control"
-      id="password2"
-      name="password2"
-      placeholder="Confirm password"
-    />
-  </div>
+    <div class="pass2-div">
+      <div class="form-group">
+        <label for="password2">Password (Confirm)</label>
+        <input
+          type="password"
+          class="form-control"
+          id="password2"
+          name="password2"
+          placeholder="Confirm password"
+        />
+      </div>
+    </div>
 
-  <br />
-  <button type="submit" class="btn btn-primary">Sign Up</button>
-</form>
-
+    <div class="btn-sgn">
+      <button type="submit" class="btn btn-primary">Sign Up</button>
+    </div>
+    
+    <div class="have-acc">
+      <p>
+        Already have an account?
+        <a href="{{ url_for( 'views.login' ) }}">Log In!</a>
+      </p>
+    </div>
+  </form>
+</div>
 {% endblock %}
