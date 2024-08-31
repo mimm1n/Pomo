@@ -262,7 +262,7 @@ a:hover {
 }
 
 .modal-dialog {
-  pointer-events: all!important;
+  pointer-events: all !important;
 }
 
 .modal-backdrop {
