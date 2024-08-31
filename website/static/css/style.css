@@ -12,12 +12,15 @@ body {
   background-repeat: no-repeat;
 }
 
+<<<<<<< HEAD
 .container {
   border: 1px solid #000;
   height: 700px;
   margin-left: 500px;
   padding: 10px;
 }
+=======
+>>>>>>> c28431b557dd47c267983b9c4fe7e9e5848c7491
 
 h1 {
   font-family: "mainFont";
@@ -156,7 +159,7 @@ a:hover {
   height: fit-content;
 }
 
-.toggle {
+.toggle{
   width: 60px;
   height: 35px;
   border-radius: 40px;
@@ -164,7 +167,7 @@ a:hover {
   display: inline-block;
 }
 
-.toggle-c {
+.toggle-c{
   width: 24px;
   height: 24px;
   border-radius: 50%;
@@ -174,7 +177,18 @@ a:hover {
   left: 5px;
   top: 5px;
   transition: 0.3s all;
-  border: 1px solid #793636;
+  border: 1px solid #8c8ca4;
+}
+
+input[type="checkbox"]{
+  display:none;
+}
+
+input[type="checkbox"]:checked + div .toggle-c{
+  left: 30px ;
+  background-color:#5e4080;
+  border-color: #4f2d59;
+  
 }
 
 /* login.html */
@@ -239,6 +253,15 @@ a:hover {
   align-items: center;
 }
 
+<<<<<<< HEAD
+.st-container {
+  box-sizing: border-box;
+  background-color: beige;
+  padding: 10px 50px;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgb(240, 240, 240);
+  width: 450px;
+=======
 .forget label p {
   margin-left: 8px;
 }
@@ -283,6 +306,7 @@ a:hover {
 
 .modal-body {
   justify-content: center;
+>>>>>>> 07e677f6bead3ce819291b5c985f655ba1ca8ee7
   display: flex;
   align-items: center;
 }
