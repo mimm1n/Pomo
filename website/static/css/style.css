@@ -243,15 +243,6 @@ input[type="checkbox"]:checked + div .toggle-c{
   align-items: center;
 }
 
-<<<<<<< HEAD
-.st-container {
-  box-sizing: border-box;
-  background-color: beige;
-  padding: 10px 50px;
-  border-radius: 20px;
-  box-shadow: 0 0 20px rgb(240, 240, 240);
-  width: 450px;
-=======
 .forget label p {
   margin-left: 8px;
 }
@@ -296,7 +287,6 @@ input[type="checkbox"]:checked + div .toggle-c{
 
 .modal-body {
   justify-content: center;
->>>>>>> 07e677f6bead3ce819291b5c985f655ba1ca8ee7
   display: flex;
   align-items: center;
 }
