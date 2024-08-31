@@ -262,7 +262,7 @@ a:hover {
 }
 
 .modal-dialog {
-  pointer-events: all!important;
+  pointer-events: all !important;
 }
 
 .modal-backdrop {
@@ -286,6 +286,18 @@ a:hover {
 .modal-footer button {
   font-family: "mainFont";
   font-size: 20px;
+}
+
+#test button {
+  background: none !important;
+  border: none;
+  padding: 0 !important;
+  /*optional*/
+  font-family: arial, sans-serif;
+  /*input has OS specific font-family*/
+  color: #069;
+  text-decoration: underline;
+  cursor: pointer;
 }
 
 /* signup.html */
