@@ -243,6 +243,7 @@ input[type="checkbox"]:checked + div .toggle-c{
   align-items: center;
 }
 
+<<<<<<< HEAD
 .st-container {
   box-sizing: border-box;
   background-color: beige;
@@ -250,6 +251,52 @@ input[type="checkbox"]:checked + div .toggle-c{
   border-radius: 20px;
   box-shadow: 0 0 20px rgb(240, 240, 240);
   width: 450px;
+=======
+.forget label p {
+  margin-left: 8px;
+}
+
+.forget a:hover {
+  color: #dadada;
+}
+
+.no-acc {
+  align-items: center;
+  font-family: "mainFont";
+  font-size: 20px;
+}
+
+.no-acc a:hover {
+  color: #dadada;
+}
+
+#rememberid label {
+  gap: 10px;
+}
+
+#remember {
+  accent-color: #4f2d59;
+}
+
+.rememberid label input {
+  margin-right: 5px;
+}
+
+.modal-dialog {
+  pointer-events: all!important;
+}
+
+.modal-backdrop {
+  background-color: rgb(0, 0, 0) !important;
+}
+
+.modal-content {
+  background-color: #ab9dc9 !important;
+}
+
+.modal-body {
+  justify-content: center;
+>>>>>>> 07e677f6bead3ce819291b5c985f655ba1ca8ee7
   display: flex;
   align-items: center;
 }
