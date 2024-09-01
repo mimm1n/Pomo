@@ -394,48 +394,64 @@ input[type="password"] {
 
 /* profile.html */
 
-.p-container{
+.p-container {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
   width: 450px;
   display: flex;
-  box-shadow: 0 1px 20px 0 rgba(69,90,100,.08);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 1);
+
+  font-family: "mainFont";
+  font-size: 20px;
+  color: #4f2d59;
 }
 
-.p-container .left{
+.p-container .left {
   width: 35%;
-  background: linear-gradient(to right,#5e4080,#ab9dc9);
+  background: linear-gradient(to right, #5e4080, #9286ab);
   padding: 30px 25px;
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
   text-align: center;
-  color: #fff;
+  color: #cecece;
 }
 
-.p-container .left img{
+.p-container .left img {
   border-radius: 5px;
   margin-bottom: 10px;
 }
 
-
-.p-container  .right{
+.p-container .right {
   width: 65%;
-  background: #fff;
+  background: #f1f1f1;
   padding: 30px 25px;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
 }
 
-.p-container  .right .info h3,
-.p-container .right .projects h3{
-    margin-bottom: 15px;
-    padding-bottom: 5px;
-    border-bottom: 1px solid #e0e0e0;
-    color: #353c4e;
+.p-container .right .info h3,
+.p-container .right .projects h3 {
+  margin-bottom: 15px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #e0e0e0;
+  color: #4f2d59;
   text-transform: uppercase;
   letter-spacing: 5px;
 }
 
-
+.icon i {
+  position: absolute;
+  top: 100px;
+  left: 115px;
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  background-color: #f1f1f1;
+  color: #4f2d59;
+  box-shadow: 0 0 8px 3px #4f2d59;
+}
