@@ -391,3 +391,54 @@ input[type="password"] {
 .have-acc a:hover {
   color: #dadada;
 }
+
+/* profile.html */
+
+.pfp-container{
+  width: 100%;
+  height: 100vh;
+  background-image: cover;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile-box{
+  background:#4f2d59;
+  text-align: center;
+  padding: 40px 90px;
+  color: #fff;
+  position: relative;
+  border-radius: 20px;
+}
+
+.p-menu{
+  width: 25px;
+  position: absolute;
+  right: 40px;
+  top: 40px;
+}
+
+.p-settings{
+  width: 25px;
+  position: absolute;
+  right: 40px;
+  top: 40px;
+}
+.profile-pic{
+  width: 150px;
+  border-radius: 50%;
+  background: #5e4080;
+  padding: 6px;
+  
+}
+
+.character{
+  width: 150px;
+  border-radius: 50%;
+  background: #5e4080;
+  padding: 6px;
+  
+}
