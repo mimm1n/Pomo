@@ -17,4 +17,8 @@ def sign_up():
 @views.route('/login')
 def login():
     return render_template('login.html')
+
+@views.route('/profile')
+def profile():
+    return render_template('profile.html')
  
