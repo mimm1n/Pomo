@@ -394,40 +394,48 @@ input[type="password"] {
 
 /* profile.html */
 
-.p-container{
+.pfp-container{
   width: 100%;
   height: 100vh;
+  background-image: cover;
   background-size: cover;
   background-position: center;
   display: flex;
   align-items: center;
   justify-content: center;
-
 }
 
 .profile-box{
-  background: #fff;
+  background:#4f2d59;
   text-align: center;
   padding: 40px 90px;
-  color: #5e4080;
+  color: #fff;
   position: relative;
-  border-radius:20px;
+  border-radius: 20px;
 }
 
-.menu{
+.p-menu{
   width: 25px;
   position: absolute;
   right: 40px;
   top: 40px;
 }
 
-.settings{
+.p-settings{
   width: 25px;
   position: absolute;
   right: 40px;
   top: 40px;
 }
 .profile-pic{
+  width: 150px;
+  border-radius: 50%;
+  background: #5e4080;
+  padding: 6px;
+  
+}
+
+.character{
   width: 150px;
   border-radius: 50%;
   background: #5e4080;
