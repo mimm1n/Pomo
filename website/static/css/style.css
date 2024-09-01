@@ -394,51 +394,48 @@ input[type="password"] {
 
 /* profile.html */
 
-.pfp-container{
-  width: 100%;
-  height: 100vh;
-  background-image: cover;
-  background-size: cover;
-  background-position: center;
+.p-container{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 450px;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  box-shadow: 0 1px 20px 0 rgba(69,90,100,.08);
 }
 
-.profile-box{
-  background:#4f2d59;
+.p-container .left{
+  width: 35%;
+  background: linear-gradient(to right,#5e4080,#ab9dc9);
+  padding: 30px 25px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
   text-align: center;
-  padding: 40px 90px;
   color: #fff;
-  position: relative;
-  border-radius: 20px;
 }
 
-.p-menu{
-  width: 25px;
-  position: absolute;
-  right: 40px;
-  top: 40px;
+.p-container .left img{
+  border-radius: 5px;
+  margin-bottom: 10px;
 }
 
-.p-settings{
-  width: 25px;
-  position: absolute;
-  right: 40px;
-  top: 40px;
-}
-.profile-pic{
-  width: 150px;
-  border-radius: 50%;
-  background: #5e4080;
-  padding: 6px;
-  
+
+.p-container  .right{
+  width: 65%;
+  background: #fff;
+  padding: 30px 25px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
 }
 
-.character{
-  width: 150px;
-  border-radius: 50%;
-  background: #5e4080;
-  padding: 6px;
-  
+.p-container  .right .info h3,
+.p-container .right .projects h3{
+    margin-bottom: 15px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #e0e0e0;
+    color: #353c4e;
+  text-transform: uppercase;
+  letter-spacing: 5px;
 }
+
+
