@@ -10,6 +10,7 @@ body {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  backdrop-filter: blur(2px);
 }
 
 h1 {
@@ -34,7 +35,6 @@ a {
   min-height: 100vh;
   width: 100%;
   overflow: hidden;
-  /* background-color: rgb(221, 221, 221); */
 }
 
 #sidebar {
@@ -159,12 +159,14 @@ a:hover {
 
   font-family: "mainFont";
   font-size: 20px;
+  color: #4f2d59;
 }
 
 .toggle-container {
   position: relative;
   width: fit-content;
   height: fit-content;
+  text-align: center;
 }
 
 .toggle {
@@ -188,6 +190,12 @@ a:hover {
   border: 1px solid #8c8ca4;
 }
 
+.togg-label {
+  display: flex;
+  align-self: center;
+  justify-content: space-between;
+}
+
 .st-container input[type="checkbox"] {
   display: none;
 }
@@ -198,6 +206,28 @@ input[type="checkbox"]:checked + div .toggle-c {
   border-color: #4f2d59;
 }
 
+.custom-opt {
+  text-align: center;
+}
+
+.stg-btn {
+  text-align: right;
+  font-size: 20px;
+}
+
+.dropdown-center button {
+  font-size: 20px;
+  width: 300px !important;
+}
+
+.dropdown-item:active {
+  background-color: #86759b !important;
+  color: #ffffff !important;
+}
+
+#vol {
+  accent-color: #62567d;
+}
 /* login.html */
 
 .lg-container {
