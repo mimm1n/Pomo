@@ -7,18 +7,7 @@
   </form>
 
   <div>
-    <label for="togg-DarkMode">
-      <span>Dark Mode</span>
-      <input type="checkbox" name="" id="togg-DarkMode" />
-      <div class="toggle-container">
-        <span class="toggle"></span>
-        <span class="toggle-c"></span>
-      </div>
-    </label>
-  </div>
-
-  <div>
-    <label for="togg-24hrs">
+    <label for="togg-24hrs" class="togg-label">
       <span>24 hour time</span>
       <input type="checkbox" name="" id="togg-24hrs" />
       <div class="toggle-container">
@@ -29,9 +18,9 @@
   </div>
 
   <div>
-    <label for="togg-3">
+    <label for="togg-s" class="togg-label">
       <span>Sound</span>
-      <input type="checkbox" name="" id="togg-3" />
+      <input type="checkbox" name="" id="togg-s" />
       <div class="toggle-container">
         <span class="toggle"></span>
         <span class="toggle-c"></span>
@@ -39,32 +28,87 @@
     </label>
   </div>
 
-  <div>
-    <span>Volume</span>
-    <input type="range" id="vol" name="vol" min="0" max="100" />
-    <audio id="audio" src=""></audio>
+  <div class="custom-opt">
+    <div class="dropdown-center">
+      <button
+        class="btn btn-primary dropdown-toggle"
+        type="button"
+        data-bs-toggle="dropdown"
+        aria-expanded="false"
+      >
+        Sound Options
+      </button>
+      <ul class="dropdown-menu">
+        <li>
+          <button class="dropdown-item" type="button">Sound 1</button>
+        </li>
+        <li>
+          <button class="dropdown-item" type="button">Sound 2</button>
+        </li>
+        <li>
+          <button class="dropdown-item" type="button">Sound 3</button>
+        </li>
+        <li>
+          <button class="dropdown-item" type="button">Sound 4</button>
+        </li>
+      </ul>
+    </div>
+
+    <br />
+
+    <div>
+      <span>Volume</span>
+      <input type="range" id="vol" name="vol" min="0" max="100" />
+      <audio id="audio" src=""></audio>
+    </div>
+
+    <br />
+
+    <div>
+      <label for="togg-bg" class="togg-label">
+        <span>Background</span>
+        <input type="checkbox" name="" id="togg-bg" />
+        <div class="toggle-container">
+          <span class="toggle"></span>
+          <span class="toggle-c"></span>
+        </div>
+      </label>
+    </div>
+
+    <br />
+
+    <div class="custom-opt">
+      <div class="dropdown-center">
+        <button
+          class="btn btn-primary dropdown-toggle"
+          type="button"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          Background Options
+        </button>
+        <ul class="dropdown-menu">
+          <li>
+            <button class="dropdown-item" type="button">Background 1</button>
+          </li>
+          <li>
+            <button class="dropdown-item" type="button">Background 2</button>
+          </li>
+          <li>
+            <button class="dropdown-item" type="button">Background 3</button>
+          </li>
+          <li>
+            <button class="dropdown-item" type="button">Background 4</button>
+          </li>
+        </ul>
+      </div>
+
+      <br />
+    </div>
+
+    <div class="stg-btn">
+      <input type="submit" class="btn btn-primary btn-block" value="Save" />
+    </div>
   </div>
-
-  <div>
-    <h3>Background Options</h3>
-  </div>
-
-  <div>
-    <input type="radio" name="background" value="background_1" />
-    <label for="background_1">background_1</label>
-    <br />
-    <input type="radio" name="background" value="background_2" />
-    <label for="background_1">background_2</label>
-    <br />
-    <input type="radio" name="background" value="background_3" />
-    <label for="background_1">background_3</label>
-    <br />
-    <input type="radio" name="background" value="background_4" />
-    <label for="background_1">background_4</label>
-
-    <br />
-
-    <input type="submit" value="Submit" />
-  </div>
+  {% endblock %}
 </div>
-{% endblock %}
