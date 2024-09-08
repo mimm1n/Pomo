@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, inital-scale=1" />
+    <meta name="viewport" content="width=device-width" initial-scale=1 />
     <link
       rel="stylesheet"
       href="{{ url_for('static', filename='css/style.css') }}"
@@ -37,19 +37,14 @@
           </li>
 
           <li class="sidebar-item">
-            <a
-              href="{{ url_for( 'views.login' ) }}"
-              class="sidebar-link"
-              data-bs-toggle="modal"
-              data-bs-target="#loginBackdrop"
-            >
-              <i class="fa-solid fa-user"></i>
-              <span>Login</span>
+            <a href="{{ url_for( 'views.login' ) }}" class="sidebar-link">
+              <i class="fa-solid fa-right-to-bracket"></i>
+              <span> Login</span>
             </a>
           </li>
 
           <li class="sidebar-item">
-            <a href="#" class="sidebar-link">
+            <a href="{{ url_for( 'views.profile' ) }}" class="sidebar-link">
               <i class="fa-solid fa-paintbrush"></i>
               <span>Profile</span>
             </a>
@@ -79,10 +74,8 @@
           </button>
         </nav>
       </div>
+      <div class="container">{% block body %}{% endblock %}</div>
     </div>
-    <!-- </div> -->
-
-    <div class="container">{% block body %}{% endblock %}</div>
 
     <script src="{{ url_for('static', filename='script.js')}}"></script>
     <script

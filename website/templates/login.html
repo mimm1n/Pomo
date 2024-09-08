@@ -1,82 +1,57 @@
 {% extends "base.html" %} {% block title %}Log In{% endblock %} {% block body %}
 
-<div
-  class="modal fade"
-  id="loginBackdrop"
-  data-bs-backdrop="static"
-  data-bs-keyboard="false"
-  tabindex="-1"
-  aria-labelledby="loginBackdropLabel"
-  aria-hidden="true"
->
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="form-signin-heading modal-title fs-5" id="loginackdropLabel">
-          Login
-        </h1>
+<div class="lg-container" id="fade-in">
+  <form class="form-signin">
+    <h1 class="form-signin-heading">Login</h1>
 
-        <button
-          type="button"
-          class="btn-close"
-          data-bs-dismiss="modal"
-          aria-label="Close"
-        ></button>
+    <div class="input-field">
+      <input
+        type="text"
+        class="form-control"
+        name="username"
+        placeholder="Email Address"
+        required
+        autofocus=""
+      />
+    </div>
+    <div class="input-field">
+      <input
+        type="password"
+        class="form-control"
+        name="password"
+        placeholder="Password"
+        required
+      />
+    </div>
+
+    <div class="forget">
+      <div id="rememberid">
+        <label for="remember">
+          <input
+            type="checkbox"
+            value="remember-me"
+            id="remember"
+            name="rememberMe"
+          />
+          Remember me
+        </label>
       </div>
-
-      <div class="modal-body">
-        <div class="lg-container">
-          <form class="form-signin">
-            <div class="input-field">
-              <input
-                type="text"
-                class="form-control"
-                name="username"
-                placeholder="Email Address"
-                required
-                autofocus=""
-              />
-            </div>
-            <div class="input-field">
-              <input
-                type="password"
-                class="form-control"
-                name="password"
-                placeholder="Password"
-                required
-              />
-            </div>
-
-            <div class="forget">
-              <div id="rememberid">
-                <label for="remember">
-                  <input
-                    type="checkbox"
-                    value="remember-me"
-                    id="remember"
-                    name="rememberMe"
-                  />
-                  Remember me
-                </label>
-              </div>
-
-              <a href="#">Forgot password?</a>
-            </div>
-
-            <div class="no-acc">
-              <p>Don't have an account? <a href="#">Register</a></p>
-            </div>
-          </form>
-        </div>
-      </div>
-
-      <div class="modal-footer">
-        <button type="submit" class="btn btn-lg btn-primary btn-block">
-          Login
-        </button>
+      <div>
+        <a href="#">Forgot password?</a>
       </div>
     </div>
-  </div>
+
+    <div class="btn-lg">
+      <button type="submit" class="btn btn-primary btn-block">Login</button>
+    </div>
+
+    <div class="no-acc">
+      <p>
+        Don't have an account?
+        <a href="{{ url_for( 'views.sign_up' ) }}">Register</a>
+      </p>
+    </div>
+  </form>
 </div>
 
 {% endblock %}

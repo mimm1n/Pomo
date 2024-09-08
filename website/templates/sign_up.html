@@ -1,9 +1,10 @@
 {% extends "base.html" %} {% block title %}Sign Up{% endblock %} {% block body
-  %}
-  
+%}
+
+<div class="sgn-container" id="fade-in">
   <form method="POST">
-    <h3 class="form-signin-heading">Sign Up</h3>
-  
+    <h1 class="form-signin-heading">Sign Up</h1>
+
     <div class="form-group">
       <label for="email">Email Address</label>
       <input
@@ -14,7 +15,7 @@
         placeholder="Enter email"
       />
     </div>
-  
+
     <div class="form-group">
       <label for="firstName">First Name</label>
       <input
@@ -24,7 +25,7 @@
         name="firstName"
         placeholder="Enter first name"
       />
-  
+
       <div class="form-group">
         <label for="lastName">Last Name</label>
         <input
@@ -36,7 +37,7 @@
         />
       </div>
     </div>
-  
+
     <div class="form-group">
       <label for="password1">Password</label>
       <input
@@ -47,19 +48,30 @@
         placeholder="Enter password"
       />
     </div>
-    <div class="form-group">
-      <label for="password2">Password (Confirm)</label>
-      <input
-        type="password"
-        class="form-control"
-        id="password2"
-        name="password2"
-        placeholder="Confirm password"
-      />
+
+    <div class="pass2-div">
+      <div class="form-group">
+        <label for="password2">Password (Confirm)</label>
+        <input
+          type="password"
+          class="form-control"
+          id="password2"
+          name="password2"
+          placeholder="Confirm password"
+        />
+      </div>
     </div>
-  
-    <br />
-    <button type="submit" class="btn btn-primary">Sign Up</button>
+
+    <div class="btn-sgn">
+      <button type="submit" class="btn btn-primary">Sign Up</button>
+    </div>
+    
+    <div class="have-acc">
+      <p>
+        Already have an account?
+        <a href="{{ url_for( 'views.login' ) }}">Log In!</a>
+      </p>
+    </div>
   </form>
-  
-  {% endblock %}
+</div>
+{% endblock %}

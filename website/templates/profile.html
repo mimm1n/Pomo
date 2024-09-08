@@ -1,0 +1,43 @@
+{% extends "base.html" %} {% block title %}Profile{% endblock %} {% block body
+%}
+
+<div class="p-container" id="fade-in">
+  <div class="left">
+    <div class="icon">
+      <img src="static\css\icon.png" alt="user" width="100" />
+      <i class="fa-solid fa-pen-to-square"></i>
+    </div>
+    <h4>Name</h4>
+    <p>Username</p>
+  </div>
+  <div class="right">
+    <div class="info">
+      <h3>Information</h3>
+      <div class="info_data">
+        <div class="data">
+          <h4>Email:</h4>
+          <p>bob@gmail.com</p>
+        </div>
+        <div class="data">
+          <h4>Username:</h4>
+          <p>bob123</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="projects">
+      <h3>Projects</h3>
+      <div class="projects_data">
+        <div class="data">
+          <h4>Recent</h4>
+          <p>...</p>
+        </div>
+        <div class="data">
+          <h4>Most Viewed</h4>
+          <p>...</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endblock %}
+</div>
