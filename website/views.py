@@ -22,3 +22,6 @@ def login():
 def profile():
     return render_template('profile.html')
  
+@views.route('/game')
+def profile():
+    return render_template('game.html')
