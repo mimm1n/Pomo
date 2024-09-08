@@ -611,3 +611,12 @@ input[type="password"] {
   color: #4f2d59;
   box-shadow: 0 0 8px 3px #4f2d59;
 }
+
+/* game.html*/
+
+#board {
+  background-color: rgb(122, 180, 231);
+  border-bottom: 1px solid black;
+}
+
+
