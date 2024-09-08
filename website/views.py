@@ -3,7 +3,7 @@ from flask import Blueprint, render_template, url_for
 views = Blueprint('views', __name__ )
 
 @views.route('/', methods=["GET", "[POST]"])
-def home():
+def landing():
     return render_template('base.html')
 
 @views.route('/settings')
@@ -21,6 +21,11 @@ def login():
 @views.route('/profile')
 def profile():
     return render_template('profile.html')
+
+@views.route('/home')
+def home():
+    return render_template('home.html')
+ 
  
 @views.route('/game')
 def profile():
