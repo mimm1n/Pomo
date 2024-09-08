@@ -1,1 +1,20 @@
-{% extends "base.html" %} {%block title %}Home{% endblock %}
+{% extends "base.html" %} {%block title %}Home{% endblock %} {% block body %}
+
+<div class="pomo-parent-container">
+  <div class="pomo-container">
+    <button id="focus" class="btn btn-timer btn-focus">Focus</button>
+    <button id="shortbreak" class="btn btn-shortbreak">Short Break</button>
+  </div>
+  <div class="time-container">
+    <span id="time"></span>
+    <div class="btn-container">
+      <button id="btn-start" class="show">Start</button>
+      <button id="btn-pause" class="hide">Pause</button>
+      <button id="btn-reset" class="hide">
+        <i class="fa-solid fa-arrow-rotate-right"></i>
+      </button>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
