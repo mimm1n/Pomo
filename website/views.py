@@ -23,5 +23,5 @@ def profile():
     return render_template('profile.html')
  
 @views.route('/game')
-def profile():
+def game():
     return render_template('game.html')
