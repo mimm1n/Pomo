@@ -624,14 +624,14 @@ input[type="password"] {
   #dino {
     width: 50px;
     height: 50px;
-    background-image: url("assets/dino.png");
+    background-image: url("dino.png");
     background-size: 50px 50px;
     position: relative;
     top: 150px;
   }
   
   .jump {
-    animation: jump 500ms linear;
+    animation: jump 0.3s linear;
   }
   
   @keyframes jump {
@@ -663,7 +663,7 @@ input[type="password"] {
     top: 110px;
     left: 580px;
   
-    background-image: url("assets/cactus.png");
+    background-image: url("cactus1.png");
     background-size: 20px 40px;
   
     animation: block 1s infinite linear;

@@ -17,7 +17,7 @@ function jump() {
 
     setTimeout(function () {
       dino.classList.remove("jump");
-    }, 300);
+    }, 300); //so the jump can be entered every single time the key has been pressed
   }
 }
 
@@ -25,7 +25,7 @@ let isAlive = setInterval(function () {
   // get current dino Y position
   let dinoTop = parseInt(window.getComputedStyle(dino).getPropertyValue("top"));
 
-  // get current cactus X position
+  // get  the current cactus X position
   let cactusLeft = parseInt(
     window.getComputedStyle(cactus).getPropertyValue("left")
   );
@@ -36,6 +36,7 @@ let isAlive = setInterval(function () {
     alert("Game Over!");
   }
 }, 10);
+
 
 document.addEventListener("keydown", function (event) {
   jump();
