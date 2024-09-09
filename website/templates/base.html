@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" initial-scale=1 />
+    <meta name="viewport" content="width=device-width" initial-scale="1" />
     <link
       rel="stylesheet"
       href="{{ url_for('static', filename='css/style.css') }}"
@@ -25,7 +25,7 @@
     <div class="d-flex">
       <aside id="sidebar" class="sidebar-toggle">
         <div class="sidebar-logo">
-          <a href="/">PomoDream</a>
+          <a href="{{ url_for( 'views.home' ) }}">PomoDream</a>
         </div>
 
         <ul class="sidebar-nav p-0">
@@ -74,7 +74,19 @@
           </button>
         </nav>
       </div>
-      <div class="container">{% block body %}{% endblock %}</div>
+
+      <div class="container">
+        {% block body %}
+        <div class="ldg-container" id="fade-in">
+          <h1>Welcome to your dream website!</h1>
+          <p>Brought to you by Mimi, Nana and Azri</p>
+
+          <a href="{{ url_for( 'views.home' ) }}">
+            <button class="btn btn-primary btn-block">Get started!</button>
+          </a>
+        </div>
+        {% endblock %}
+      </div>
     </div>
 
     <script src="{{ url_for('static', filename='script.js')}}"></script>
@@ -83,5 +95,17 @@
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
       crossorigin="anonymous"
     ></script>
+    {% block javascript %}
+    <script type="text/javascript">
+      function deleteNote(noteId) {
+  fetch("/delete-note", {
+    method: "POST",
+    body: JSON.stringify({ noteId: noteId }),
+  }).then((_res) => {
+    window.location.href = "/";
+  });
+  }
+</script>
+{% endblock %}
   </body>
 </html>

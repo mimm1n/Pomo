@@ -1,10 +1,10 @@
-from flask import Blueprint, render_template, url_for
+from flask import Blueprint, render_template, request, flash, jsonify
+from flask_login import login_required, current_user
+from .models import Note
+from . import db
+import json
 
 views = Blueprint('views', __name__ )
-
-@views.route('/', methods=["GET", "[POST]"])
-def home():
-    return render_template('base.html')
 
 @views.route('/settings')
 def settings():
@@ -22,3 +22,10 @@ def login():
 def profile():
     return render_template('profile.html')
  
+@views.route('/game')
+def game():
+    return render_template('game.html')
+
+@views.route('/home')
+def home():
+    return render_template('home.html')
