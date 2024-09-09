@@ -1,10 +1,22 @@
-{% extends "base.html" %} {% block title %}Mini-Game{% endblock %} {% block body %}
+{% extends "base.html" %} {% block title %}Mini-Game{% endblock %} {% block body
+%}
 
-    <div class="game">
-      <div id="dino"></div>
-      <div id="cactus"></div>
-    </div>
+<div class="game-container">
+  <h1>A fun little break!</h1>
 
+  <div class="game">
+    <div id="dino"></div>
+    <span id="gameover"></span>
+    <div id="cactus"></div>
+  </div>
 
+  <button>
+    <a href="{{ url_for( 'views.home' ) }}">
+      <button class="btn btn-primary btn-block">Return</button>
+    </a>
+  </button>
+</div>
+
+<script src="{{ url_for('static', filename='game.js')}}"></script>
 
 {% endblock %}

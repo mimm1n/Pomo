@@ -32,7 +32,7 @@ h1 {
   flex-direction: column;
   gap: 30px;
   margin-top: 120px;
-  margin-right: 430px;
+  margin-right: 450px;
 
   font-family: "mainFont";
   font-size: 20px;
@@ -209,7 +209,7 @@ a:hover {
 }
 
 .btn-pomo:hover {
-  background-color: #7b6c9a!important;
+  background-color: #7b6c9a !important;
 }
 
 .btn-focus {
@@ -245,7 +245,8 @@ a:hover {
   color: #dadada;
 }
 
-#btn-start:hover, #btn-pause:hover {
+#btn-start:hover,
+#btn-pause:hover {
   background-color: #7b6c9a;
   color: #dadada;
 }
@@ -614,69 +615,89 @@ input[type="password"] {
 
 /* game.html*/
 
-.game {
-    width: 600px;
-    height: 200px;
-    border: 1px solid black;
-    margin: auto;
-  }
-  
-  #dino {
-    width: 50px;
-    height: 50px;
-    background-image: url(img/trex.png);
-    background-size: 50px 50px;
-    position: relative;
-    top: 150px;
-  }
-  
-  .jump {
-    animation: jump 0.3s linear;
-  }
-  
-  @keyframes jump {
-    0% {
-      top: 150px;
-    }
-  
-    30% {
-      top: 130px;
-    }
-  
-    50% {
-      top: 80px;
-    }
-  
-    80% {
-      top: 130px;
-    }
-  
-    100% {
-      top: 150px;
-    }
-  }
-  
-  #cactus {
-    width: 20px;
-    height: 40px;
-    position: relative;
-    top: 110px;
-    left: 580px;
-  
-    background-image: url("img/cactus.png");
-    background-size: 20px 40px;
-  
-    animation: block 1s infinite linear;
-  }
-  
-  @keyframes block {
-    0% {
-      left: 580px;
-    }
-  
-    100% {
-      left: -20px;
-    }
-  }
-  
+.game-container {
+  box-sizing: border-box;
+  background-color: #8c8ca4;
+  padding: 10px 30px;
+  background: #ab9dc9 linear-gradient(135deg, #ab9dc9, #86759b);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 1);
 
+  width: 650px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-right: 380px;
+  margin-top: 120px;
+
+  font-family: "mainFont";
+  font-size: 20px;
+  color: #4f2d59;
+  text-align: center;
+}
+
+.game {
+  width: 600px;
+  height: 200px;
+  border: 1px solid #341c4c;
+  margin: auto;
+  border-radius: 5px;
+}
+
+#dino {
+  width: 90px;
+  height: 120px;
+  background-image: url(astro_run.png);
+  background-size: 90px 120px;
+  position: relative;
+  top: 80px;
+}
+
+.jump {
+  animation: jump 0.3s linear;
+}
+
+@keyframes jump {
+  0% {
+    top: 80px;
+  }
+
+  30% {
+    top: 30px;
+  }
+
+  50% {
+    top: 10px;
+  }
+
+  80% {
+    top: 30px;
+  }
+
+  100% {
+    top: 80px;
+  }
+}
+
+#cactus {
+  width: 45px;
+  height: 50px;
+  position: relative;
+  top: 35px;
+  left: 580px;
+
+  background-image: url("ufo.png");
+  background-size: 45px 50px;
+
+  animation: block 1.5s infinite linear;
+}
+
+@keyframes block {
+  0% {
+    left: 580px;
+  }
+
+  100% {
+    left: -20px;
+  }
+}
