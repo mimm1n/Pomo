@@ -22,13 +22,13 @@ def sign_up():
         
         if user:
             flash('Email already exists.', category='error')
-        elif len(email) < 3:
+        elif len(email) < 5:
             flash('Email has to be greater than 3 characters.', category='error')
         elif len(first_name) < 2:
             flash('First name must be more than 1 character.', category='error')
         elif len(last_name) < 2:
             flash('last name must be more than 1 character.', category='error')
-        elif len(password) < 6:
+        elif len(password) < 8:
             flash('Password has to be at least 6 characters.', category='error')
         elif re.search('special_character',password) is None:
             flash('Your password must have at least 1 special character', category='error')
