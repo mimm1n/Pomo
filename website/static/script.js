@@ -6,7 +6,7 @@ toggler.addEventListener("click", function () {
 });
 
 
-//game.js//
+//*game.js*//
 
 const dino = document.getElementById("dino");
 const cactus = document.getElementById("cactus"); // constant value 
