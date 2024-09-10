@@ -13,6 +13,7 @@ let shortBreakButton = document.getElementById("shortbreak");
 let startButton = document.getElementById("btn-start");
 let pause = document.getElementById("btn-pause");
 let reset = document.getElementById("btn-reset");
+let game = document.getElementById("btn-game");
 let time = document.getElementById("time");
 
 let set;
@@ -53,6 +54,8 @@ const removeFocus = () => {
 };
 
 focusButton.addEventListener("click", () => {
+  game.classList.remove("show");
+  game.classList.add("hide");
   removeFocus();
   focusButton.classList.add("btn-focus");
   pauseTimer();
@@ -62,6 +65,7 @@ focusButton.addEventListener("click", () => {
 });
 
 shortBreakButton.addEventListener("click", () => {
+  game.classList.remove("hide");
   active = "short";
   removeFocus();
   shortBreakButton.classList.add("btn-focus");
@@ -79,12 +83,14 @@ pause.addEventListener(
     startButton.classList.remove("hide");
     pause.classList.remove("show");
     reset.classList.remove("show");
+    // game.classList.remove("show");
   })
 );
 
 startButton.addEventListener("click", () => {
   reset.classList.add("show");
   pause.classList.add("show");
+  // game.classList.add("show");
   startButton.classList.add("hide");
   startButton.classList.remove("show");
   if (paused) {
@@ -125,22 +131,26 @@ function addTask() {
   saveData();
 }
 
-listContainer.addEventListener("click", function (e) {
-  if (e.target.tagName === "LI") {
-    e.target.classList.toggle("checked");
-    saveData();
-  } else if (e.target.tagName === "SPAN") {
-    e.target.parentElement.remove();
-    saveData();
-  }
-}, false);
+listContainer.addEventListener(
+  "click",
+  function (e) {
+    if (e.target.tagName === "LI") {
+      e.target.classList.toggle("checked");
+      saveData();
+    } else if (e.target.tagName === "SPAN") {
+      e.target.parentElement.remove();
+      saveData();
+    }
+  },
+  false
+);
 
-function saveData(){
+function saveData() {
   localStorage.setItem("data", listContainer.innerHTML);
 }
 
-function showTask(){
-  listContainer.innerHTML = localStorage.getItem("data"); 
+function showTask() {
+  listContainer.innerHTML = localStorage.getItem("data");
 }
 
 showTask();

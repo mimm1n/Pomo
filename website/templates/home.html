@@ -9,6 +9,9 @@
     <span id="time"> <p>25:00</p> </span>
     <div class="btn-container">
       <button id="btn-start" class="show">Start</button>
+      <a href="{{ url_for( 'views.game' ) }}">
+        <button id="btn-game" class="hide">Play a game!</button>
+      </a>
       <button id="btn-pause" class="hide">Pause</button>
       <button id="btn-reset" class="hide">
         <i class="fa-solid fa-arrow-rotate-right"></i>
@@ -16,7 +19,6 @@
     </div>
   </div>
 </div>
-
 
 <!-- to do list !! -->
 
@@ -35,28 +37,5 @@
     </ul>
   </div>
 </div>
-
-
-<!-- <h1 style="color: white;">Notes</h1>
-  <ul id="notes" class="list-group list-group-flush">
-    {% for note in user.notes %}
-    <li class="list-group-item">
-        {{ note.data }}
-        <button type="button" class="close" onClick="deleteNote('{{ note.id }}')">
-        <span aria-hidden="true">&times;</span>
-        </button>
-    </li>
-    {% endfor %}
-
-  </ul>
-
-    <form method="POST"></form>
-      <textarea name="note" id="note" style="background-color: #341c4c;color: #dadada;"></textarea>
-      <br />
-      <div>
-          <button type="submit" style="text-align: center;" onclick="addnote( noteId  )">Add Note</button>
-      </div>
-    </form>
-  </div> -->
 
 {% endblock %}

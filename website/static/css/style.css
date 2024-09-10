@@ -238,7 +238,8 @@ a:hover {
 }
 
 #btn-start,
-#btn-pause {
+#btn-pause,
+#btn-game {
   padding: 16px 32px;
   border-radius: 8px;
   cursor: pointer;
@@ -247,7 +248,8 @@ a:hover {
 }
 
 #btn-start:hover,
-#btn-pause:hover {
+#btn-pause:hover,
+#btn-game:hover {
   background-color: #7b6c9a;
   color: #dadada;
 }
