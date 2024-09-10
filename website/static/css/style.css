@@ -620,3 +620,10 @@ input[type="password"] {
 }
 
 
+#notes {
+  position: relative;
+  height: auto;
+  width: auto;
+  padding: 5px;
+  box-sizing: border-box;
+}

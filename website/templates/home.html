@@ -17,10 +17,10 @@
       </div>
     </div>
   </div>
-  <h1 style="text-align: center;">Notes</h1>
-    <ul stlye="box-sizing: border-box; background-color: #341c4c;color: #dadada;margin-right:450;" id="notes" >
+  <h1 style="color: white;">Notes</h1>
+  <ul id="notes">
     {% for note in user.notes %}
-    <li class="list-group-item">
+    <li class="pomo-parent-container" style="box-sizing: border-box; background-color: #341c4c; color: #dadada; padding: auto;">
         {{ note.data }}
         <button type="button" class="close" onClick="deleteNote('{{ note.id }}')">
         <span aria-hidden="true">&times;</span>
@@ -31,8 +31,8 @@
       </ul>
       <textarea name="note" id="note" style="background-color: #341c4c;color: #dadada;"></textarea>
       <br />
-      <div style="text-align: center;">
-          <button type="submit" class="btn btn-primary">Add Note</button>
+      <div>
+          <button type="submit" style="text-align: center;" onclick="addnote( noteId  )">Add Note</button>
       </div>
     </form>
 {% endblock %}
