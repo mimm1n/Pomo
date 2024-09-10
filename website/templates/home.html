@@ -17,22 +17,27 @@
       </div>
     </div>
   </div>
+
+  <div class="note-container">
   <h1 style="color: white;">Notes</h1>
-  <ul id="notes">
+  <ul id="notes" class="list-group list-group-flush">
     {% for note in user.notes %}
-    <li class="pomo-parent-container" style="box-sizing: border-box; background-color: #341c4c; color: #dadada; padding: auto;">
+    <li class="list-group-item">
         {{ note.data }}
         <button type="button" class="close" onClick="deleteNote('{{ note.id }}')">
         <span aria-hidden="true">&times;</span>
         </button>
     </li>
     {% endfor %}
+
+  </ul>
+
     <form method="POST"></form>
-      </ul>
       <textarea name="note" id="note" style="background-color: #341c4c;color: #dadada;"></textarea>
       <br />
       <div>
           <button type="submit" style="text-align: center;" onclick="addnote( noteId  )">Add Note</button>
       </div>
     </form>
+  </div>
 {% endblock %}
