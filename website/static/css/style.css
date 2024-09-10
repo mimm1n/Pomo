@@ -644,6 +644,13 @@ input[type="password"] {
   border-radius: 5px;
 }
 
+#notes {
+  position: relative;
+  height: auto;
+  width: auto;
+  padding: 5px;
+  box-sizing: border-box;
+}
 #dino {
   width: 90px;
   height: 120px;
@@ -701,3 +708,4 @@ input[type="password"] {
     left: -20px;
   }
 }
+

@@ -1,9 +1,12 @@
-from flask import Blueprint, render_template, request, flash, redirect, url_for
+from flask import Blueprint, render_template, request, flash, redirect, url_for, jsonify
 from .models import User
 import re
 from werkzeug.security import generate_password_hash, check_password_hash
 from . import db   #means from __init__.py import db
 from flask_login import login_user, login_required, logout_user, current_user
+import json
+from .models import Note
+from . import db
 
 
 auth = Blueprint('auth', __name__)
@@ -62,7 +65,7 @@ def sign_up():
 def login():
     if request.method == 'POST':
         email = request.form.get('email')
-        password = request.form.get('password')
+        password = request.form.get('password1')
 
         # Fetch user from the database
         user = User.query.filter_by(email=email).first()
@@ -85,3 +88,34 @@ def login():
 def logout():
     logout_user()
     return redirect(url_for('auth.login'))
+
+
+
+#experimenting on how to add another note
+@auth.route('/',methods=["GET", "[POST]"])
+def home():
+    if request.method == '[POST]':
+        note = request.form.get('note')#Gets the note from the HTML 
+
+        if len(note) < 1:
+                flash('Note is too short!', category='error') 
+        else:
+                new_note = Note(data=note, user_id = current_user.id)  #providing the schema for the note 
+                db.session.add(new_note) #adding the note to the database 
+                db.session.commit()
+                flash('Note added!', category='success')
+
+    return render_template("home.html",user=current_user)
+
+
+@auth.route('/delete-note',methods=['[POST]'])
+def delete_note():  
+    note = json.loads(request.data) # this function expects a JSON from the INDEX.js file 
+    noteId = note['noteId']
+    note = Note.query.get(noteId)
+    if note:
+        if note.user_id == current_user.id:
+            db.session.delete(note)
+            db.session.commit()
+
+    return jsonify({})
