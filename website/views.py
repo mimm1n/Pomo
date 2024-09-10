@@ -21,11 +21,12 @@ def login():
 @views.route('/profile')
 def profile():
     return render_template('profile.html')
- 
-@views.route('/game')
-def game():
-    return render_template('game.html')
 
 @views.route('/home')
 def home():
     return render_template('home.html')
+ 
+ 
+@views.route('/game')
+def game():
+    return render_template('game.html')

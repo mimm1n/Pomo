@@ -5,6 +5,8 @@ toggler.addEventListener("click", function () {
   document.querySelector("#sidebar").classList.toggle("collapsed");
 });
 
+
+
 // pomodoro
 
 let focusButton = document.getElementById("focus");
@@ -104,3 +106,11 @@ startButton.addEventListener("click", () => {
     }, 1000);
   }
 });
+
+const bgm = document.getElementById("bgm");
+let play = document.getElementById("play");
+
+// (B2) CLICK TO PLAY
+play.onclick = () => {
+  bgm.play();
+};

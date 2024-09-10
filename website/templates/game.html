@@ -1,16 +1,22 @@
-{% extends "base.html" %} {% block title %}Mini-Game{% endblock %} {% block body %}
+{% extends "base.html" %} {% block title %}Mini-Game{% endblock %} {% block body
+%}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport", content="width=device-width, initial-scale=1.0">
-    <title>Chrome Dinosaur Game</title>
-    <link rel="stylesheet" href="dino.css">
-    <script src="dino.js"></script>
-</head>
-<body>
-    <h1>Chrome Dinosaur Game</h1>
-    <canvas id="board"></canvas>
-</body>
+<div class="game-container">
+  <h1>A fun little break!</h1>
 
+  <div class="game">
+    <div id="dino"></div>
+    <span id="gameover"></span>
+    <div id="cactus"></div>
+  </div>
+
+  <button>
+    <a href="{{ url_for( 'views.home' ) }}">
+      <button class="btn btn-primary btn-block">Return</button>
+    </a>
+  </button>
+</div>
+
+<script src="{{ url_for('static', filename='game.js')}}"></script>
 
 {% endblock %}

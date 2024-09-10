@@ -1,35 +1,35 @@
+//game.js//
 
-let board;
-let boardWidth = 750;
-let boardHeight = 250;
-let context;
+const dino = document.getElementById("dino");
+const cactus = document.getElementById("cactus"); // constant value
+const gameOver = document.getElementById("gameover");
 
-//context is used for drawing on the canvas
+function jump() {
+  if (dino.classList != "jump") {
+    dino.classList.add("jump");
 
-//character
-let dinoWidth = 88;
-let dinoHeight = 94;
-let dinoX = 50;
-let dinoY = boardHeight - dinoHeight; //that way the dino feet touch the very bottom of the border to the hieght of the dino
-let dinoImg;
-
-//
-let dino = {
-    x: dinoX,
-    y: dinoY,
-    width: dinoWidth,
-    height: dinoHeight,
+    setTimeout(function () {
+      dino.classList.remove("jump");
+    }, 300);
+  }
 }
 
-//on.load is for when apge laods
-window.onload = function() {
-    board = document.getElementById("board");
-    board.height = boardHeight;
-    board.width = boardWidth;
+let isAlive = setInterval(function () {
+  // get current dino Y position
+  let dinoTop = parseInt(window.getComputedStyle(dino).getPropertyValue("top"));
 
-    context = board.getAnimations.Context('2d'); //used 4 drawing on the board
+  // get current cactus X position
+  let cactusLeft = parseInt(
+    window.getComputedStyle(cactus).getPropertyValue("left")
+  );
 
-    dinoImg = new  Image();
-    dinoImg.src = "./"
+  // detect collision
+  if (cactusLeft < 50 && cactusLeft > 0 && dinoTop >= 80) {
+    // collision
+    // alert("Game Over");
+  }
+}, 10);
 
-}
+document.addEventListener("keydown", function (event) {
+  jump();
+});

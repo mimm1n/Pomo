@@ -75,6 +75,8 @@
         </nav>
       </div>
 
+      <audio id="bgm" src="A Lonely Cherry Tree.mp3" autoplay loop></audio>
+
       <div class="container">
         {% block body %}
         <div class="ldg-container" id="fade-in">
@@ -82,7 +84,7 @@
           <p>Brought to you by Mimi, Nana and Azri</p>
 
           <a href="{{ url_for( 'views.home' ) }}">
-            <button class="btn btn-primary btn-block">Get started!</button>
+            <button class="btn btn-primary btn-block" id="play">Get started!</button>
           </a>
         </div>
         {% endblock %}
