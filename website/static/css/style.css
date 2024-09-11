@@ -170,6 +170,8 @@ a:hover {
 
 /* home.html */
 
+/* pomodoro!! */
+
 .pomo-parent-container {
   box-sizing: border-box;
   background-color: #8c8ca4;
@@ -182,7 +184,7 @@ a:hover {
   display: flex;
   flex-direction: column;
   margin-right: 450px;
-  margin-top: 150px;
+  margin-top: 70px;
 
   font-family: "mainFont";
   font-size: 20px;
@@ -220,7 +222,6 @@ a:hover {
 .time-container {
   display: flex;
   flex-direction: column;
-  /* margin-top: px; */
 }
 
 #time {
@@ -237,7 +238,8 @@ a:hover {
 }
 
 #btn-start,
-#btn-pause {
+#btn-pause,
+#btn-game {
   padding: 16px 32px;
   border-radius: 8px;
   cursor: pointer;
@@ -246,7 +248,8 @@ a:hover {
 }
 
 #btn-start:hover,
-#btn-pause:hover {
+#btn-pause:hover,
+#btn-game:hover {
   background-color: #7b6c9a;
   color: #dadada;
 }
@@ -265,6 +268,110 @@ a:hover {
 
 .show {
   display: block;
+}
+
+/* to-do list */
+
+.td-container {
+  box-sizing: border-box;
+  background-color: #8c8ca4;
+  padding: 10px 30px;
+  background: #ab9dc9 linear-gradient(135deg, #ab9dc9, #86759b);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 1);
+
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  margin-right: 450px;
+  margin-top: 50px;
+  margin-bottom: 20px;
+
+  font-family: "mainFont";
+  font-size: 20px;
+  color: #4f2d59;
+  text-align: center;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #7b6c9a;
+  border-radius: 20px;
+  padding-left: 20px;
+  margin-bottom: 20px;
+}
+
+.row input {
+  outline: none;
+  background: transparent;
+  border: none;
+  flex: 1;
+}
+
+.row button {
+  border: none;
+  outline: none;
+  padding: 16px;
+  width: 150px;
+  font-size: 17px;
+  border-radius: 20px;
+}
+
+.row button:hover {
+  background-color: #664f84 !important;
+}
+
+::placeholder {
+  color: #dadada;
+}
+
+.todo ul li {
+  list-style: none;
+  font-size: 18px;
+  padding: 12px;
+  right: 80px;
+  user-select: none;
+  cursor: pointer;
+  position: relative;
+}
+
+.todo ul li::before {
+  content: "";
+  position: absolute;
+  height: 28px;
+  width: 28px;
+  border-radius: 50%;
+  background-image: url(girl_run.png);
+  background-size: cover;
+  background-position: center;
+  left: 80px;
+}
+
+.todo ul li.checked {
+  color: #4b3752;
+  text-decoration: line-through;
+}
+
+.todo ul li.checked::before {
+  background-image: url("astro_run.png");
+}
+
+.todo ul li span {
+  position: absolute;
+  right: 0;
+  top: 5px;
+  width: 40px;
+  height: 40px;
+  font-size: 20px;
+  line-height: 40px;
+  text-align: center;
+  border-radius: 50%;
+}
+
+.todo ul li span:hover {
+  background: #62567d;
 }
 
 /* settings.html */
@@ -708,4 +815,3 @@ input[type="password"] {
     left: -20px;
   }
 }
-

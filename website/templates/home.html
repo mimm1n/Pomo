@@ -1,43 +1,41 @@
-{% extends "base.html" %} {%block title %}Home{% endblock %}{% block body
-%}
+{% extends "base.html" %} {%block title %}Home{% endblock %}{% block body %}
 
 <div class="pomo-parent-container">
-    <div class="pomo-container">
-      <button id="focus" class="btn-pomo btn-timer btn-focus">Focus</button>
-      <button id="shortbreak" class="btn-pomo btn-shortbreak">Short Break</button>
-    </div>
-    <div class="time-container">
-      <span id="time"> <p>25:00</p> </span>
-      <div class="btn-container">
-        <button id="btn-start" class="show">Start</button>
-        <button id="btn-pause" class="hide">Pause</button>
-        <button id="btn-reset" class="hide">
-          <i class="fa-solid fa-arrow-rotate-right"></i>
-        </button>
-      </div>
+  <div class="pomo-container">
+    <button id="focus" class="btn-pomo btn-timer btn-focus">Focus</button>
+    <button id="shortbreak" class="btn-pomo btn-shortbreak">Short Break</button>
+  </div>
+  <div class="time-container">
+    <span id="time"> <p>25:00</p> </span>
+    <div class="btn-container">
+      <button id="btn-start" class="show">Start</button>
+      <a href="{{ url_for( 'views.game' ) }}">
+        <button id="btn-game" class="hide">Play a game!</button>
+      </a>
+      <button id="btn-pause" class="hide">Pause</button>
+      <button id="btn-reset" class="hide">
+        <i class="fa-solid fa-arrow-rotate-right"></i>
+      </button>
     </div>
   </div>
+</div>
 
-  <div class="note-container">
-  <h1 style="color: white;">Notes</h1>
-  <ul id="notes" class="list-group list-group-flush">
-    {% for note in user.notes %}
-    <li class="list-group-item">
-        {{ note.data }}
-        <button type="button" class="close" onClick="deleteNote('{{ note.id }}')">
-        <span aria-hidden="true">&times;</span>
-        </button>
-    </li>
-    {% endfor %}
+<!-- to do list !! -->
 
-  </ul>
+<div class="td-container">
+  <div class="todo">
+    <h1>To-Do List</h1>
+    <div class="row">
+      <input type="text" id="input-todo" placeholder="Add your to-do!" />
+      <button class="btn btn-primary" onclick="addTask()">Add</button>
+    </div>
 
-    <form method="POST"></form>
-      <textarea name="note" id="note" style="background-color: #341c4c;color: #dadada;"></textarea>
-      <br />
-      <div>
-          <button type="submit" style="text-align: center;" onclick="addnote( noteId  )">Add Note</button>
-      </div>
-    </form>
+    <ul id="list-container">
+      <!-- <li class="checked">Task 1</li>
+      <li>Task 2</li>
+      <li>Task 3</li> -->
+    </ul>
   </div>
+</div>
+
 {% endblock %}
