@@ -2,19 +2,19 @@ from flask import Flask
 from os import path
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
+from django.db import models
+from django.contrib.auth.models import User
+
 
 
 db = SQLAlchemy()
+DB_NAME = "database.db"
 
 def create_app():
     app = Flask(__name__, template_folder="templates", static_folder="static")
-
     app.config["SECRET_KEY"] = "W3AR3TH3COD3RS"
     app.config["SQLALCHEMY_DATABASE_URI"] = 'sqlite:///database.db'
     db.init_app(app)
-
-    app.config["SQLALCHEMY_ECHO"] = True
-    app.config["SQLALCHEMY_RECORD_QUERIES"] = True
     
     from .views import views
     from .auth import auth
@@ -22,7 +22,7 @@ def create_app():
     app.register_blueprint(views, url_prefix = '/' )
     app.register_blueprint(auth, url_prefix = '/' )
     
-    from .models import User
+    from .models import User, Note
     
     with app.app_context():
         db.create_all()
@@ -36,9 +36,3 @@ def create_app():
         return User.query.get(int(id))
 
     return app
-
-
-
-
-
-

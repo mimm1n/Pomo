@@ -4,7 +4,7 @@
 <div class="p-container" id="fade-in">
   <div class="left">
     <div class="icon">
-      <img src="static\css\icon.png" alt="user" width="100" />
+      <img  src="{{ user.profile.image.url }}" alt="user" width="100" />
       <i class="fa-solid fa-pen-to-square"></i>
     </div>
     <h4>Name</h4>
@@ -16,11 +16,11 @@
       <div class="info_data">
         <div class="data">
           <h4>Email:</h4>
-          <p>bob@gmail.com</p>
+          <p class="text-secondary">{{ user.email }}</p>
         </div>
         <div class="data">
           <h4>Username:</h4>
-          <p>bob123</p>
+          <h6 class="account-heading">{{ user.username }}</h6>
         </div>
       </div>
     </div>
