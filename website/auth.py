@@ -5,7 +5,6 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from . import db   #means from __init__.py import db
 from flask_login import login_user, login_required, logout_user, current_user
 import json
-from .models import Note
 from . import db
 
 
@@ -17,8 +16,7 @@ special_characters = r'[!@#%]'
 def sign_up():
     if request.method == "POST":
         email = request.form.get("email")
-        first_name = request.form.get("firstName")
-        last_name = request.form.get("lastName")
+        username = request.form.get("username")
         password = request.form.get("password")
         con_password = request.form.get("conPassword")
         
@@ -30,31 +28,31 @@ def sign_up():
             flash('Email already exists.', category='error')
         elif len(email) < 5:
             flash('Email must be greater than 5 characters.', category='error')
-        elif len(first_name) < 2:
-            flash('First name must be more than 1 character.', category='error')
-        elif len(last_name) < 2:
-            flash('Last name must be more than 1 character.', category='error')
+        elif len(username) < 2:
+            flash('Username must be more than 1 character.', category='error')
         elif len(password) < 7:
             flash('Password must be at least 8 characters.', category='error')
-        elif re.search(special_characters, password) is None:
-            flash('Your password must have at least 1 special character (@, #, !, %)', category='error')
-        elif re.search(r'[0-9]', password) is None:
-            flash('Your password must have at least 1 number.', category='error')
-        elif re.search(r'[A-Z]', password) is None:
-            flash('Your password must have at least 1 uppercase letter.', category='error')
+        # elif re.search(special_characters, password) is None:
+        #     flash('Your password must have at least 1 special character (@, #, !, %)', category='error')
+        # elif re.search(r'[0-9]', password) is None:
+        #     flash('Your password must have at least 1 number.', category='error')
+        # elif re.search(r'[A-Z]', password) is None:
+        #     flash('Your password must have at least 1 uppercase letter.', category='error')
         elif password != con_password:
             flash('Passwords do not match.', category='error')
         else:
             # If everything is valid, create the new user
             new_user = User(
                 email=email, 
-                first_name=first_name, 
-                last_name=last_name, 
+                username=username, 
                 password=generate_password_hash(password, method='sha256')
             )
+
             db.session.add(new_user)
             db.session.commit()
-            login_user(new_user, remember=True)
+
+            login_user(user, remember=True)
+
             flash('Account created!', category='success')
             return redirect(url_for('views.home'))
     
@@ -88,34 +86,3 @@ def login():
 def logout():
     logout_user()
     return redirect(url_for('auth.login'))
-
-
-
-#experimenting on how to add another note
-@auth.route('/',methods=["GET", "[POST]"])
-def home():
-    if request.method == '[POST]':
-        note = request.form.get('note')#Gets the note from the HTML 
-
-        if len(note) < 1:
-                flash('Note is too short!', category='error') 
-        else:
-                new_note = Note(data=note, user_id = current_user.id)  #providing the schema for the note 
-                db.session.add(new_note) #adding the note to the database 
-                db.session.commit()
-                flash('Note added!', category='success')
-
-    return render_template("home.html",user=current_user)
-
-
-@auth.route('/delete-note',methods=['[POST]'])
-def delete_note():  
-    note = json.loads(request.data) # this function expects a JSON from the INDEX.js file 
-    noteId = note['noteId']
-    note = Note.query.get(noteId)
-    if note:
-        if note.user_id == current_user.id:
-            db.session.delete(note)
-            db.session.commit()
-
-    return jsonify({})
