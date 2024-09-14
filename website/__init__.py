@@ -8,9 +8,13 @@ db = SQLAlchemy()
 
 def create_app():
     app = Flask(__name__, template_folder="templates", static_folder="static")
+
     app.config["SECRET_KEY"] = "W3AR3TH3COD3RS"
     app.config["SQLALCHEMY_DATABASE_URI"] = 'sqlite:///database.db'
     db.init_app(app)
+
+    app.config["SQLALCHEMY_ECHO"] = True
+    app.config["SQLALCHEMY_RECORD_QUERIES"] = True
     
     from .views import views
     from .auth import auth
