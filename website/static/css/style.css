@@ -424,6 +424,10 @@ a:hover {
   border: 1px solid #8c8ca4;
 }
 
+.toggle-c:hover {
+  background-color: #5e4080;
+}
+
 .togg-label {
   display: flex;
   align-self: center;
@@ -439,6 +443,8 @@ input[type="checkbox"]:checked + div .toggle-c {
   background-color: #5e4080;
   border-color: #4f2d59;
 }
+
+
 
 .dropdown {
   min-width: 15em;
@@ -493,11 +499,13 @@ input[type="checkbox"]:checked + div .toggle-c {
   background: #2a2d35;
 }
 .dropdown-menu-open {
-  display: block;
-  opacity: 1;
+  border: 1px #4f2d59;
+  height: 15em;
+  /*display: block;
+  opacity: 1; */
 }
 
-.active {
+.activate {
   background: #5e4080;
 }
 
@@ -505,6 +513,10 @@ input[type="checkbox"]:checked + div .toggle-c {
   text-align: right;
   font-size: 20px;
 }
+
+.setsub:hover {
+  background-color: #2a2d35 !important;
+} 
 
 .select {
   background-color: #5e4080;
@@ -516,7 +528,7 @@ input[type="checkbox"]:checked + div .toggle-c {
   border-radius: 0.5em;
   padding: 1em;
   cursor: pointer;
-  transition: background 0.3s;
+  transition: 0.3s;
 }
 
 .select-clicked {
@@ -526,14 +538,12 @@ input[type="checkbox"]:checked + div .toggle-c {
 
 .select:hover {
   background: #323741;
-
 }
-
 
 .dropdown-item:active {
   background-color: #86759b !important;
   color: #ffffff !important;
-}
+} 
 
 #vol {
   accent-color: #62567d;

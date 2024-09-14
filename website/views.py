@@ -21,7 +21,7 @@ def login():
 def profile():
     return render_template('profile.html')
 
-@views.route('/home')
+@views.route('/')
 def home():
     return render_template('home.html')
  
