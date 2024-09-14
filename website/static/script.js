@@ -155,6 +155,7 @@ function showTask() {
 
 showTask();
 
+
 // Settings.html
 
 const dropdowns = document.querySelectorAll('.dropdown');
