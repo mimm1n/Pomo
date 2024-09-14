@@ -440,8 +440,65 @@ input[type="checkbox"]:checked + div .toggle-c {
   border-color: #4f2d59;
 }
 
-.custom-opt {
-  text-align: center;
+.dropdown {
+  min-width: 15em;
+  position: relative;
+  margin: 2em;
+}
+
+.dropdown * {
+  box-sizing: border-box;
+}
+
+.caret {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 6px solid #fff;
+  transition: 0.3s;
+}
+
+.caret-rotate {
+  transform: rotate(180deg);
+}
+
+.dropdown-menu {
+  list-style: none;
+  padding: 0.2em 0.5em;
+  background: #5e4080;
+  border: #4f2d59;
+  box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.2);
+  border-radius: 0.5em;
+  color: #fff;
+  position: absolute;
+  top: 3em;
+  left: 0;
+  width: 100%;
+  transform: translateX(-50%);
+  opacity: 0;
+  display: none;
+  transition: 0.2s;
+  z-index: 1;
+}
+
+.dropdown-menu li {
+  padding: 0.7em 0.5em;
+  margin: 0.3em 0;
+  border-radius: 0.5em;
+  cursor: pointer;
+}
+
+.dropdown-menu li:hover {
+  background: #2a2d35;
+}
+.dropdown-menu-open {
+  display: block;
+  opacity: 1;
+}
+
+.active {
+  background: #5e4080;
 }
 
 .stg-btn {
@@ -449,10 +506,29 @@ input[type="checkbox"]:checked + div .toggle-c {
   font-size: 20px;
 }
 
-.dropdown-center button {
-  font-size: 20px;
-  width: 300px !important;
+.select {
+  background-color: #5e4080;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 2px #2a2f3b solid;
+  border-radius: 0.5em;
+  padding: 1em;
+  cursor: pointer;
+  transition: background 0.3s;
 }
+
+.select-clicked {
+  border: 2px #4f2d59 solid;
+  box-shadow: 0 0 0.8em #2a2d35;
+}
+
+.select:hover {
+  background: #323741;
+
+}
+
 
 .dropdown-item:active {
   background-color: #86759b !important;

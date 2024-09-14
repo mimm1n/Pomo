@@ -28,31 +28,19 @@
     </label>
   </div>
 
-  <div class="custom-opt">
-    <div class="dropdown-center">
-      <button
-        class="btn btn-primary dropdown-toggle"
-        type="button"
-        data-bs-toggle="dropdown"
-        aria-expanded="false"
-      >
-        Sound Options
-      </button>
-      <ul class="dropdown-menu">
-        <li>
-          <button class="dropdown-item" type="button">Sound 1</button>
-        </li>
-        <li>
-          <button class="dropdown-item" type="button">Sound 2</button>
-        </li>
-        <li>
-          <button class="dropdown-item" type="button">Sound 3</button>
-        </li>
-        <li>
-          <button class="dropdown-item" type="button">Sound 4</button>
-        </li>
-      </ul>
+  <!-- Sound Options -->
+  <div class="dropdown">
+    <div class="select">
+      <span class="selected">Sound Option 1</span>
+      <div class="caret"></div>
     </div>
+    <ul class="dropdown-menu">
+      <li class="active">Sound Option 1</li>
+      <li>Sound Option 2</li>
+      <li>Sound Option 3</li>
+      <li>Sound Option 4</li>
+    </ul>
+  </div>
 
     <br />
 
@@ -77,9 +65,56 @@
 
     <br />
 
-    <div class="custom-opt">
-      <div class="dropdown-center">
-        <button
+    <!-- Background Options -->
+    <div class="dropdown">
+      <div class="select">
+        <span class="selected">Background Option 1</span>
+        <div class="caret"></div>
+      </div>
+        <ul class="dropdown-menu">
+          <li class="active">Background Option 1</li>
+          <li>Background Option 2</li>
+          <li>Background Option 3</li>
+          <li>Background Option 4</li>
+        </ul>
+    </div>
+
+    <br />
+    </div>
+
+    <div class="stg-btn">
+      <input type="submit" class="btn btn-primary btn-block" value="Save" />
+    </div>
+  </div>
+
+  <script src="{{ url_for('static', filename='script.js')}}"></script>
+
+  {% endblock %}
+<!-- after div class caret 
+ button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" 
+
+
+ after </div>
+Sound Options
+      </button>
+      <ul class="dropdown-menu">
+        <li>
+          <button class="dropdown-item" type="button">Sound 1</button>
+        </li>
+        <li>
+          <button class="dropdown-item" type="button">Sound 2</button>
+        </li>
+        <li>
+          <button class="dropdown-item" type="button">Sound 3</button>
+        </li>
+        <li>
+          <button class="dropdown-item" type="button">Sound 4</button>
+        </li>
+      </ul>
+    </div>
+
+
+<button
           class="btn btn-primary dropdown-toggle"
           type="button"
           data-bs-toggle="dropdown"
@@ -87,7 +122,9 @@
         >
           Background Options
         </button>
-        <ul class="dropdown-menu">
+
+after bqckground options
+<ul class="dropdown-menu">
           <li>
             <button class="dropdown-item" type="button">Background 1</button>
           </li>
@@ -101,14 +138,4 @@
             <button class="dropdown-item" type="button">Background 4</button>
           </li>
         </ul>
-      </div>
-
-      <br />
-    </div>
-
-    <div class="stg-btn">
-      <input type="submit" class="btn btn-primary btn-block" value="Save" />
-    </div>
-  </div>
-  {% endblock %}
-</div>
+      </div> -->
