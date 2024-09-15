@@ -19,6 +19,8 @@ h1 {
   font-size: 50px;
 }
 
+/* ----------------------------------- landing ----------------------------------- */
+
 .ldg-container {
   box-sizing: border-box;
   background-color: #8c8ca4;
@@ -47,6 +49,8 @@ h1 {
 .ldg-container button {
   font-size: 20px;
 }
+
+/* ------------------------------------------------------------------------------------ */
 
 span {
   font-weight: 500;
@@ -168,9 +172,7 @@ a:hover {
   }
 }
 
-/* home.html */
-
-/* pomodoro!! */
+/* ----------------------------------- pomodoro!! -----------------------------------*/
 
 .pomo-parent-container {
   box-sizing: border-box;
@@ -270,7 +272,7 @@ a:hover {
   display: block;
 }
 
-/* to-do list */
+/* ----------------------------------- to-do list -----------------------------------*/
 
 .td-container {
   box-sizing: border-box;
@@ -374,7 +376,7 @@ a:hover {
   background: #62567d;
 }
 
-/* settings.html */
+/* ----------------------------------- settings.html ----------------------------------- */
 
 .st-container {
   box-sizing: border-box;
@@ -383,14 +385,12 @@ a:hover {
   background: #ab9dc9 linear-gradient(135deg, #ab9dc9, #86759b);
   border-radius: 20px;
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 1);
-
   width: 400px;
   display: flex;
   flex-direction: column;
   gap: 10px;
   margin-right: 500px;
   margin-top: 55px;
-
   font-family: "mainFont";
   font-size: 20px;
   color: #4f2d59;
@@ -439,96 +439,19 @@ input[type="checkbox"]:checked + div .toggle-c {
   background-color: #5e4080;
   border-color: #4f2d59;
 }
-
-.dropdown {
-  min-width: 15em;
-  position: relative;
-  margin: 2em;
-}
-
-.dropdown * {
-  box-sizing: border-box;
-}
-
-.caret {
-  width: 0;
-  height: 0;
-  border-left: 5px solid transparent;
-  border-right: 5px solid transparent;
-  border-top: 6px solid #fff;
-  transition: 0.3s;
-}
-
-.caret-rotate {
-  transform: rotate(180deg);
-}
-
-.dropdown-menu {
-  list-style: none;
-  padding: 0.2em 0.5em;
-  background: #5e4080;
-  border: #4f2d59;
-  box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.2);
-  border-radius: 0.5em;
-  color: #fff;
-  position: absolute;
-  top: 3em;
-  left: 0;
-  width: 100%;
-  transform: translateX(-50%);
-  opacity: 0;
-  display: none;
-  transition: 0.2s;
-  z-index: 1;
-}
-
-.dropdown-menu li {
-  padding: 0.7em 0.5em;
-  margin: 0.3em 0;
-  border-radius: 0.5em;
-  cursor: pointer;
-}
-
-.dropdown-menu li:hover {
-  background: #2a2d35;
-}
-.dropdown-menu-open {
-  display: block;
-  opacity: 1;
-}
-
-.active {
-  background: #5e4080;
+.custom-opt {
+  text-align: center;
 }
 
 .stg-btn {
-  text-align: right;
+  text-align: center;
   font-size: 20px;
 }
 
-.select {
-  background-color: #5e4080;
-  color: #fff;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border: 2px #2a2f3b solid;
-  border-radius: 0.5em;
-  padding: 1em;
-  cursor: pointer;
-  transition: background 0.3s;
+.dropdown-center button {
+  font-size: 20px;
+  width: 300px !important;
 }
-
-.select-clicked {
-  border: 2px #4f2d59 solid;
-  box-shadow: 0 0 0.8em #2a2d35;
-}
-
-.select:hover {
-  background: #323741;
-
-}
-
 
 .dropdown-item:active {
   background-color: #86759b !important;
@@ -538,7 +461,8 @@ input[type="checkbox"]:checked + div .toggle-c {
 #vol {
   accent-color: #62567d;
 }
-/* login.html */
+
+/* ----------------------------------- login.html ----------------------------------- */
 
 .lg-container {
   box-sizing: border-box;
@@ -661,7 +585,7 @@ input[type="checkbox"]:checked + div .toggle-c {
   text-align: center;
 }
 
-/* signup.html */
+/* ----------------------------------- signup.html ----------------------------------- */
 
 .sgn-container {
   box-sizing: border-box;
@@ -732,7 +656,7 @@ input[type="password"] {
   color: #dadada;
 }
 
-/* profile.html */
+/* ----------------------------------- profile.html -----------------------------------*/
 
 .p-container {
   position: absolute;
@@ -796,7 +720,7 @@ input[type="password"] {
   box-shadow: 0 0 8px 3px #4f2d59;
 }
 
-/* game.html*/
+/* ----------------------------------- game.html -----------------------------------*/
 
 .game-container {
   box-sizing: border-box;
