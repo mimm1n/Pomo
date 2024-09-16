@@ -8,6 +8,10 @@ from . import views
 
 views = Blueprint('views', __name__ )
 
+@views.route("/")
+def landing():
+    return render_template('base.html')
+
 @views.route('/settings')
 def settings():
     return render_template('settings.html')
@@ -26,7 +30,7 @@ def profile():
 
 @views.route('/home')
 def home():
-    return render_template('home.html')
+    return render_template('pomo.html')
  
 @views.route('/game')
 def game():
