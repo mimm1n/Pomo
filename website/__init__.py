@@ -4,8 +4,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
 from django.db import models
 from django.contrib.auth.models import User
-
-
+from flask_migrate import Migrate
 
 db = SQLAlchemy()
 DB_NAME = "database.db"
@@ -13,7 +12,7 @@ DB_NAME = "database.db"
 def create_app():
     app = Flask(__name__, template_folder="templates", static_folder="static")
     app.config["SECRET_KEY"] = "W3AR3TH3COD3RS"
-    app.config["SQLALCHEMY_DATABASE_URI"] = 'sqlite:///database.db'
+    app.config["SQLALCHEMY_DATABASE_URI"] = 'sqlite:///database1.db'
     db.init_app(app)
     
     from .views import views
@@ -34,5 +33,7 @@ def create_app():
     @login_manager.user_loader
     def load_user(id):
         return User.query.get(int(id))
+    
+    migrate = Migrate(app, db)
 
     return app
