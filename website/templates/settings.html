@@ -6,43 +6,45 @@
       <table width="900" cellpadding="0" cellspacing="0" align="center"></table>
     </form>
 
-    <div>
-      <label for="togg-24hrs" class="togg-label">
-        <span>24 hour time</span>
-        <input type="checkbox" name="" id="togg-24hrs" />
-        <div class="toggle-container">
-          <span class="toggle"></span>
-          <span class="toggle-c"></span>
-        </div>
-      </label>
-    </div>
-  
-    <div>
-      <label for="togg-s" class="togg-label">
-        <span>Sound</span>
-        <input type="checkbox" name="" id="togg-s" />
-        <div class="toggle-container">
-          <span class="toggle"></span>
-          <span class="toggle-c"></span>
-        </div>
-      </label>
-    </div>
-  
-    <!-- Sound Options -->
-    <div class="dropdown">
-      <div class="select">
-        <span class="selected">Sound Option 1</span>
-        <div class="caret"></div>
+  <div>
+    <label for="togg-s" class="togg-label">
+      <span>Sound</span>
+      <input type="checkbox" name="" id="togg-s" />
+      <div class="toggle-container">
+        <span class="toggle"></span>
+        <span class="toggle-c"></span>
       </div>
+    </label>
+  </div>
+
+  <div class="custom-opt">
+    <div class="dropdown-center">
+      <button
+        class="btn btn-primary dropdown-toggle"
+        type="button"
+        data-bs-toggle="dropdown"
+        aria-expanded="false"
+      >
+        Sound Options
+      </button>
       <ul class="dropdown-menu">
-        <li>Sound Option 1</li>
-        <li>Sound Option 2</li>
-        <li>Sound Option 3</li>
-        <li>Sound Option 4</li>
+        <li>
+          <button class="dropdown-item" type="button">Sound 1</button>
+        </li>
+        <li>
+          <button class="dropdown-item" type="button">Sound 2</button>
+        </li>
+        <li>
+          <button class="dropdown-item" type="button">Sound 3</button>
+        </li>
+        <li>
+          <button class="dropdown-item" type="button">Sound 4</button>
+        </li>
       </ul>
-        
     </div>
-  
+
+    <br />
+
     <div>
       <span>Volume</span>
       <input type="range" id="vol" name="vol" min="0" max="100" />
@@ -62,45 +64,37 @@
       </label>
     </div>
 
-    <!-- Background Options -->
-    <div class="dropdown">
-      <div class="select">
-        <span class="selected">Background Option 1</span>
-        <div class="caret"></div>
-      </div>
+    <div class="custom-opt">
+      <div class="dropdown-center">
+        <button
+          class="btn btn-primary dropdown-toggle"
+          type="button"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          Background Options
+        </button>
         <ul class="dropdown-menu">
-          <li class="activate">Background Option 1</li>
-          <li>Background Option 2</li>
-          <li>Background Option 3</li>
-          <li>Background Option 4</li>
+          <li>
+            <button class="dropdown-item" type="button">Background 1</button>
+          </li>
+          <li>
+            <button class="dropdown-item" type="button">Background 2</button>
+          </li>
+          <li>
+            <button class="dropdown-item" type="button">Background 3</button>
+          </li>
+          <li>
+            <button class="dropdown-item" type="button">Background 4</button>
+          </li>
         </ul>
-    </div>  
+      </div>
+      <br />
+    </div>
 
-    <br />
-    
-    <div class="stg-btn"></div>
-      <input type="submit" class="btn btn-primary btn-block setsub" value="Save" />
-
+    <div class="stg-btn">
+      <input type="submit" class="btn btn-primary btn-block" value="Save" />
+    </div>
   </div>
-
-      <!-- div class="stg-btn">
-        <input type="submit" class="btn btn-primary btn-block" value="Save" />
-      </div>
-    </div> -->
-  
-    <script src="{{ url_for('static', filename='script.js')}}"></script>
-  
-    {% endblock %}
-
-  <!--
-  <div>
-    <label for="togg-24hrs" class="togg-label">
-      <span>24 hour time</span>
-      <input type="checkbox" name="" id="togg-24hrs" />
-      <div class="toggle-container">
-        <span class="toggle"></span>
-        <span class="toggle-c"></span>
-      </div>
-    </label>
-  </div>  
--->
+  {% endblock %}
+</div>

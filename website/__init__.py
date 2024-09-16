@@ -2,19 +2,18 @@ from flask import Flask
 from os import path
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
-
+from django.db import models
+#from django.contrib.auth.models import User
+from flask_migrate import Migrate
 
 db = SQLAlchemy()
+DB_NAME = "database.db"
 
 def create_app():
     app = Flask(__name__, template_folder="templates", static_folder="static")
-
     app.config["SECRET_KEY"] = "W3AR3TH3COD3RS"
-    app.config["SQLALCHEMY_DATABASE_URI"] = 'sqlite:///database.db'
+    app.config["SQLALCHEMY_DATABASE_URI"] = 'sqlite:///database1.db'
     db.init_app(app)
-
-    app.config["SQLALCHEMY_ECHO"] = True
-    app.config["SQLALCHEMY_RECORD_QUERIES"] = True
     
     from .views import views
     from .auth import auth
@@ -32,13 +31,9 @@ def create_app():
     login_manager.init_app(app)
 
     @login_manager.user_loader
-    def load_user(id):
-        return User.query.get(int(id))
+    def User(user_id):
+        return User.query.get(int(user_id))
+    
+    migrate = Migrate(app, db)
 
     return app
-
-
-
-
-
-
