@@ -7,8 +7,10 @@ from django.contrib.auth.models import User
 
 
 
+
 db = SQLAlchemy()
 DB_NAME = "database.db"
+
 
 def create_app():
     app = Flask(__name__, template_folder="templates", static_folder="static")
@@ -34,5 +36,6 @@ def create_app():
     @login_manager.user_loader
     def load_user(id):
         return User.query.get(int(id))
+    
 
     return app
