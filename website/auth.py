@@ -1,24 +1,21 @@
 from flask import Blueprint, render_template, request, flash, redirect, url_for, jsonify
 from .models import User
-import re
+# import re
 from werkzeug.security import generate_password_hash, check_password_hash
 from . import db   #means from __init__.py import db
 from flask_login import login_user, login_required, logout_user, current_user
-import json
-from . import db
-
 
 auth = Blueprint('auth', __name__)
 
-special_characters = r'[!@#%]'
+# special_characters = r'[!@#%]'
 
-@auth.route('/sign-up', methods=["GET", "POST"])
+@auth.route('/sign-up', methods=['GET', 'POST'])
 def sign_up():
-    if request.method == "POST":
+    if request.method == 'POST':
         email = request.form.get("email")
         username = request.form.get("username")
-        password = request.form.get("password")
-        con_password = request.form.get("conPassword")
+        password1 = request.form.get("password1")
+        con_password = request.form.get("password2")
         
         # Check if the user already exists
         user = User.query.filter_by(email=email).first()
@@ -30,7 +27,7 @@ def sign_up():
             flash('Email must be greater than 5 characters.', category='error')
         elif len(username) < 2:
             flash('Username must be more than 1 character.', category='error')
-        elif len(password) < 7:
+        elif len(password1) < 7:
             flash('Password must be at least 8 characters.', category='error')
         # elif re.search(special_characters, password) is None:
         #     flash('Your password must have at least 1 special character (@, #, !, %)', category='error')
@@ -38,14 +35,14 @@ def sign_up():
         #     flash('Your password must have at least 1 number.', category='error')
         # elif re.search(r'[A-Z]', password) is None:
         #     flash('Your password must have at least 1 uppercase letter.', category='error')
-        elif password != con_password:
+        elif password1 != con_password:
             flash('Passwords do not match.', category='error')
         else:
             # If everything is valid, create the new user
             new_user = User(
                 email=email, 
                 username=username, 
-                password=generate_password_hash(password, method='sha256')
+                password=generate_password_hash(password1, method='sha256')
             )
 
             db.session.add(new_user)
