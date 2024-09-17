@@ -2,8 +2,8 @@ from flask import Flask
 from os import path
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
-from django.db import models
-from django.contrib.auth.models import User
+# from django.db import models
+# from django.contrib.auth.models import User
 from flask_migrate import Migrate
 
 db = SQLAlchemy()

@@ -70,6 +70,13 @@ a {
   overflow: hidden;
 }
 
+.alert {
+  width: 400px!important;
+}
+
+/* ----------------------------------- navbar -----------------------------------*/
+
+ 
 #sidebar {
   max-width: 200px;
   min-width: 200px;
@@ -613,11 +620,11 @@ input[type="checkbox"]:checked + div .toggle-c {
   margin-bottom: 15px;
 }
 
-.form-control {
+.form-group {
   position: relative;
   font-size: 16px;
   height: auto;
-  padding: 10px;
+  padding: 7px;
   box-sizing: border-box;
 }
 
@@ -636,10 +643,6 @@ input[type="password"] {
 .btn-sgn {
   text-align: center;
   margin-bottom: 10px;
-}
-
-.pass2-div {
-  margin-bottom: 20px;
 }
 
 .have-acc {
