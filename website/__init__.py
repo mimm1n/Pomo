@@ -1,22 +1,14 @@
 from flask import Flask, render_template, flash, request, redirect, url_for
 from os import path
 from flask_sqlalchemy import SQLAlchemy
-from datetime import datetime
 from flask_login import LoginManager
 from flask_migrate import Migrate
-from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField
-from wtforms.validators import DataRequired
 from flask_moment import Moment
 
 
-moment = Moment()
 db = SQLAlchemy()
 DB_NAME = "database.db"
-app = Flask(__name__)
-
-
-
+ moment = Moment()   
 
 def create_app():
     app = Flask(__name__, template_folder="templates", static_folder="static")
@@ -24,12 +16,6 @@ def create_app():
     app.config["SQLALCHEMY_DATABASE_URI"] = 'sqlite:///database1.db'
     db.init_app(app)
     moment.init_app(app)
-    
-    app.config["UPLOAD_EXTENSIONS"] = [".jpg", ".png"]
-    app.config["UPLOAD_PATH"] = "image_uploads"
-
-    app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
-    app.json.compact = False
     
     from .views import views
     from .auth import auth
@@ -53,3 +39,6 @@ def create_app():
     migrate = Migrate(app, db)
 
     return app
+
+
+    

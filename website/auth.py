@@ -5,6 +5,9 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from . import db   #means from __init__.py import db
 from flask_login import login_user, login_required, logout_user, current_user
 from werkzeug.utils import secure_filename
+from auth import  sign_up
+from uuid import uuid 
+import os
 
 auth = Blueprint('auth', __name__)
 
@@ -96,8 +99,56 @@ def before_request():
                 and request.blueprint != 'auth' \
                 and request.endpoint != 'static':
             return redirect(url_for('auth.unconfirmed'))
+   
         
+@auth.route('/profile', methods=['GET', 'POST'])
+@login_required
+def profile():
+	form = sign_up()
+	id = current_user.id
+	name_to_update = User.query.get_or_404(id)
+	if request.method == "POST":
+		name_to_update.email = request.form['email']
+		name_to_update.username = request.form['username']
+		if request.files['profile_pic']:# Check for profile pic
+      
+			name_to_update.profile_pic = request.files['profile_pic']
 
+			# Grab Image Name
+			pic_filename = secure_filename(name_to_update.profile_pic.filename)
+			# Set UUID
+			pic_name = str(uuid.uuid1()) + "_" + pic_filename
+			# Save That Image
+			saver = request.files['profile_pic']
+			
+
+			# Change it to a string to save to db
+			name_to_update.profile_pic = pic_name
+			try:
+				db.session.commit()
+				saver.save(os.path.join(auth.config['UPLOAD_FOLDER'], pic_name))
+				flash("User Updated Successfully!")
+				return render_template("dashboard.html", 
+					form=form,
+					name_to_update = name_to_update)
+			except:
+				flash("Error!  Looks like there was a problem...try again!")
+				return render_template("dashboard.html", 
+					form=form,
+					name_to_update = name_to_update)
+		else:
+			db.session.commit()
+			flash("User Updated Successfully!")
+			return render_template("dashboard.html", 
+				form=form, 
+				name_to_update = name_to_update)
+	else:
+		return render_template("dashboard.html", 
+				form=form,
+				name_to_update = name_to_update,
+				id = id)
+
+    return render_template('profile.html')
     
 
 
