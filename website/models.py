@@ -1,31 +1,34 @@
 from . import db
 from flask_login import UserMixin
-from django.db import models
-from django.contrib.auth.models import User
-from PIL import Image
+from flask_wtf import FlaskForm
+from wtforms import StringField, SubmitField, FileField
+from wtforms.validators import DataRequired
+from datetime import datetime
+
 
 class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(100), unique=True)
     password = db.Column(db.String(100))
     username = db.Column(db.String(150), unique=True)
+    last_seen = db.Column(db.DateTime(), default=datetime.utcnow)
+    profile_pic = db.Column(db.String(), nullable=True)
 
-# user profile
+    def is_authenticated(self):
+        return True     
 
-class Profile(models.Model):
-    user = models.OneToOneField(User, null=True, on_delete=models.CASCADE)
-    email = models.CharField(max_length=200, null=True)
-    profile_pic = models.ImageField(null=True, blank=True)
+    def is_active(self):
+        return True
 
-    def __str__(self):
-        return f'{self.user.username} Profile'
+#creating 
+class User(UserMixin, db.Model):
+    # ...
+    def ping(self):
+        self.last_seen = (datetime.utcnow)
+        db.session.add(self)
+        db.session.commit()
+
+
+class UserForm(FlaskForm):
+   profile_pic = FileField("Profile Pic") 
     
-    def save(self):
-        super().save()
-
-        img = Image.open(self.image.path)
-
-        if img.height > 300 or img.width > 300:
-            output_size = (300, 300)
-            img.thumbnail(output_size)
-            img.save(self.image.path)

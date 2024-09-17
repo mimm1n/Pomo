@@ -1,14 +1,21 @@
-from flask import Flask
+from flask import Flask, render_template, flash, request, redirect, url_for
 from os import path
 from flask_sqlalchemy import SQLAlchemy
+from datetime import datetime
 from flask_login import LoginManager
-from django.db import models
-from django.contrib.auth.models import User
 from flask_migrate import Migrate
+from flask_wtf import FlaskForm
+from wtforms import StringField, SubmitField
+from wtforms.validators import DataRequired
+from flask_moment import Moment
 
 
+moment = Moment()
 db = SQLAlchemy()
 DB_NAME = "database.db"
+app = Flask(__name__)
+
+
 
 
 def create_app():
@@ -16,6 +23,13 @@ def create_app():
     app.config["SECRET_KEY"] = "W3AR3TH3COD3RS"
     app.config["SQLALCHEMY_DATABASE_URI"] = 'sqlite:///database1.db'
     db.init_app(app)
+    moment.init_app(app)
+    
+    app.config["UPLOAD_EXTENSIONS"] = [".jpg", ".png"]
+    app.config["UPLOAD_PATH"] = "image_uploads"
+
+    app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+    app.json.compact = False
     
     from .views import views
     from .auth import auth
