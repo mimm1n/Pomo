@@ -6,8 +6,10 @@ from flask_login import LoginManager
 # from django.contrib.auth.models import User
 from flask_migrate import Migrate
 
+
 db = SQLAlchemy()
 DB_NAME = "database.db"
+
 
 def create_app():
     app = Flask(__name__, template_folder="templates", static_folder="static")
