@@ -1,13 +1,13 @@
 from flask import Blueprint, render_template, request, flash, redirect, url_for
 from .models import User
-# import re
+import re
 from werkzeug.security import generate_password_hash, check_password_hash
 from . import db   #means from __init__.py import db
 from flask_login import login_user, login_required, logout_user, current_user
 
 auth = Blueprint('auth', __name__)
 
-# special_characters = r'[!@#%]'
+special_characters = r'[!@#%]'
 
 @auth.route('/sign-up', methods=['GET', 'POST'])
 def sign_up():
@@ -29,12 +29,12 @@ def sign_up():
             flash('Username must be more than 1 character.', category='error')
         elif len(password1) < 7:
             flash('Password must be at least 8 characters.', category='error')
-        # elif re.search(special_characters, password1) is None:
-        #     flash('Your password must have at least 1 special character (@, #, !, %)', category='error')
-        # elif re.search(r'[0-9]', password1) is None:
-        #     flash('Your password must have at least 1 number.', category='error')
-        # elif re.search(r'[A-Z]', password1) is None:
-        #     flash('Your password must have at least 1 uppercase letter.', category='error')
+        elif re.search(special_characters, password1) is None:
+            flash('Your password must have at least 1 special character (@, #, !, %)', category='error')
+        elif re.search(r'[0-9]', password1) is None:
+            flash('Your password must have at least 1 number.', category='error')
+        elif re.search(r'[A-Z]', password1) is None:
+            flash('Your password must have at least 1 uppercase letter.', category='error')
         elif password1 != con_password:
             flash('Passwords do not match.', category='error')
         else:
