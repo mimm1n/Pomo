@@ -5,8 +5,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from . import db   #means from __init__.py import db
 from flask_login import login_user, login_required, logout_user, current_user
 from werkzeug.utils import secure_filename
-from auth import  sign_up
-from uuid import uuid 
+import uuid as uuid
 import os
 
 auth = Blueprint('auth', __name__)
@@ -148,7 +147,6 @@ def profile():
 				name_to_update = name_to_update,
 				id = id)
 
-    return render_template('profile.html')
-    
+
 
 

@@ -720,6 +720,18 @@ input[type="password"] {
   box-shadow: 0 0 8px 3px #4f2d59;
 }
 
+.dropdown-Option button {
+  font-size: 20px;
+  width: 300px !important;
+}
+
+.dropdown-Option:active {
+  background-color: #86759b !important;
+  color: #ffffff !important;
+}
+
+
+
 /* ----------------------------------- game.html -----------------------------------*/
 
 .game-container {
@@ -761,7 +773,7 @@ input[type="password"] {
 #dino {
   width: 90px;
   height: 120px;
-  background-image: url(astro_run.png);
+  background-image: url(astro.png);
   background-size: 90px 120px;
   position: relative;
   top: 80px;

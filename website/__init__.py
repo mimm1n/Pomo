@@ -8,7 +8,7 @@ from flask_moment import Moment
 
 db = SQLAlchemy()
 DB_NAME = "database.db"
- moment = Moment()   
+moment = Moment()   
 
 def create_app():
     app = Flask(__name__, template_folder="templates", static_folder="static")
