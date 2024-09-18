@@ -14,23 +14,30 @@ def landing():
     return render_template('base.html', user=current_user)
 
 @views.route('/settings')
+@login_required
 def settings():
     return render_template('settings.html', user=current_user)
 
 @views.route('/profile')
+@login_required
 def profile():
     return render_template('profile.html', user=current_user)
 
 @views.route('/home')
+@login_required
 def home():
     return render_template('pomo.html', user=current_user)
  
 @views.route('/game')
+@login_required
 def game():
     return render_template('game.html', user=current_user)
+<<<<<<< HEAD
 
 @views.route('/user/<username>', user=current_user)
 def user(username):
     user = User.query.filter_by(username=username).first_or_404()
     return render_template('user.html', user=user)
 
+=======
+>>>>>>> e018c324126a344a6d4b0a92c92f5d79465a14c4
