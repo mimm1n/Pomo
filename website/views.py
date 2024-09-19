@@ -1,9 +1,10 @@
 from flask import Blueprint, render_template, request, flash, jsonify
 from flask_login import login_required, current_user
 from . import db
-import json
-from django.urls import path
 from . import views
+from .models import User
+
+
 
 
 views = Blueprint('views', __name__ )
