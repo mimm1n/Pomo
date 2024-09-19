@@ -1,9 +1,10 @@
 from flask import Blueprint, render_template, request, flash, jsonify
 from flask_login import login_required, current_user
 from . import db
-import json
-from django.urls import path
 from . import views
+from .models import User
+
+
 
 
 views = Blueprint('views', __name__ )
@@ -31,3 +32,12 @@ def home():
 @login_required
 def game():
     return render_template('game.html', user=current_user)
+<<<<<<< HEAD
+
+@views.route('/user/<username>', user=current_user)
+def user(username):
+    user = User.query.filter_by(username=username).first_or_404()
+    return render_template('user.html', user=user)
+
+=======
+>>>>>>> e018c324126a344a6d4b0a92c92f5d79465a14c4

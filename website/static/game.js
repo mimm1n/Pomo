@@ -1,30 +1,30 @@
 //game.js//
 
-const dino = document.getElementById("dino");
-const cactus = document.getElementById("cactus"); // constant value
+const char = document.getElementById("char");
+const ufo = document.getElementById("ufo"); // constant value
 const gameOver = document.getElementById("gameover");
 
 function jump() {
-  if (dino.classList != "jump") {
-    dino.classList.add("jump");
+  if (char.classList != "jump") {
+    char.classList.add("jump");
 
     setTimeout(function () {
-      dino.classList.remove("jump");
+      char.classList.remove("jump");
     }, 300);
   }
 }
 
 let isAlive = setInterval(function () {
   // get current dino Y position
-  let dinoTop = parseInt(window.getComputedStyle(dino).getPropertyValue("top"));
+  let charTop = parseInt(window.getComputedStyle(char).getPropertyValue("top"));
 
   // get current cactus X position
-  let cactusLeft = parseInt(
-    window.getComputedStyle(cactus).getPropertyValue("left")
+  let ufoLeft = parseInt(
+    window.getComputedStyle(ufo).getPropertyValue("left")
   );
 
   // detect collision
-  if (cactusLeft < 50 && cactusLeft > 0 && dinoTop >= 80) {
+  if (ufoLeft < 50 && ufoLeft > 0 && charTop >= 80) {
     // collision
     // alert("Game Over");
   }
