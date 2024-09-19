@@ -70,6 +70,12 @@ a {
   overflow: hidden;
 }
 
+.alert {
+  width: 400px!important;
+}
+
+/* ----------------------------------- navbar -----------------------------------*/
+
 #sidebar {
   max-width: 200px;
   min-width: 200px;
@@ -465,7 +471,7 @@ input[type="checkbox"]:checked + div .toggle-c {
 } 
 
 .dropdown-item:active {
-  background-color: #8c8ca4 !important;
+  background-color: #86759b !important;
   color: #ffffff !important;
 } 
 

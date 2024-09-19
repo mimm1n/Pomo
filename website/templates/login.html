@@ -1,7 +1,7 @@
 {% extends "base.html" %} {% block title %}Log In{% endblock %} {% block body %}
 
 <div class="lg-container" id="fade-in">
-  <form class="form-signin">
+  <form class="form-signin" method="POST">
     <h1 class="form-signin-heading">Login</h1>
 
     <div class="input-field">
@@ -9,7 +9,7 @@
         type="text"
         class="form-control"
         name="username"
-        placeholder="username"
+        placeholder="Username"
         required
         autofocus=""
       />
@@ -37,7 +37,7 @@
         </label>
       </div>
       <div>
-        <a href="#">Forgot password?</a>
+        <a href="{{ url_for( 'auth.forgot_password' ) }}">Forgot password?</a>
       </div>
     </div>
 
@@ -48,7 +48,7 @@
     <div class="no-acc">
       <p>
         Don't have an account?
-        <a href="{{ url_for( 'views.sign_up' ) }}">Register</a>
+        <a href="{{ url_for( 'auth.sign_up' ) }}">Register</a>
       </p>
     </div>
   </form>

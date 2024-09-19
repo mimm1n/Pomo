@@ -2,12 +2,14 @@ from flask import Flask
 from os import path
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
-from django.db import models
-#from django.contrib.auth.models import User
+# from django.db import models
+# from django.contrib.auth.models import User
 from flask_migrate import Migrate
+
 
 db = SQLAlchemy()
 DB_NAME = "database.db"
+
 
 def create_app():
     app = Flask(__name__, template_folder="templates", static_folder="static")
@@ -27,7 +29,7 @@ def create_app():
         db.create_all()
     
     login_manager = LoginManager()
-    login_manager.login_view = 'auth.login'
+    login_manager.login_view = 'auth.sign_up'
     login_manager.init_app(app)
 
     @login_manager.user_loader
