@@ -452,17 +452,20 @@ input[type="checkbox"]:checked + div .toggle-c {
   font-size: 20px;
 }
 
-.setsub:hover {
-  background-color: #2a2d35 !important;
-} 
-
 .dropdown-center button {
   font-size: 20px;
   width: 300px !important;
 }
 
+.dropdown-item {
+  padding: 0.7em 0.5em;
+  margin: 0.3em 0;
+  border-radius: 0.5em;
+  cursor: pointer;
+} 
+
 .dropdown-item:active {
-  background-color: #86759b !important;
+  background-color: #8c8ca4 !important;
   color: #ffffff !important;
 } 
 
