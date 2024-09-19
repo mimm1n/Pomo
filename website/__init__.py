@@ -7,15 +7,13 @@ from flask_moment import Moment
 
 
 db = SQLAlchemy()
-DB_NAME = "database.db"
-moment = Moment()   
+DB_NAME = "database.db" 
 
 def create_app():
     app = Flask(__name__, template_folder="templates", static_folder="static")
     app.config["SECRET_KEY"] = "W3AR3TH3COD3RS"
     app.config["SQLALCHEMY_DATABASE_URI"] = 'sqlite:///database1.db'
     db.init_app(app)
-    moment.init_app(app)
     
     from .views import views
     from .auth import auth
