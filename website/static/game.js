@@ -30,7 +30,7 @@ let isAlive = setInterval(function () {
     gameOver.style.color = "red";
     gameOver.style.fontSize = "30px";
     
-    // Stop the game
+    // ends the game
     clearInterval(isAlive);
   
     
