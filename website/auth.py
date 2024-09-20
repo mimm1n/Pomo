@@ -83,6 +83,44 @@ def login():
 
     return render_template("login.html", user=current_user)
 
+@auth.route('/forgot_password', methods=["GET", "POST"])
+def forgot_password():
+    if request.method == "POST":
+        email = request.form.get("email")
+        username = request.form.get("username")
+        password1 = request.form.get('password1')
+        con_password = request.form.get("password2")
+
+        user = User.query.filter_by(email=email).first()
+        
+        if len(password1) < 7:
+            flash('Password must be at least 8 characters.', category='error')
+        elif re.search(special_characters, password1) is None:
+            flash('Your password must have at least 1 special character (@, #, !, %)', category='error')
+        elif re.search(r'[0-9]', password1) is None:
+            flash('Your password must have at least 1 number.', category='error')
+        elif re.search(r'[A-Z]', password1) is None:
+            flash('Your password must have at least 1 uppercase letter.', category='error')
+        elif password1 != con_password:
+            flash('Passwords do not match.', category='error')
+        else:
+
+            new_user = User(
+                email=email, 
+                username=username, 
+                password = generate_password_hash(password1, method='sha256')
+            )
+
+            db.session.add(new_user)
+            db.session.commit()
+
+            login_user(new_user, remember=True)
+
+            flash('New Password Made!', category='success')
+            return redirect(url_for('views.home'))
+        
+    return render_template('forgot_password.html', user=current_user)
+
 @auth.route('/logout')
 @login_required
 def logout():
