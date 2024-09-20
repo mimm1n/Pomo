@@ -25,8 +25,15 @@ let isAlive = setInterval(function () {
 
   // detect collision
   if (ufoLeft < 50 && ufoLeft > 0 && charTop >= 80) {
-    // collision
-    // alert("Game Over");
+
+    gameOver.innerHTML = "Game Over!";
+    gameOver.style.color = "red";
+    gameOver.style.fontSize = "30px";
+    
+    // ends the game
+    clearInterval(isAlive);
+  
+    
   }
 }, 10);
 

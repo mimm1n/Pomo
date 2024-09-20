@@ -4,7 +4,7 @@
 <div class="p-container" id="fade-in">
   <div class="left">
     <div class="icon">
-      {{form.profile_pic.label(class="form-label")}}
+      {{form.profile_pic(class="form-label")}}
       {{form.profile_pic(class="form-control",
       value=name_to_update.profile_pic)}}
       <i class="fa-solid fa-pen-to-square"></i>
@@ -24,9 +24,6 @@
         </div>
       </div>
     </div>
-    <div>
-      <h4> scope="row">Last seen</h4>
-      <td>{{ moment(user.last_seen).fromNow() }}</td>
     </div>
 
     <div class="Character">
