@@ -4,12 +4,9 @@ from . import db
 from . import views
 from .models import User
 
-
-
-
 views = Blueprint('views', __name__ )
 
-@views.route("/")
+@views.route("/base")
 def landing():
     return render_template('base.html', user=current_user)
 

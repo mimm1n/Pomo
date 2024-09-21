@@ -156,9 +156,9 @@ function showTask() {
 showTask();
 
 
-// Settings.html
+//Settings.html
 
-// const dropdowns = document.querySelectorAll('.dropdown');
+ const dropdowns = document.querySelectorAll('.dropdown');
 
 // dropdowns.forEach(dropdown => {
 //   const select = dropdown.querySelector('.select');
@@ -184,9 +184,7 @@ showTask();
 //         option.classList.remove('active');
 //       });
 
-//         option.classList.add('active');
-//     });
-//   });
-// });
-
-
+//        option.classList.add('active');
+//    });
+//  });
+//});
