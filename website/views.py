@@ -4,9 +4,6 @@ from . import db
 from . import views
 from .models import User
 
-
-
-
 views = Blueprint('views', __name__ )
 
 @views.route("/base")
