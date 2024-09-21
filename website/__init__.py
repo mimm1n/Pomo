@@ -1,15 +1,11 @@
-from flask import Flask
+from flask import Flask, render_template, flash, request, redirect, url_for
 from os import path
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
-# from django.db import models
-# from django.contrib.auth.models import User
 from flask_migrate import Migrate
 
-
 db = SQLAlchemy()
-DB_NAME = "database.db"
-
+DB_NAME = "database.db" 
 
 def create_app():
     app = Flask(__name__, template_folder="templates", static_folder="static")
@@ -39,3 +35,6 @@ def create_app():
     migrate = Migrate(app, db)
 
     return app
+
+
+    
