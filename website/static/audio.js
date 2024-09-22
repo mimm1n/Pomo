@@ -18,8 +18,10 @@ window.addEventListener("load", () => {
 
 // 
 
-function changeColor(getColor){
-    let bg = document.querySelector('bg');
-    let selectColor = getColor.value;
-    bg.style.background = selectColor;
-}
+$( document ).ready(function() {
+    $('.dropdown-menu li').click(function(){
+           var color = $(this).data("color");
+   
+           $("#box").css('background-color',color);
+           });
+   });

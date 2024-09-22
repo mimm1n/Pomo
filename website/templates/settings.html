@@ -1,10 +1,10 @@
 {% extends "base.html" %} {% block title %}Settings{% endblock %} {% block body
 %}
-  
-  <div class="st-container" id="fade-in">
-    <form>
-      <table width="900" cellpadding="0" cellspacing="0" align="center"></table>
-    </form>
+
+<div class="st-container" id="fade-in">
+  <form>
+    <table width="900" cellpadding="0" cellspacing="0" align="center"></table>
+  </form>
 
   <div>
     <label for="togg-s" class="togg-label">
@@ -76,7 +76,13 @@
         </button>
         <ul class="dropdown-menu">
           <li>
-            <button class="dropdown-item" type="button">Background 1</button>
+            <button
+              value="{{ url_for ('static/css', filename='pixel_camp.jpg') }}"
+              class="dropdown-item"
+              type="button"
+            >
+              Background 1
+            </button>
           </li>
           <li>
             <button class="dropdown-item" type="button">Background 2</button>
@@ -96,5 +102,7 @@
       <input type="submit" class="btn btn-primary btn-block" value="Save" />
     </div>
   </div>
+
+  <script src="{{ url_for('static', filename='audio.js')}}"></script>
   {% endblock %}
 </div>
