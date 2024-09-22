@@ -157,15 +157,17 @@ showTask();
 
 //
 
-let bgm = document.getElementById("bgm");
-let play = document.getElementById("play");
+// let bgm = document.getElementById("bgm");
+// let play = document.getElementById("play");
 
-window.onload = function() {
-  if(play.paused){
-    play.play();
-  }
+// window.onload = function() {
+//   if(play.paused){
+//     play.play();
+//   }
 
-  else{
-    play.pause();
-  }
-}
+//   else{
+//     play.pause();
+//   }
+// }
+
+
