@@ -2,7 +2,7 @@
 
 const char = document.getElementById("char");
 const ufo = document.getElementById("ufo"); // constant value
-const gameOver = document.getElementById("gameover");
+const gameOver1 = document.getElementById("gameover");
 
 function jump() {
   if (char.classList != "jump") {
@@ -13,6 +13,11 @@ function jump() {
     }, 300);
   }
 }
+
+// function gameOver() {
+//   let paused = true;
+  
+// }
 
 let isAlive = setInterval(function () {
   // get current dino Y position
@@ -25,11 +30,9 @@ let isAlive = setInterval(function () {
 
   // detect collision
   if (ufoLeft < 50 && ufoLeft > 0 && charTop >= 80) {
-
-    gameOver.innerHTML = "Game Over!";
-    gameOver.style.color = "red";
-    gameOver.style.fontSize = "30px";
-    
+    alert("Game over!")
+    // gameOver1.innerHTML = "Game Over!";
+ 
     // ends the game
     clearInterval(isAlive);
   
