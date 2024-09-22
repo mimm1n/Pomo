@@ -136,8 +136,6 @@ def logout():
 @login_required
 def profile():
     
-    from .models import User
-    
     form = sign_up(request.form)
     id = current_user.id
     name_to_update = User.query.get_or_404(id)
