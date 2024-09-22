@@ -4,7 +4,7 @@
 <div class="p-container" id="fade-in">
   <div class="left">
     <div class="icon">
-      {{form.profile_pic.label(class="form-label")}}
+      {{form.profile_pic(class="form-label")}}
       {{form.profile_pic(class="form-control",
       value=name_to_update.profile_pic)}}
       <i class="fa-solid fa-pen-to-square"></i>
@@ -24,9 +24,6 @@
         </div>
       </div>
     </div>
-    <div>
-      <h4> scope="row">Last seen</h4>
-      <td>{{ moment(user.last_seen).fromNow() }}</td>
     </div>
 
     <div class="Character">
@@ -35,7 +32,7 @@
           <span class="selected">Character Option:</span>
           <div class="caret"></div>
         </div>
-          <ul class="dropdown-menu">
+          <ul class="dropdown-Option",>
             <li class="active" src="astro.png" alt="user" width="100">Astro</li>
             <li class="active" src="girl.png" alt="user" width="100">Girl</li>
             <li class="active" src="guy.png" alt="user" width="100">Guy</li>

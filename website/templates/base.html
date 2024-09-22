@@ -30,20 +30,6 @@
 
         <ul class="sidebar-nav p-0">
           <li class="sidebar-item">
-            <a href="{{ url_for( 'views.sign_up' ) }}" class="sidebar-link">
-              <i class="fa-solid fa-user"></i>
-              <span>Sign Up</span>
-            </a>
-          </li>
-
-          <li class="sidebar-item">
-            <a href="{{ url_for( 'views.login' ) }}" class="sidebar-link">
-              <i class="fa-solid fa-right-to-bracket"></i>
-              <span> Login</span>
-            </a>
-          </li>
-
-          <li class="sidebar-item">
             <a href="{{ url_for( 'views.profile' ) }}" class="sidebar-link">
               <i class="fa-solid fa-paintbrush"></i>
               <span>Profile</span>
@@ -56,11 +42,26 @@
               <span>Settings</span>
             </a>
           </li>
+
+          <li class="sidebar-item">
+            <a href="{{ url_for( 'auth.sign_up' ) }}" class="sidebar-link">
+              <i class="fa-solid fa-user"></i>
+              <span>Sign Up</span>
+            </a>
+          </li>
+
+          <li class="sidebar-item">
+            <a href="{{ url_for( 'auth.login' ) }}" class="sidebar-link">
+              <i class="fa-solid fa-right-to-bracket"></i>
+              <span> Login</span>
+            </a>
+          </li>
         </ul>
+
         <br />
 
         <div class="sidebar-footer">
-          <a href="#" class="sidebar-link">
+          <a href="{{ url_for( 'views.home' ) }}" class="sidebar-link">
             <i class="fa-solid fa-right-from-bracket"></i>
             <span>Logout</span>
           </a>
@@ -77,31 +78,41 @@
 
       <audio id="bgm" src="A Lonely Cherry Tree.mp3" autoplay loop></audio>
 
-      <!-- {% with messages = get_flashed_messages(with_categories=true) %} {% if
-      messages %} {% for category, message in messages %} {% if category ==
-      "error" %}
-      <div class="alert alert-danger alter-dismissable fade show" role="alert">
-        {{ message }}
-        <button type="button" class="close" data-dimiss="alert">
-          <span aria-hiddne="true">&times;</span>
-        </button>
-      </div>
-      {% else %}
-      <div class="alert alert-success alter-dismissable fade show" role="alert">
-        {{ message }}
-        <button type="button" class="close" data-dimiss="alert">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      {% endif %} {% endfor %} {% endif %} {% endwith %} -->
-
       <div class="container">
-        {% block body %}
+        {% with messages = get_flashed_messages(with_categories=true) %} {% if
+        messages %} {% for category, message in messages %} {% if category ==
+        "error" %}
+        <div
+          class="alert alert-danger alert-dismissible fade show"
+          role="alert"
+        >
+          {{ message }}
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="alert"
+            aria-label="close"
+          ></button>
+        </div>
+        {% else %}
+        <div
+          class="alert alert-success alert-dismissible fade show"
+          role="alert"
+        >
+          {{ message }}
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="alert"
+            aria-label="close"
+          ></button>
+        </div>
+        {% endif %} {% endfor %} {% endif %} {% endwith %} {% block body %}
         <div class="ldg-container" id="fade-in">
           <h1>Welcome to your dream website!</h1>
           <p>Brought to you by Mimi, Nana and Azri</p>
 
-          <a href="{{ url_for( 'views.home' ) }}">
+          <a href="{{ url_for( 'views.base' ) }}">
             <button class="btn btn-primary btn-block" id="play">
               Get started!
             </button>
