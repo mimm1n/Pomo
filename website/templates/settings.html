@@ -74,24 +74,26 @@
         >
           Background Options
         </button>
-        <ul class="dropdown-menu">
+        <ul class="dropdown-menu" id="bg-choices">
           <li>
-            <button
-              value="{{ url_for ('static/css', filename='pixel_camp.jpg') }}"
-              class="dropdown-item"
-              type="button"
-            >
+            <button value="1" class="dropdown-item" type="button">
               Background 1
             </button>
           </li>
           <li>
-            <button class="dropdown-item" type="button">Background 2</button>
+            <button value="2" class="dropdown-item" type="button">
+              Background 2
+            </button>
           </li>
           <li>
-            <button class="dropdown-item" type="button">Background 3</button>
+            <button value="3" class="dropdown-item" type="button">
+              Background 3
+            </button>
           </li>
           <li>
-            <button class="dropdown-item" type="button">Background 4</button>
+            <button value="4" class="dropdown-item" type="button">
+              Background 4
+            </button>
           </li>
         </ul>
       </div>

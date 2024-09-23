@@ -18,10 +18,10 @@ window.addEventListener("load", () => {
 
 // 
 
-$( document ).ready(function() {
-    $('.dropdown-menu li').click(function(){
-           var color = $(this).data("color");
+// $( document ).ready(function() {
+//     $('.dropdown-menu li').click(function(){
+//            var color = $(this).data("color");
    
-           $("#box").css('background-color',color);
-           });
-   });
+//            $("#box").css('background-color',color);
+//            });
+//    });
