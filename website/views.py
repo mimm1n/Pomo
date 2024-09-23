@@ -20,7 +20,6 @@ def profile():
     return render_template('profile.html', user=current_user)
 
 @views.route('/home')
-@login_required
 def home():
     return render_template('pomo.html', user=current_user)
  

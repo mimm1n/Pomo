@@ -13,7 +13,7 @@ def create_app():
     app.config["SECRET_KEY"] = "W3AR3TH3COD3RS"
     
     
-    db = SQLAlchemy(app)
+    # db = SQLAlchemy(app)
     
     db.init_app(app)
     
