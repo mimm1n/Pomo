@@ -4,9 +4,7 @@ import re
 from werkzeug.security import generate_password_hash, check_password_hash
 from . import db   #means from __init__.py import db
 from flask_login import login_user, login_required, logout_user, current_user
-from werkzeug.utils import secure_filename
-import uuid as uuid
-import os
+
 
 
 auth = Blueprint('auth', __name__)
@@ -128,38 +126,7 @@ def logout():
     logout_user()
     return redirect(url_for('auth.login'))
 
-   
 
-    
-@auth.route('/profile', methods=['GET', 'POST'])
-@login_required
-def profile():
-    
-    form = sign_up(request.form)
-    id = current_user.id
-    name_to_update = User.query.get_or_404(id)
-    
-    if request.method == "POST":
-        name_to_update.email = request.form.get['email']
-        name_to_update.username = request.form.get['username']
-            
-        try:
-                db.session.commit()
-                flash("User Updated Successfully!")
-                return render_template("profile.html", 
-					form=form,
-					name_to_update = name_to_update)
-        except:
-                flash("Error!  Looks like there was a problem...try again!")
-                return render_template("profile.html", 
-					form=form,
-					name_to_update = name_to_update)         
-    else:
-            db.session.commit()
-            flash("User Updated Successfully!")
-            return render_template("profile.html", 
-				form=form, 
-				name_to_update = name_to_update)
     
 
 

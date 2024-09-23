@@ -7,3 +7,6 @@ class User(db.Model, UserMixin):
     password = db.Column(db.String(100))
     username = db.Column(db.String(150), unique=True)
 
+
+    def __repr__(self):
+        return f'<User {self.username}>'
