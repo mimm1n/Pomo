@@ -87,32 +87,33 @@ def forgot_password():
         password1 = request.form.get('password3')
         con_password = request.form.get('password4')
         # email = request.form.get("email")
-        #username = request.form.get("username")
+        username = request.form.get("username")
 
-        
-        if user:
-            if len(password1) < 7:
-                flash('Password must be at least 8 characters.', category='error')
-            elif re.search(special_characters, password1) is None:
-                flash('Your password must have at least 1 special character (@, #, !, %)', category='error')
-            elif re.search(r'[0-9]', password1) is None:
-                flash('Your password must have at least 1 number.', category='error')
-            elif re.search(r'[A-Z]', password1) is None:
-                flash('Your password must have at least 1 uppercase letter.', category='error')
-            elif password1 != con_password :
-                flash('Passwords do not match.', category='error')
-            else:
+       
+        user = User.query.filter_by(username=username).first()
 
-                user = User(
-                password = generate_password_hash(password1, method='pbkdf2:sha256')
-                 )
+        if len(password1) < 7:
+            flash('Password must be at least 8 characters.', category='error')
+        elif re.search(special_characters, password1) is None:
+            flash('Your password must have at least 1 special character (@, #, !, %)', category='error')
+        elif re.search(r'[0-9]', password1) is None:
+            flash('Your password must have at least 1 number.', category='error')
+        elif re.search(r'[A-Z]', password1) is None:
+            flash('Your password must have at least 1 uppercase letter.', category='error')
+        elif password1 != con_password :
+            flash('Passwords do not match.', category='error')
+        else:
 
-                db.session.add(user)
-                db.session.commit()
+            # new_user = User(
+            # password = generate_password_hash(password1, method='pbkdf2:sha256')
+            #     )
 
-                login_user(user, remember=True)
-                flash('New Password Made!', category='success')
-                return redirect(url_for('auth.login'))
+            # db.session.add(new_user)
+            # db.session.commit()
+
+            login_user(user, remember=True)
+            flash('New Password Made!', category='success')
+            return redirect(url_for('auth.login'))
         # else:
         #     flash('username does not exist.', category='error')
 
