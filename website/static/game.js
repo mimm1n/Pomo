@@ -1,8 +1,10 @@
 //game.js//
 
 const char = document.getElementById("char");
-const ufo = document.getElementById("ufo"); // constant value
-const gameOver1 = document.getElementById("gameover");
+const ufo = document.getElementById("ufo");
+const gameOverText = document.getElementById("gameover");
+
+let gameOver = false;  // Initial state of the game
 
 function jump() {
   if (char.classList != "jump") {
@@ -14,32 +16,40 @@ function jump() {
   }
 }
 
-// function gameOver() {
-//   let paused = true;
-  
-// }
-
-let isAlive = setInterval(function () {
-  // get current dino Y position
+// a function to detect collisions
+function detectCollisions() {
   let charTop = parseInt(window.getComputedStyle(char).getPropertyValue("top"));
+  let ufoLeft = parseInt(window.getComputedStyle(ufo).getPropertyValue("left"));
 
-  // get current cactus X position
-  let ufoLeft = parseInt(
-    window.getComputedStyle(ufo).getPropertyValue("left")
-  );
-
-  // detect collision
+  // Detect if the character hits the UFO
   if (ufoLeft < 50 && ufoLeft > 0 && charTop >= 80) {
-    alert("Game over!")
-    // gameOver1.innerHTML = "Game Over!";
- 
-    // ends the game
-    clearInterval(isAlive);
-  
-    
+    gameOver = true;  // Set gameOver to true when collision happens
   }
-}, 10);
+}
 
+// Game loop that runs continuously
+function gameLoop() {
+  // Detect collision and set gameOver to true if needed
+  detectCollisions();
+  
+  if (gameOver) {
+    // Display "Game Over!" message if the game is over
+    gameOverText.innerHTML = "Game Over!";
+    gameOverText.style.color = "red";
+    gameOverText.style.fontSize = "30px";
+    gameOverText.style.display = "block";  // Make sure the text is visible
+
+    // End the game loop by stopping further actions
+    clearInterval(isAlive);
+  } 
+}
+
+// Set an interval for the game loop to run
+let isAlive = setInterval(gameLoop, 10);
+
+// Listen for keydown events to trigger the jump
 document.addEventListener("keydown", function (event) {
-  jump();
+  if (!gameOver) {
+    jump();
+  }
 });

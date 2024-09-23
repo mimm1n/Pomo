@@ -12,3 +12,6 @@ class User(db.Model, UserMixin):
     #     self.password = kwargs.get('password')
     #     self.username = kwargs.get('username')
 
+
+    def __repr__(self):
+        return f'<User {self.username}>'
