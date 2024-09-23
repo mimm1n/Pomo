@@ -128,6 +128,57 @@ def logout():
 
 
     
+# @auth.route('/profile', methods=['GET', 'POST'])
+# @login_required
+# def profile():
+    
+#     form = sign_up(request.form)
+#     id = current_user.id
+#     name_to_update = User.query.get_or_404(id)
+    
+#     if request.method == "POST":
+#         name_to_update.email = request.form.get['email']
+#         name_to_update.username = request.form.get['username']
+  
+        # if request.files['profile_pic']:# Check for profile pic
+            
+        #     name_to_update.profile_pic = request.files.get['profile_pic']
+
+		# 	# Grab Image Name
+        #     pic_filename = secure_filename(name_to_update.profile_pic.filename)
+		# 	# Set UUID
+        #     pic_name = str(uuid.uuid1()) + "_" + pic_filename
+		# 	# Save That Image
+        #     saver = request.files['profile_pic']
+			
+
+		# 	# Change it to a string to save to db
+        #     name_to_update.profile_pic = pic_name
+            
+        #     try:
+        #         db.session.commit()
+        #         saver.save(os.path.join(auth.config['UPLOAD_FOLDER'], pic_name))
+        #         flash("User Updated Successfully!")
+        #         return render_template("profile.html", 
+		# 			form=form,
+		# 			name_to_update = name_to_update)
+        #     except:
+        #         flash("Error!  Looks like there was a problem...try again!")
+        #         return render_template("profile.html", 
+		# 			form=form,
+		# 			name_to_update = name_to_update)
+    # else:
+    #     db.session.commit()
+    #     flash("User Updated Successfully!")
+    #     return render_template("profile.html", 
+    #         form=form, 
+    #         name_to_update = name_to_update)
+    # else:
+    #     return render_template("pomo.html", 
+	# 			form=form,
+	# 			name_to_update = name_to_update,
+	# 			id = id)
+    
 
 
 
