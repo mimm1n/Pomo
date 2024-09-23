@@ -3,17 +3,16 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
 from flask_migrate import Migrate
 
+
 db = SQLAlchemy()
 DB_NAME = "database.db" 
 
 def create_app():
+
     app = Flask(__name__, template_folder="templates", static_folder="static")
-    
     app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'
     app.config["SECRET_KEY"] = "W3AR3TH3COD3RS"
     
-    
-    # db = SQLAlchemy(app)
     
     db.init_app(app)
     
