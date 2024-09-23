@@ -8,13 +8,23 @@ DB_NAME = "database.db"
 
 def create_app():
     app = Flask(__name__, template_folder="templates", static_folder="static")
+    
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'
     app.config["SECRET_KEY"] = "W3AR3TH3COD3RS"
-    app.config["SQLALCHEMY_DATABASE_URI"] = 'sqlite:///database1.db'
-    db.init_app(app)
+    
+    
+    db = SQLAlchemy(app)
+    
+    #db.init_app(app)
+    
+    
+    from .route import main
+    app.register_blueprint(main)
+    
     
     from .views import views
     from .auth import auth
-
+    
     app.register_blueprint(views, url_prefix = '/' )
     app.register_blueprint(auth, url_prefix = '/' )
     
@@ -28,12 +38,12 @@ def create_app():
     login_manager.init_app(app)
 
     @login_manager.user_loader
-    def user_loader(id):
-         return User.query.get(int(id))
+    def load_user(id):
+        return User.query.get(int(id))
     
     migrate = Migrate(app, db)
+    
 
     return app
-
 
     

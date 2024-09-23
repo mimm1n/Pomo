@@ -155,7 +155,18 @@ function showTask() {
 
 showTask();
 
+//
+var bgArray = ["pixel_camp.jpg", "campsite.jpg", "mountainside.jpg"];
 
-//Settings.html
+$("#bg-choices").on("change", function () {
+  value = $(this).val() - 1;
+  $("body").css({ "background-image": "url(" + bgArray[value] + ")" });
+});
 
- const dropdowns = document.querySelectorAll('.dropdown');
+$( document ).ready(function() {
+  $('.dropdown-menu li').click(function(){
+           var color = $(this).data("color");
+          
+           $("#box").css('background-color',color);
+           });
+});

@@ -1,13 +1,10 @@
 from flask import Blueprint, render_template, request, flash, redirect, url_for
 from .models import User
 import re
-from .models import User
 from werkzeug.security import generate_password_hash, check_password_hash
 from . import db   #means from __init__.py import db
 from flask_login import login_user, login_required, logout_user, current_user
-from werkzeug.utils import secure_filename
-import uuid as uuid
-import os
+
 
 auth = Blueprint('auth', __name__)
 
@@ -90,10 +87,8 @@ def forgot_password():
         password1 = request.form.get('password3')
         con_password = request.form.get('password4')
         # email = request.form.get("email")
-        username = request.form.get("username")
+        #username = request.form.get("username")
 
-
-        user = User.query.filter_by(username=username).first()
         
         if user:
             if len(password1) < 7:
@@ -108,20 +103,18 @@ def forgot_password():
                 flash('Passwords do not match.', category='error')
             else:
 
-                new_user = User(
-                    # email = email,
-                    # username = username,
-                    password = generate_password_hash(password1, method='pbkdf2:sha256')
-                )
+                user = User(
+                password = generate_password_hash(password1, method='pbkdf2:sha256')
+                 )
 
-                db.session.add(new_user)
+                db.session.add(user)
                 db.session.commit()
 
-                login_user(new_user, remember=True)
+                login_user(user, remember=True)
                 flash('New Password Made!', category='success')
                 return redirect(url_for('auth.login'))
-        else:
-            flash('username does not exist.', category='error')
+        # else:
+        #     flash('username does not exist.', category='error')
 
 
     return render_template('forgot_password.html', user=current_user)
@@ -132,38 +125,58 @@ def logout():
     logout_user()
     return redirect(url_for('auth.login'))
 
-   
 
     
-@auth.route('/profile', methods=['GET', 'POST'])
-@login_required
-def profile():
+# @auth.route('/profile', methods=['GET', 'POST'])
+# @login_required
+# def profile():
     
-    form = sign_up(request.form)
-    id = current_user.id
-    name_to_update = User.query.get_or_404(id)
+#     form = sign_up(request.form)
+#     id = current_user.id
+#     name_to_update = User.query.get_or_404(id)
     
-    if request.method == "POST":
-        name_to_update.email = request.form.get['email']
-        name_to_update.username = request.form.get['username']
+#     if request.method == "POST":
+#         name_to_update.email = request.form.get['email']
+#         name_to_update.username = request.form.get['username']
+  
+        # if request.files['profile_pic']:# Check for profile pic
             
-        try:
-                db.session.commit()
-                flash("User Updated Successfully!")
-                return render_template("profile.html", 
-					form=form,
-					name_to_update = name_to_update)
-        except:
-                flash("Error!  Looks like there was a problem...try again!")
-                return render_template("profile.html", 
-					form=form,
-					name_to_update = name_to_update)         
-    else:
-            db.session.commit()
-            flash("User Updated Successfully!")
-            return render_template("profile.html", 
-				form=form, 
-				name_to_update = name_to_update)
+        #     name_to_update.profile_pic = request.files.get['profile_pic']
+
+		# 	# Grab Image Name
+        #     pic_filename = secure_filename(name_to_update.profile_pic.filename)
+		# 	# Set UUID
+        #     pic_name = str(uuid.uuid1()) + "_" + pic_filename
+		# 	# Save That Image
+        #     saver = request.files['profile_pic']
+			
+
+		# 	# Change it to a string to save to db
+        #     name_to_update.profile_pic = pic_name
+            
+        #     try:
+        #         db.session.commit()
+        #         saver.save(os.path.join(auth.config['UPLOAD_FOLDER'], pic_name))
+        #         flash("User Updated Successfully!")
+        #         return render_template("profile.html", 
+		# 			form=form,
+		# 			name_to_update = name_to_update)
+        #     except:
+        #         flash("Error!  Looks like there was a problem...try again!")
+        #         return render_template("profile.html", 
+		# 			form=form,
+		# 			name_to_update = name_to_update)
+    # else:
+    #     db.session.commit()
+    #     flash("User Updated Successfully!")
+    #     return render_template("profile.html", 
+    #         form=form, 
+    #         name_to_update = name_to_update)
+    # else:
+    #     return render_template("pomo.html", 
+	# 			form=form,
+	# 			name_to_update = name_to_update,
+	# 			id = id)
     
 
 
