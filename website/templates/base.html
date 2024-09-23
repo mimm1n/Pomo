@@ -76,8 +76,6 @@
         </nav>
       </div>
 
-      <audio id="bgm" src="A Lonely Cherry Tree.mp3" autoplay loop></audio>
-
       <div class="base-container">
         {% with messages = get_flashed_messages(with_categories=true) %} {% if
         messages %} {% for category, message in messages %} {% if category ==
@@ -112,16 +110,26 @@
           <h1>Welcome to your dream website!</h1>
           <p>Brought to you by Mimi, Nana and Azri</p>
 
-          <a href="{{ url_for( 'views.base' ) }}">
-            <button class="btn btn-primary btn-block" id="play">
-              Get started!
-            </button>
-          </a>
+          <div id="play">
+            <a href="{{ url_for( 'views.home' ) }}">
+              <button class="btn btn-primary btn-block">
+                Get started!
+              </button>
+            </a>
+          </div>
         </div>
         {% endblock %}
       </div>
     </div>
 
+    <audio id="bgm" autoplay loop>
+      <source
+        src="{{ url_for ('static', filename='A Lonely Cherry Tree.mp3') }} "
+        type="audio/mpeg"
+      />
+    </audio>
+
+    <script src="{{ url_for('static', filename='audio.js')}}"></script>
     <script src="{{ url_for('static', filename='script.js')}}"></script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
