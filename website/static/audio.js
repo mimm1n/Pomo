@@ -1,5 +1,5 @@
 window.addEventListener("load", () => {
-  let bgm = document.getElementById("bgm");
+  var bgm = document.getElementById("bgm");
 
   if (bgm.paused) {
     let play = document.getElementById("play");
@@ -23,4 +23,18 @@ checkbox.addEventListener("change", function () {
     console.log("Checkbox is not checked..");
     bgm.pause();
   }
+});
+
+// volbar
+
+// var volBar = document.querySelector("#volbar");
+
+// volBar.addEventListener("input", function (e) {
+//   bgm.volBar = e.currentTarget.value / 100;
+// });
+
+let volume = document.querySelector("#volbar");
+
+volume.addEventListener("change", function (e) {
+  bgm.volume = e.currentTarget.value / 100;
 });
