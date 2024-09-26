@@ -29,6 +29,7 @@
         </div>
 
         <ul class="sidebar-nav p-0">
+          {% if user.is_authenticated %}
           <li class="sidebar-item">
             <a href="{{ url_for( 'views.profile' ) }}" class="sidebar-link">
               <i class="fa-solid fa-paintbrush"></i>
@@ -42,7 +43,7 @@
               <span>Settings</span>
             </a>
           </li>
-
+          {% else %}
           <li class="sidebar-item">
             <a href="{{ url_for( 'auth.sign_up' ) }}" class="sidebar-link">
               <i class="fa-solid fa-user"></i>
@@ -56,16 +57,19 @@
               <span> Login</span>
             </a>
           </li>
+
+          {% endif %}
         </ul>
 
         <br />
-
+        {% if user.is_authenticated %}
         <div class="sidebar-footer">
-          <a href="{{ url_for( 'views.home' ) }}" class="sidebar-link">
+          <a href="{{ url_for( 'auth.logout' ) }}" class="sidebar-link">
             <i class="fa-solid fa-right-from-bracket"></i>
             <span>Logout</span>
           </a>
         </div>
+        {% endif %}
       </aside>
 
       <div class="main">
@@ -112,9 +116,7 @@
 
           <div id="play">
             <a href="{{ url_for( 'views.home' ) }}">
-              <button class="btn btn-primary btn-block">
-                Get started!
-              </button>
+              <button class="btn btn-primary btn-block">Get started!</button>
             </a>
           </div>
         </div>
