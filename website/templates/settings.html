@@ -1,15 +1,15 @@
 {% extends "base.html" %} {% block title %}Settings{% endblock %} {% block body
 %}
-  
-  <div class="st-container" id="fade-in">
-    <form>
-      <table width="900" cellpadding="0" cellspacing="0" align="center"></table>
-    </form>
+
+<div class="st-container" id="fade-in">
+  <form>
+    <table width="900" cellpadding="0" cellspacing="0" align="center"></table>
+  </form>
 
   <div>
     <label for="togg-s" class="togg-label">
       <span>Sound</span>
-      <input type="checkbox" name="" id="togg-s" />
+      <input type="checkbox" name="togg-s" id="togg-s" checked />
       <div class="toggle-container">
         <span class="toggle"></span>
         <span class="toggle-c"></span>
@@ -47,8 +47,8 @@
 
     <div>
       <span>Volume</span>
-      <input type="range" id="vol" name="vol" min="0" max="100" />
-      <audio id="audio" src=""></audio>
+      <input type="range" id="volbar" name="vol" min="0" max="100" />
+      <!-- <audio id="audio" src=""></audio> -->
     </div>
 
     <br />
@@ -56,7 +56,7 @@
     <div>
       <label for="togg-bg" class="togg-label">
         <span>Background</span>
-        <input type="checkbox" name="" id="togg-bg" />
+        <input type="checkbox" name="" id="togg-bg" checked />
         <div class="toggle-container">
           <span class="toggle"></span>
           <span class="toggle-c"></span>
@@ -74,18 +74,26 @@
         >
           Background Options
         </button>
-        <ul class="dropdown-menu">
+        <ul class="dropdown-menu" id="bg-choices">
           <li>
-            <button class="dropdown-item" type="button">Background 1</button>
+            <button value="1" class="dropdown-item" type="button">
+              Background 1
+            </button>
           </li>
           <li>
-            <button class="dropdown-item" type="button">Background 2</button>
+            <button value="2" class="dropdown-item" type="button">
+              Background 2
+            </button>
           </li>
           <li>
-            <button class="dropdown-item" type="button">Background 3</button>
+            <button value="3" class="dropdown-item" type="button">
+              Background 3
+            </button>
           </li>
           <li>
-            <button class="dropdown-item" type="button">Background 4</button>
+            <button value="4" class="dropdown-item" type="button">
+              Background 4
+            </button>
           </li>
         </ul>
       </div>
@@ -96,5 +104,7 @@
       <input type="submit" class="btn btn-primary btn-block" value="Save" />
     </div>
   </div>
+
+  <script src="{{ url_for('static', filename='audio.js')}}"></script>
   {% endblock %}
 </div>

@@ -1,18 +1,13 @@
-from flask import Blueprint, render_template, request, flash, redirect, url_for
+from flask import Blueprint, render_template, request, flash, redirect, url_for, flash
 from .models import User
 import re
-from .models import User
 from werkzeug.security import generate_password_hash, check_password_hash
-from . import db   #means from __init__.py import db
+from . import db   #from __init__.py import db
 from flask_login import login_user, login_required, logout_user, current_user
-from werkzeug.utils import secure_filename
-import uuid as uuid
-import os
-
 
 auth = Blueprint('auth', __name__)
 
-special_characters = r'[!@#%]'
+special_characters = r'[!@#%=+-]'
 
 @auth.route('/sign-up', methods=['GET', 'POST'])
 def sign_up():
@@ -129,39 +124,32 @@ def logout():
     logout_user()
     return redirect(url_for('auth.login'))
 
-   
 
-    
 @auth.route('/profile', methods=['GET', 'POST'])
-@login_required
-def profile():
+def profile_change():
     
-    form = sign_up(request.form)
-    id = current_user.id
-    name_to_update = User.query.get_or_404(id)
-    
-    if request.method == "POST":
-        name_to_update.email = request.form.get['email']
-        name_to_update.username = request.form.get['username']
-            
-        try:
-                db.session.commit()
-                flash("User Updated Successfully!")
-                return render_template("profile.html", 
-					form=form,
-					name_to_update = name_to_update)
-        except:
-                flash("Error!  Looks like there was a problem...try again!")
-                return render_template("profile.html", 
-					form=form,
-					name_to_update = name_to_update)         
-    else:
-            db.session.commit()
-            flash("User Updated Successfully!")
-            return render_template("profile.html", 
-				form=form, 
-				name_to_update = name_to_update)
-    
+    user = User.query.get(1) #getting the 1 id to simplyfy it
+
+    if request.method == 'POST':
+        new_email = request.form['email']
+        new_username = request.form['username']
+
+        # Checks if the new username already exists 
+        existing_user = User.query.filter_by(username=new_username).first()
+        if existing_user and existing_user.id != user.id:
+            flash('Username already taken. Please choose another one.')
+            return redirect(url_for('auth.profile_change'))
+
+        # if username is unique, it will update
+        user.email = new_email
+        user.username = new_username
+        db.session.commit()
+
+        flash('Profile updated successfully!')
+        return redirect(url_for('views.profile'))
+
+    return render_template('profile.html', user=user)
+
 
 
 
