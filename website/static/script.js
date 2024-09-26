@@ -171,4 +171,8 @@ $("#bg-choices").on("change", function () {
 //            });
 // });
 
-//
+// user data for character selection 
+
+document.getElementById('Character').addEventListener('change', function() {
+  localStorage.setItem('SelectedCharacter', SelectedCharacter);
+});
