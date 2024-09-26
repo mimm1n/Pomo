@@ -1,5 +1,5 @@
 window.addEventListener("load", () => {
-  let bgm = document.getElementById("bgm");
+  var bgm = document.getElementById("bgm");
 
   if (bgm.paused) {
     let play = document.getElementById("play");
@@ -24,3 +24,20 @@ checkbox.addEventListener("change", function () {
     bgm.pause();
   }
 });
+
+// volbar
+
+let volume = document.querySelector("#volbar");
+
+volume.addEventListener("change", function (e) {
+  bgm.volume = e.currentTarget.value / 100;
+});
+
+// var bgArray = [
+//   '//placehold.it/400x300?text=BG1',
+//      '//placehold.it/400x300?text=BG2'
+//     ]
+// $('#dropdown-menu').on('change', function(){
+// value = $(this).val() - 1;
+// $('#test-bg').css({'background-image':'url(' + bgArray[value] + ')'});
+// });
