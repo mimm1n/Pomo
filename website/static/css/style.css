@@ -28,6 +28,13 @@ h1 {
   align-items: center;
 }
 
+#test-bg{
+  width:400px;
+  height:300px;
+  outline:1px dotted gray;
+  margin:0 auto;
+}
+
 /* ----------------------------------- landing ----------------------------------- */
 
 .ldg-container {
@@ -478,7 +485,7 @@ input[type="checkbox"]:checked + div .toggle-c {
   color: #ffffff !important;
 } 
 
-#vol {
+#volbar {
   accent-color: #62567d;
 }
 
