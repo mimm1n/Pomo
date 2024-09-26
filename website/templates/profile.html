@@ -34,9 +34,15 @@
         <div class="Character">
           <h4>Select a Character:</h4>
           <Select name="character" id="Character">
-            <option value="astro.png">astro</option>
-            <option value="Girl.png">girl</option>
-            <option value="Guy.png">guy</option>
+            <option value="astro.png">astro
+              <img href="{{ url_for('static', filename='css/astro.png') }}"></img>
+            </option>
+            <option value="Girl.png">girl
+              <img href="{{ url_for('static', filename='css/girl.png') }}"></img>
+            </option>
+            <option value="Guy.png">guy
+              <img href="{{ url_for('static', filename='css/guy.png') }}"></img>
+            </option>
           </select>
         </div>
         <div class="btn-lg">
