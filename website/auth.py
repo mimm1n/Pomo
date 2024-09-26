@@ -2,7 +2,7 @@ from flask import Blueprint, render_template, request, flash, redirect, url_for,
 from .models import User
 import re
 from werkzeug.security import generate_password_hash, check_password_hash
-from . import db   #means from __init__.py import db
+from . import db   #from __init__.py import db
 from flask_login import login_user, login_required, logout_user, current_user
 
 auth = Blueprint('auth', __name__)
@@ -138,7 +138,7 @@ def profile_change():
         existing_user = User.query.filter_by(username=new_username).first()
         if existing_user and existing_user.id != user.id:
             flash('Username already taken. Please choose another one.')
-            return redirect(url_for('main.profile'))
+            return redirect(url_for('auth.profile_change'))
 
         # if username is unique, it will update
         user.email = new_email
@@ -146,7 +146,7 @@ def profile_change():
         db.session.commit()
 
         flash('Profile updated successfully!')
-        return redirect(url_for('main.profile'))
+        return redirect(url_for('views.profile'))
 
     return render_template('profile.html', user=user)
 
