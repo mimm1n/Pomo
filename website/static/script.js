@@ -163,14 +163,12 @@ $("#bg-choices").on("change", function () {
   $("body").css({ "background-image": "url(" + bgArray[value] + ")" });
 });
 
-$( document ).ready(function() {
-  $('.dropdown-menu li').click(function(){
-           var color = $(this).data("color");
+// $( document ).ready(function() {
+//   $('.dropdown-menu li').click(function(){
+//            var color = $(this).data("color");
           
-           $("#box").css('background-color',color);
-           });
-});
+//            $("#box").css('background-color',color);
+//            });
+// });
 
-// forgot_password.html 
-
-import Userfront from "@userfront/core";
+//
