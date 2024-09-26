@@ -21,23 +21,19 @@
             <input type="text" name="username" value="{{ user.username }}" required>
           </div>
         </div>
+        <div class="Character">
+          <h4>Select a Character:</h4>
+          <Select name="character" id="SelectCharacter">
+            <option value="astro.png">Astro</option>
+            <option value="Girl.png">Girl</option>
+            <option value="Guy.png">Guy</option>
+          </select>
+        </div>
         <button type="submit">Update Profile</button>
       </form>
     </div>
   </div>
 
-  <div class="Character">
-    <div class="dropdown">
-      <div class="select">
-        <span class="selected">Character Option:</span>
-        <div class="caret"></div>
-      </div>
-      <ul class="dropdown-Option">
-        <li class="active" src="astro.png" alt="user" width="100">Astro</li>
-        <li class="active" src="girl.png" alt="user" width="100">Girl</li>
-        <li class="active" src="guy.png" alt="user" width="100">Guy</li>
-      </ul>
-    </div>
-  </div>
 </div>
+
 {% endblock %}
