@@ -84,39 +84,40 @@ def login():
 @auth.route('/forgot_password', methods=["GET", "POST"])
 def forgot_password():
     if request.method == "POST":
-        password1 = request.form.get('password3')
-        con_password = request.form.get('password4')
+        password1 = request.form.get('password1')
+        con_password = request.form.get('password2')
         # email = request.form.get("email")
         username = request.form.get("username")
-
        
         user = User.query.filter_by(username=username).first()
+        # user = User.query.filter_by(password=password1).first()  <---
+        # user = User.query.filter_by(email=email).first()
 
-        if len(password1) < 7:
-            flash('Password must be at least 8 characters.', category='error')
-        elif re.search(special_characters, password1) is None:
-            flash('Your password must have at least 1 special character (@, #, !, %)', category='error')
-        elif re.search(r'[0-9]', password1) is None:
-            flash('Your password must have at least 1 number.', category='error')
-        elif re.search(r'[A-Z]', password1) is None:
-            flash('Your password must have at least 1 uppercase letter.', category='error')
-        elif password1 != con_password :
-            flash('Passwords do not match.', category='error')
+        if user:
+            if len(password1) < 7:
+                flash('Password must be at least 8 characters.', category='error')
+            elif re.search(special_characters, password1) is None:
+                flash('Your password must have at least 1 special character (@, #, !, %)', category='error')
+            elif re.search(r'[0-9]', password1) is None:
+                flash('Your password must have at least 1 number.', category='error')
+            elif re.search(r'[A-Z]', password1) is None:
+                flash('Your password must have at least 1 uppercase letter.', category='error')
+            elif password1 != con_password :
+                flash('Passwords do not match.', category='error')
+            else:
+
+                user = User(
+                password = generate_password_hash(password1, method='pbkdf2:sha256')
+                    )
+
+                db.session.add(user)
+                db.session.commit()
+
+                flash('New Password Made!', category='success')
+                login_user(user, remember=True)
+                return redirect(url_for('auth.login'))
         else:
-
-            # new_user = User(
-            # password = generate_password_hash(password1, method='pbkdf2:sha256')
-            #     )
-
-            # db.session.add(new_user)
-            # db.session.commit()
-
-            login_user(user, remember=True)
-            flash('New Password Made!', category='success')
-            return redirect(url_for('auth.login'))
-        # else:
-        #     flash('username does not exist.', category='error')
-
+            flash('Username does not exist.', category='error')
 
     return render_template('forgot_password.html', user=current_user)
 
@@ -128,56 +129,7 @@ def logout():
 
 
     
-# @auth.route('/profile', methods=['GET', 'POST'])
-# @login_required
-# def profile():
-    
-#     form = sign_up(request.form)
-#     id = current_user.id
-#     name_to_update = User.query.get_or_404(id)
-    
-#     if request.method == "POST":
-#         name_to_update.email = request.form.get['email']
-#         name_to_update.username = request.form.get['username']
-  
-        # if request.files['profile_pic']:# Check for profile pic
-            
-        #     name_to_update.profile_pic = request.files.get['profile_pic']
 
-		# 	# Grab Image Name
-        #     pic_filename = secure_filename(name_to_update.profile_pic.filename)
-		# 	# Set UUID
-        #     pic_name = str(uuid.uuid1()) + "_" + pic_filename
-		# 	# Save That Image
-        #     saver = request.files['profile_pic']
-			
-
-		# 	# Change it to a string to save to db
-        #     name_to_update.profile_pic = pic_name
-            
-        #     try:
-        #         db.session.commit()
-        #         saver.save(os.path.join(auth.config['UPLOAD_FOLDER'], pic_name))
-        #         flash("User Updated Successfully!")
-        #         return render_template("profile.html", 
-		# 			form=form,
-		# 			name_to_update = name_to_update)
-        #     except:
-        #         flash("Error!  Looks like there was a problem...try again!")
-        #         return render_template("profile.html", 
-		# 			form=form,
-		# 			name_to_update = name_to_update)
-    # else:
-    #     db.session.commit()
-    #     flash("User Updated Successfully!")
-    #     return render_template("profile.html", 
-    #         form=form, 
-    #         name_to_update = name_to_update)
-    # else:
-    #     return render_template("pomo.html", 
-	# 			form=form,
-	# 			name_to_update = name_to_update,
-	# 			id = id)
     
 
 

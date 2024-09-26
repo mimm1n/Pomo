@@ -170,3 +170,7 @@ $( document ).ready(function() {
            $("#box").css('background-color',color);
            });
 });
+
+// forgot_password.html 
+
+import Userfront from "@userfront/core";
