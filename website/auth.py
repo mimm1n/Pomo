@@ -9,6 +9,8 @@ auth = Blueprint('auth', __name__)
 
 special_characters = r'[!@#%=+-]'
 
+# ---------------------------------- SIGN UP ----------------------------------
+
 @auth.route('/sign-up', methods=['GET', 'POST'])
 def sign_up():
     if request.method == 'POST':
@@ -57,6 +59,8 @@ def sign_up():
     # Render the sign-up form
     return render_template('sign_up.html', user=current_user)
 
+# ---------------------------------- LOGIN ----------------------------------
+
 @auth.route('/login', methods=["GET", "POST"])
 def login():
     if request.method == 'POST':
@@ -80,43 +84,45 @@ def login():
 
     return render_template("login.html", user=current_user)
 
+# ---------------------------------- FORGOT PASSWORD ----------------------------------
+
 @auth.route('/forgot_password', methods=["GET", "POST"])
 def forgot_password():
-    if request.method == "POST":
-        email = request.form.get("email")
-        username = request.form.get("username")
-        password1 = request.form.get('password1')
-        con_password = request.form.get("password2")
+    user = User.query.get(1) #getting the 1 id to simplyfy it
 
-        user = User.query.filter_by(email=email).first()
-        
-        if len(password1) < 7:
-            flash('Password must be at least 8 characters.', category='error')
-        elif re.search(special_characters, password1) is None:
-            flash('Your password must have at least 1 special character (@, #, !, %)', category='error')
-        elif re.search(r'[0-9]', password1) is None:
-            flash('Your password must have at least 1 number.', category='error')
-        elif re.search(r'[A-Z]', password1) is None:
-            flash('Your password must have at least 1 uppercase letter.', category='error')
-        elif password1 != con_password:
-            flash('Passwords do not match.', category='error')
+    if request.method == 'POST':
+        new_password1 = request.form.get("password1")
+        newcon_password = request.form.get("password2")
+
+        if user:
+            # Verify the password
+            if len(new_password1) < 7:
+                flash('Password must be at least 8 characters.', category='error')
+            elif re.search(special_characters, new_password1) is None:
+                flash('Your password must have at least 1 special character (@, #, !, %)', category='error')
+            elif re.search(r'[0-9]', new_password1) is None:
+                flash('Your password must have at least 1 number.', category='error')
+            elif re.search(r'[A-Z]', new_password1) is None:
+                flash('Your password must have at least 1 uppercase letter.', category='error')
+            elif new_password1 == newcon_password:
+                flash('Password updated successfully!', category='success')
+
+                user.password = generate_password_hash(new_password1, method='pbkdf2:sha256')
+                db.session.commit()
+                login_user(user, remember=True)
+
+                return redirect(url_for('auth.login'))
+            else:
+                flash('Password do not match, try again.', category='error')
         else:
+            flash('Username does not exist.', category='error')
 
-            new_user = User(
-                email=email, 
-                username=username, 
-                password = generate_password_hash(password1, method='sha256')
-            )
+        # existing_user = User.query.filter_by(username=username).first()
+    return render_template('forgot_password.html', user=user)
 
-            db.session.add(new_user)
-            db.session.commit()
 
-            login_user(new_user, remember=True)
 
-            flash('New Password Made!', category='success')
-            return redirect(url_for('views.home'))
-        
-    return render_template('forgot_password.html', user=current_user)
+# ---------------------------------- LOGOUT ----------------------------------
 
 @auth.route('/logout')
 @login_required
@@ -124,7 +130,28 @@ def logout():
     logout_user()
     return redirect(url_for('auth.login'))
 
+@auth.route('/profile', methods=['GET', 'POST'])
+def profile_change():
+    
+    user = User.query.get(1) #getting the 1 id to simplyfy it
+
+    if request.method == 'POST':
+        new_email = request.form['email']
+        new_username = request.form['username']
+
+        # Checks if the new username already exists 
+        existing_user = User.query.filter_by(username=new_username).first()
+        if existing_user and existing_user.id != user.id:
+            flash('Username already taken.')
+            return redirect(url_for('auth.profile_change'))
+
+        # if username is unique, it will update
+        user.email = new_email
+        user.username = new_username
+        db.session.commit()
 
 
+        flash('Profile updated successfully!')
+        return redirect(url_for('views.profile'))
 
-
+    return render_template('profile.html', user=user)

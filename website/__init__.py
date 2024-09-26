@@ -16,11 +16,6 @@ def create_app():
     
     db.init_app(app)
     
-    
-    from .route import main
-    app.register_blueprint(main)
-    
-    
     from .views import views
     from .auth import auth
     
