@@ -17,7 +17,6 @@ def create_app():
     db.init_app(app)
     
     
-    
     from .views import views
     from .auth import auth
     
