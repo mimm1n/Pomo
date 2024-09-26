@@ -173,6 +173,6 @@ $("#bg-choices").on("change", function () {
 
 // user data for character selection 
 
-document.getElementById('SelectCharacter').addEventListener('change', function() {
-  localStorage.setItem('SelectCharacter', this.value);
+document.getElementById('Character').addEventListener('change', function() {
+  localStorage.setItem('SelectedCharacter', SelectedCharacter);
 });

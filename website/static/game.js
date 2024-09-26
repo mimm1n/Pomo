@@ -72,20 +72,10 @@ document.addEventListener("keydown", function (event) {
 //user's option on the character
 
 window.onload = function() {
-  const Character = localStorage.getItem('SelectCharacter') || 'astro';
+  const SelectedCharacter = localStorage.getItem('SelectedCharacter') || 'astro';
   const characterElement = document.getElementById('char');
 
-  switch (Character) {
-    case 'astro':
-      characterElement.style.backgroundImage = "url('astro_run.png')";
-      break;
-    case 'girl':
-      characterElement.style.backgroundImage = "url('girl_run.png')";
-      break;
-    case 'guy':
-      characterElement.style.backgroundImage = "url('guy_run.png')";
-      break;
-    default:
-      characterElement.style.backgroundImage = "url('astro_run.png')";
-  }
+  characterElement.style.backgroundImage = `url('${SelectedCharacter}_run.png')`;
+
+  
 };
