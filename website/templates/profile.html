@@ -10,10 +10,16 @@
   <div class="right">
     <div class="info">
       <h3>Information</h3>
-      <form method="POST" action="/profile">
+      <form method="POST">
         <div class="info_data">
           <div class="data">
             <h4>Email:</h4>
+            <input
+              type="email"
+              name="email"
+              value="{{ user.email }}"
+              required
+            />
             <input
               type="email"
               name="email"
@@ -29,25 +35,33 @@
               value="{{ user.username }}"
               required
             />
+            <input
+              type="text"
+              name="username"
+              value="{{ user.username }}"
+              required
+            />
           </div>
         </div>
-        <button type="submit">Update Profile</button>
+        
+        <div class="Character">
+          <h4>Select a Character:</h4>
+          <select id="characterSelect">
+            <option value="astro" data-img=url("astro.png")>Astro</option>
+            <option value="girl" data-img=url("girl.png")>Girl</option>
+            <option value="guy" data-img=url("guy.png")>Guy</option>
+          </select>
+        
+          <img id="characterPreview" src=url("astro.png") alt="Character Image" style="width: 100px;">
+
+        </div>
+        <div class="btn-lg">
+          <button type="submit" class="btn btn-primary">Update Profile</button>
+        </div>
       </form>
     </div>
   </div>
-
-  <div class="character-opt">
-    <div class="dropdown">
-      <div class="select">
-        <span class="selected">Character Option:</span>
-        <div class="caret"></div>
-      </div>
-      <ul class="dropdown-Option">
-        <li class="active" src="astro.png" alt="user" width="100">Astro</li>
-        <li class="active" src="girl.png" alt="user" width="100">Girl</li>
-        <li class="active" src="guy.png" alt="user" width="100">Guy</li>
-      </ul>
-    </div>
-  </div>
 </div>
+
 {% endblock %}
+

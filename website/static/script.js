@@ -185,3 +185,13 @@ showTask();
 //   $("body").css({ "background-image": "url(" + bgArray[value] + ")" });
 // });
 
+// user data for character selection 
+
+document.getElementById('characterSelect').addEventListener('change', function() {
+  const selectedOption = this.options[this.selectedIndex];
+  const imgSrc = selectedOption.getAttribute('data-img');
+  document.getElementById('characterPreview').src = imgSrc;
+
+  // Update image of the selected character
+document.getElementById('characterPreview').src = imgSrc;
+});
