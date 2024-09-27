@@ -143,6 +143,7 @@ def profile_change():
         # if username is unique, it will update
         user.email = new_email
         user.username = new_username
+
         db.session.commit()
 
         flash('Profile updated successfully!')
