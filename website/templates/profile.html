@@ -31,19 +31,17 @@
             />
           </div>
         </div>
+        
         <div class="Character">
           <h4>Select a Character:</h4>
-          <Select name="character" id="Character">
-            <option value="astro.png">astro
-              <img href="{{ url_for('static', filename='css/astro.png') }}"></img>
-            </option>
-            <option value="Girl.png">girl
-              <img href="{{ url_for('static', filename='css/girl.png') }}"></img>
-            </option>
-            <option value="Guy.png">guy
-              <img href="{{ url_for('static', filename='css/guy.png') }}"></img>
-            </option>
+          <select id="characterSelect">
+            <option value="astro" data-img="{{url_for('static', filename='astro.png')}}">Astro</option>
+            <option value="girl" data-img="{{url_for('static', filename='girl.png')}}">Girl</option>
+            <option value="guy" data-img="{{url_for('static', filename='guy.png')}}">Guy</option>
           </select>
+        
+          <img id="characterPreview" src="{{url_for('static', filename='astro.png')}}" alt="Character Image" style="width: 100px;">
+
         </div>
         <div class="btn-lg">
           <button type="submit" class="btn btn-primary">Update Profile</button>
@@ -54,3 +52,4 @@
 </div>
 
 {% endblock %}
+
