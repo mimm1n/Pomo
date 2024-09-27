@@ -38,7 +38,7 @@ document.getElementById('characterSelect').addEventListener('change', function()
       characterElement.style.backgroundImage = "url('/static/css/girl_run.png')";
     } else if (savedCharacter == 'Guy') {
       characterElement.style.backgroundImage = "url('/static/css/guy_run.png')";
-      characterElement.style.backgroundImageSize = 
+      characterElement.style.backgroundSize = "90px 120px"
     } else {
       characterElement.style.backgroundImage = "url('/static/css/astro_run.png')";
     }
