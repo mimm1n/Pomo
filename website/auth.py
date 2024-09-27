@@ -174,9 +174,3 @@ def profile_change():
         return redirect(url_for('views.profile'))
 
     return render_template('profile.html', user=user)
-
-
-        flash('Profile updated successfully!')
-        return redirect(url_for('views.profile'))
-
-    return render_template('profile.html', user=user)
