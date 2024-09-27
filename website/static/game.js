@@ -1,6 +1,18 @@
 //game.js//
 
+
+// Ensure the selected character is loaded at the start
+const selectedCharacter = localStorage.getItem('SelectedCharacter') || 'Astro';
 const char = document.getElementById("char");
+
+if (selectedCharacter === 'Astro') {
+  char.style.backgroundImage = "url('/static/css/astro_run.png')";
+} else if (selectedCharacter === 'Girl') {
+  char.style.backgroundImage = "url('/static/css/girl_run.png')";
+} else if (selectedCharacter === 'Guy') {
+  char.style.backgroundImage = "url('/static/css/guy_run.png')";
+}
+
 const ufo = document.getElementById("ufo");
 const gameOverText = document.getElementById("gameover");
 const scoreDisplay = document.getElementById("score");
