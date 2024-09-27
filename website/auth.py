@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request, flash, redirect, url_for, flash
+from flask import Blueprint, render_template, request, flash, redirect, url_for
 from .models import User
 import re
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -120,8 +120,6 @@ def forgot_password():
         # existing_user = User.query.filter_by(username=username).first()
     return render_template('forgot_password.html', user=user)
 
-
-
 # ---------------------------------- LOGOUT ----------------------------------
 
 @auth.route('/logout')
@@ -138,8 +136,8 @@ def profile_change():
     user = User.query.get(1) #getting the 1 id to simplyfy it
 
     if request.method == 'POST':
-        new_email = request.form['email']
-        new_username = request.form['username']
+        new_email = request.form.get("email")
+        new_username = request.form.get("username")
 
         # Checks if the new username already exists 
         existing_user = User.query.filter_by(username=new_username).first()
@@ -150,7 +148,6 @@ def profile_change():
         # if username is unique, it will update
         user.email = new_email
         user.username = new_username
-
         db.session.commit()
 
         flash('Profile updated successfully!')
