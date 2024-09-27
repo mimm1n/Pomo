@@ -173,6 +173,11 @@ $("#bg-choices").on("change", function () {
 
 // user data for character selection 
 
-document.getElementById('SelectCharacter').addEventListener('change', function() {
-  localStorage.setItem('SelectCharacter', this.value);
+document.getElementById('characterSelect').addEventListener('change', function() {
+  const selectedOption = this.options[this.selectedIndex];
+  const imgSrc = selectedOption.getAttribute('data-img');
+  document.getElementById('characterPreview').src = imgSrc;
+
+  // Update image of the selected character
+document.getElementById('characterPreview').src = imgSrc;
 });

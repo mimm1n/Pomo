@@ -31,13 +31,17 @@
             />
           </div>
         </div>
+        
         <div class="Character">
           <h4>Select a Character:</h4>
-          <select name="character" id="SelectCharacter">
-            <option value="astro.png">Astro</option>
-            <option value="Girl.png">Girl</option>
-            <option value="Guy.png">Guy</option>
+          <select id="characterSelect">
+            <option value="astro" data-img=url("astro.png")>Astro</option>
+            <option value="girl" data-img=url("girl.png")>Girl</option>
+            <option value="guy" data-img=url("guy.png")>Guy</option>
           </select>
+        
+          <img id="characterPreview" src=url("astro.png") alt="Character Image" style="width: 100px;">
+
         </div>
         <div class="btn-lg">
           <button type="submit" class="btn btn-primary">Update Profile</button>
