@@ -5,6 +5,29 @@ toggler.addEventListener("click", function () {
   document.querySelector("#sidebar").classList.toggle("collapsed");
 });
 
+//
+
+
+checkboxBG.addEventListener("change", function () {
+  if (this.checked) {
+    console.log("Checkbox is checked..");
+    body.style.background = "url('/static/css/pixel_camp.jpg') no-repeat center" ;
+    body.style.objectFit = "cover" ; 
+    body.style.backgroundSize = "cover" ; 
+  } else {
+    console.log("Checkbox is not checked..");
+    body.style.background = "url('/static/css/campside.jpg') no-repeat center" ;
+    body.style.objectFit = "cover" ; 
+    body.style.backgroundSize = "cover" ; 
+    // saveData()
+  }
+});
+
+
+
+
+
+
 // pomodoro
 
 let focusButton = document.getElementById("focus");
@@ -83,14 +106,13 @@ pause.addEventListener(
     startButton.classList.remove("hide");
     pause.classList.remove("show");
     reset.classList.remove("show");
-    // game.classList.remove("show");
+
   })
 );
 
 startButton.addEventListener("click", () => {
   reset.classList.add("show");
   pause.classList.add("show");
-  // game.classList.add("show");
   startButton.classList.add("hide");
   startButton.classList.remove("show");
   if (paused) {
@@ -156,19 +178,11 @@ function showTask() {
 showTask();
 
 //
-var bgArray = ["pixel_camp.jpg", "campsite.jpg", "mountainside.jpg"];
+// var bgArray = ["pixel_camp.jpg", "campsite.jpg", "mountainside.jpg"];
 
-$("#bg-choices").on("change", function () {
-  value = $(this).val() - 1;
-  $("body").css({ "background-image": "url(" + bgArray[value] + ")" });
-});
-
-// $( document ).ready(function() {
-//   $('.dropdown-menu li').click(function(){
-//            var color = $(this).data("color");
-          
-//            $("#box").css('background-color',color);
-//            });
+// $("#bg-choices").on("click", function () {
+//   value = $(this).val() - 1;
+//   $("body").css({ "background-image": "url(" + bgArray[value] + ")" });
 // });
 
 // user data for character selection 
