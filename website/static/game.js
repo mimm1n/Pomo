@@ -69,23 +69,3 @@ document.addEventListener("keydown", function (event) {
   }
 });
 
-//user's option on the character
-
-window.onload = function() {
-  const SelectedCharacter = localStorage.getItem('SelectedCharacter') || 'astro';
-  var characterElement = document.getElementById('char');
-
-  switch (SelectedCharacter) {
-    case 'astro':
-      characterElement.style.backgroundImage = "url('/static/css/astro_run.png')";
-      break;
-    case 'girl':
-      characterElement.style.backgroundImage = "url('/static/css/girl_run.png')";
-      break;
-    case 'guy':
-      characterElement.style.backgroundImage = "url('/static/css/guy_run.png)";
-      break;
-    default:
-      characterElement.style.backgroundImage = "url('/static/css/pixel_camp.jpg')";
-  }
-};

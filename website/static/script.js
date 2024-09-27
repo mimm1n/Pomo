@@ -162,13 +162,54 @@ showTask();
 //   $("body").css({ "background-image": "url(" + bgArray[value] + ")" });
 // });
 
-// user data for character selection 
 
+
+// Updates the selected character for both game and profile
+
+function updateCharacter(selectedCharacter) {
+  
+  const characterElement = document.getElementById('char');
+  const characterSelect = document.getElementById('characterSelect');
+
+  // iterates through the options of character given
+  for (let i = 0; i < characterSelect.options.length; i++) {
+    if (characterSelect.option[i].value === selectedCharacter) {
+      characterSelect.selectedIndex = i;
+      document.getElementById('characterPreview').src = characterSelect.option[i].getAttribute('data-img');
+      break;
+    }
+  }
+  
+// Sets the correct character  
+switch (selectedCharacter) {
+  case 'astro':
+    characterElement.style.backgroundImage = "url('/static/css/astro_run.png')";
+    break;
+  case 'girl':
+    characterElement.style.backgroundImage = "url('/static/css/girl_run.png')";
+    break;
+  case 'guy':
+    characterElement.style.backgroundImage = "url('/static/css/guy_run.png')";
+    break;
+  default:
+    characterElement.style.backgroundImage = "url('/static/css/astro_run.png')";
+}
+
+// Event listener for character selection
 document.getElementById('characterSelect').addEventListener('change', function() {
-  const selectedOption = this.options[this.selectedIndex];
-  const imgSrc = selectedOption.getAttribute('data-img');
-  document.getElementById('characterPreview').src = imgSrc;
+  const selectedCharacter = this.value;
 
-  // Update image of the selected character
-document.getElementById('characterPreview').src = imgSrc;
+  // Stores the selected character in localStorage
+  localStorage.setItem('SelectedCharacter', selectedCharacter);
+
+  // Update the character selected
+  updateCharacter(selectedCharacter);
 });
+
+//loads and retrieves and updates the selected character
+window.onload = function() {
+  const selectedCharacter = localStorage.getItem('SelectedCharacter') || 'astro';
+  updateCharacter(selectedCharacter);
+};
+
+
