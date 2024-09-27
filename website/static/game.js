@@ -75,7 +75,17 @@ window.onload = function() {
   const SelectedCharacter = localStorage.getItem('SelectedCharacter') || 'astro';
   const characterElement = document.getElementById('char');
 
-  characterElement.style.backgroundImage = `url('${SelectedCharacter}_run.png')`;
-
-  
+  switch (SelectedCharacter) {
+    case 'astro':
+      characterElement.style.backgroundImage = "url('astro_run.png')";
+      break;
+    case 'girl':
+      characterElement.style.backgroundImage = "url('girl_run.png')";
+      break;
+    case 'guy':
+      characterElement.style.backgroundImage = "url('guy_run.png')";
+      break;
+    default:
+      characterElement.style.backgroundImage = "url('astro_run.png')";
+  }
 };
