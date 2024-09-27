@@ -27,6 +27,20 @@ checkboxSound.addEventListener("change", function () {
   }
 });
 
+checkboxBG.addEventListener("change", function () {
+  if (this.checked) {
+    console.log("Checkbox is checked..");
+    body.style.background = "url('/static/css/pixel_camp.jpg') no-repeat center" ;
+    body.style.objectFit = "cover" ; 
+    body.style.backgroundSize = "cover" ; 
+  } else {
+    console.log("Checkbox is not checked..");
+    body.style.background = "url('/static/css/campside.jpg') no-repeat center" ;
+    body.style.objectFit = "cover" ; 
+    body.style.backgroundSize = "cover" ; 
+    // saveData()
+  }
+});
 
 
 // function saveData() {

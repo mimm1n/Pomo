@@ -5,29 +5,6 @@ toggler.addEventListener("click", function () {
   document.querySelector("#sidebar").classList.toggle("collapsed");
 });
 
-//
-
-
-checkboxBG.addEventListener("change", function () {
-  if (this.checked) {
-    console.log("Checkbox is checked..");
-    body.style.background = "url('/static/css/pixel_camp.jpg') no-repeat center" ;
-    body.style.objectFit = "cover" ; 
-    body.style.backgroundSize = "cover" ; 
-  } else {
-    console.log("Checkbox is not checked..");
-    body.style.background = "url('/static/css/campside.jpg') no-repeat center" ;
-    body.style.objectFit = "cover" ; 
-    body.style.backgroundSize = "cover" ; 
-    // saveData()
-  }
-});
-
-
-
-
-
-
 // pomodoro
 
 let focusButton = document.getElementById("focus");
