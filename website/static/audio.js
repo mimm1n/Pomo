@@ -1,5 +1,6 @@
 window.addEventListener("load", () => {
   var bgm = document.getElementById("bgm");
+  console.log("WORKS");
 
   if (bgm.paused) {
     let play = document.getElementById("play");
@@ -21,11 +22,35 @@ checkboxSound.addEventListener("change", function () {
   if (this.checked) {
     console.log("Checkbox is checked..");
     bgm.play();
+    localStorage.setItem("togg-s", "true");
   } else {
     console.log("Checkbox is not checked..");
     bgm.pause();
+    localStorage.setItem("togg-s", "false");
   }
 });
+
+function loadCheckboxState() {
+  const savedState = localStorage.getItem("togg-s");
+  if (savedState !== null) {
+    checkboxSound.checked = savedState === "true"; // Set the checkbox state
+    if (checkboxSound.checked) {
+      bgm.play(); // Play music if it's checked
+      console.log("please");
+    } else {
+      bgm.pause(); // Pause music if it's not checked
+      console.log("gonna kill myself tn");
+    }
+  }
+}
+
+// Call this function on page load
+// window.addEventListener("load", () => {
+//   console.log("please bro im ab to pass out and die")
+//   loadCheckboxState();
+// });
+
+window.onload = loadCheckboxState;
 
 checkboxBG.addEventListener("change", function () {
   if (this.checked) {
@@ -36,22 +61,11 @@ checkboxBG.addEventListener("change", function () {
     body.style.backgroundSize = "cover";
   } else {
     console.log("Checkbox is not checked..");
-    body.style.background = "url('/static/css/campside.jpg') no-repeat center";
+    body.style.background = "url('/static/css/plain.png') no-repeat center";
     body.style.objectFit = "cover";
     body.style.backgroundSize = "cover";
-    // saveData()
   }
 });
-
-// function saveData() {
-//   localStorage.setItem("data", listContainer.innerHTML);
-// }
-
-// function showTask() {
-//   listContainer.innerHTML = localStorage.getItem("data");
-// }
-
-// showTask();
 
 // volbar
 
@@ -60,12 +74,3 @@ let volume = document.querySelector("#volbar");
 volume.addEventListener("change", function (e) {
   bgm.volume = e.currentTarget.value / 100;
 });
-
-// var bgArray = [
-//   '//placehold.it/400x300?text=BG1',
-//      '//placehold.it/400x300?text=BG2'
-//     ]
-// $('#dropdown-menu').on('change', function(){
-// value = $(this).val() - 1;
-// $('#test-bg').css({'background-image':'url(' + bgArray[value] + ')'});
-// });

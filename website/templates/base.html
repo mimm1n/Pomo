@@ -80,10 +80,7 @@
         </nav>
       </div>
 
-      <div class="base-container">
-
-        <!-- <div id="test-bg"></div> -->
-
+      <div class="base-container" onload="loadCheckboxState()">
         {% with messages = get_flashed_messages(with_categories=true) %} {% if
         messages %} {% for category, message in messages %} {% if category ==
         "error" %}
