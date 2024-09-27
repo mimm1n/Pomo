@@ -130,25 +130,7 @@ def logout():
     logout_user()
     return redirect(url_for('auth.login'))
 
-@auth.route('/profile', methods=['GET', 'POST'])
-def profile_change():
-    
-    user = User.query.get(1) #getting the 1 id to simplyfy it
-
-    if request.method == 'POST':
-        new_email = request.form['email']
-        new_username = request.form['username']
-
-        # Checks if the new username already exists 
-        existing_user = User.query.filter_by(username=new_username).first()
-        if existing_user and existing_user.id != user.id:
-            flash('Username already taken.')
-            return redirect(url_for('auth.profile_change'))
-
-        # if username is unique, it will update
-        user.email = new_email
-        user.username = new_username
-        db.session.commit()
+# ---------------------------------- PROFILE CHANGE ----------------------------------
 
 @auth.route('/profile', methods=['GET', 'POST'])
 def profile_change():
@@ -170,12 +152,6 @@ def profile_change():
         user.username = new_username
 
         db.session.commit()
-
-        flash('Profile updated successfully!')
-        return redirect(url_for('views.profile'))
-
-    return render_template('profile.html', user=user)
-
 
         flash('Profile updated successfully!')
         return redirect(url_for('views.profile'))
