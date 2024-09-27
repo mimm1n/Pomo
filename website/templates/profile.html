@@ -20,21 +20,9 @@
               value="{{ user.email }}"
               required
             />
-            <input
-              type="email"
-              name="email"
-              value="{{ user.email }}"
-              required
-            />
           </div>
           <div class="data">
             <h4>Username:</h4>
-            <input
-              type="text"
-              name="username"
-              value="{{ user.username }}"
-              required
-            />
             <input
               type="text"
               name="username"
@@ -47,12 +35,12 @@
         <div class="Character">
           <h4>Select a Character:</h4>
           <select id="characterSelect">
-            <option value="astro" data-img=url("astro.png")>Astro</option>
+            <option value="astro" data-img="{{url_for('static', filename='astro.png')}}">Astro</option>
             <option value="girl" data-img=url("girl.png")>Girl</option>
             <option value="guy" data-img=url("guy.png")>Guy</option>
           </select>
         
-          <img id="characterPreview" src=url("astro.png") alt="Character Image" style="width: 100px;">
+          <img id="characterPreview" src="{{url_for('static', filename='astro.png')}}" alt="Character Image" style="width: 100px;">
 
         </div>
         <div class="btn-lg">
