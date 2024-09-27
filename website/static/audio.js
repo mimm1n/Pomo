@@ -13,9 +13,11 @@ window.addEventListener("load", () => {
 
 // sound toggle button
 
-var checkbox = document.querySelector("input[name=togg-s]");
+var checkboxSound = document.querySelector("input[name=togg-s]");
+var checkboxBG = document.querySelector("input[name=togg-bg]");
+var background = document.getElementsByTagName("body")[0];
 
-checkbox.addEventListener("change", function () {
+checkboxSound.addEventListener("change", function () {
   if (this.checked) {
     console.log("Checkbox is checked..");
     bgm.play();
@@ -24,6 +26,33 @@ checkbox.addEventListener("change", function () {
     bgm.pause();
   }
 });
+
+checkboxBG.addEventListener("change", function () {
+  if (this.checked) {
+    console.log("Checkbox is checked..");
+    body.style.background = "url('/static/css/pixel_camp.jpg') no-repeat center" ;
+    body.style.objectFit = "cover" ; 
+    body.style.backgroundSize = "cover" ; 
+  } else {
+    console.log("Checkbox is not checked..");
+    body.style.background = "url('/static/css/campside.jpg') no-repeat center" ;
+    body.style.objectFit = "cover" ; 
+    body.style.backgroundSize = "cover" ; 
+    // saveData()
+  }
+});
+
+
+// function saveData() {
+//   localStorage.setItem("data", listContainer.innerHTML);
+// }
+
+// function showTask() {
+//   listContainer.innerHTML = localStorage.getItem("data");
+// }
+
+// showTask();
+
 
 // volbar
 
