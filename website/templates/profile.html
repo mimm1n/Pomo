@@ -3,8 +3,17 @@
 
 <div class="p-container" id="fade-in">
   <div class="left">
-    <div class="icon">
-      <i class="fa-solid fa-pen-to-square"></i>
+    <div class="Character">
+      <h4>Select a Character:</h4>
+
+      <img id="characterPreview" src="{{url_for('static', filename='astro.png')}}" alt="Character Image" style="width: 100px;">
+      
+      <select id="characterSelect">
+        <option value="astro" data-img="{{url_for('static', filename='astro.png')}}">Astro</option>
+        <option value="girl" data-img="{{url_for('static', filename='girl.png')}}">Girl</option>
+        <option value="guy" data-img="{{url_for('static', filename='guy.png')}}">Guy</option>
+      </select>
+
     </div>
   </div>
   <div class="right">
@@ -31,18 +40,7 @@
             />
           </div>
         </div>
-        
-        <div class="Character">
-          <h4>Select a Character:</h4>
-          <select id="characterSelect">
-            <option value="astro" data-img="{{url_for('static', filename='astro.png')}}">Astro</option>
-            <option value="girl" data-img="{{url_for('static', filename='girl.png')}}">Girl</option>
-            <option value="guy" data-img="{{url_for('static', filename='guy.png')}}">Guy</option>
-          </select>
-        
-          <img id="characterPreview" src="{{url_for('static', filename='astro.png')}}" alt="Character Image" style="width: 100px;">
-
-        </div>
+      
         <div class="btn-lg">
           <button type="submit" class="btn btn-primary">Update Profile</button>
         </div>
