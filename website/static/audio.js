@@ -36,7 +36,6 @@ window.addEventListener("load", () => {
   function updateSound(selectedSound) {
     const SoundSelect = document.getElementById("SoundSelect");
 
-    // Ensure we are referencing the correct dropdown
     const selectedSoundOption = SoundSelect.querySelector(
       `option[value="${selectedSound}"]`
     );
@@ -89,7 +88,7 @@ window.addEventListener("load", () => {
   // Volume control
   let volume = document.querySelector("#volbar");
   volume.addEventListener("change", function (e) {
-    bgm.volume = e.currentTarget.value / 100; // Adjust volume based on the slider value
+    bgm.volume = e.currentTarget.value / 100; 
   });
 
   // Load the sound state when the page loads

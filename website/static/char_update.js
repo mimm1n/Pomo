@@ -45,8 +45,8 @@ window.onload = function () {
     characterElement.style.backgroundImage = "url('/static/css/girl_run.png')";
   } else if (savedCharacter == "Guy") {
     characterElement.style.backgroundImage = "url('/static/css/guy_run.png')";
-  } else {
-    characterElement.style.backgroundImage = "url('/static/css/astro_run.png')";
+  // } else {
+  //   characterElement.style.backgroundImage = "url('/static/css/astro_run.png')";
   }
 
   // Use the saved image to set the character in the game
