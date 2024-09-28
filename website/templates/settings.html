@@ -20,10 +20,10 @@
   <div class="custom-opt">
     <label for="sound-options">Sound Options:</label>
     <select id="sound-options" class="form-select" aria-label="Sound options">
-      <option value="1" sound="{{url_for('static', filename='A Lonely Cherry Tree.mp3')}}">A lonely Cherry Tree</option>
-      <option value="2" sound="{{url_for('static', filename='A Lost Soul.mp3')}}">A Lost Soul</option>
-      <option value="3" sound="{{url_for('static', filename='No Destination.mp3')}}">No Destination</option>
-      <option value="4" sound="{{url_for('static', filename='Begin Your Journey.mp3')}}">Begin Your Journey</option>
+      <option class="play" value="1" src="{{url_for('static', filename='A Lonely Cherry Tree.mp3')}}">A lonely Cherry Tree</option>
+      <option class="paused" value="2" src="{{url_for('static', filename='A Lost Soul.mp3')}}">A Lost Soul</option>
+      <option class="paused" value="3" src="{{url_for('static', filename='No Destination.mp3')}}">No Destination</option>
+      <option class="paused" value="4" src="{{url_for('static', filename='Begin Your Journey.mp3')}}">Begin Your Journey</option>
     </select>
   </div>
 
