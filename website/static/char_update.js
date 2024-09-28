@@ -59,10 +59,10 @@ window.onload = function () {
   // // Set image preview for character select page
   updateCharacter(savedCharacter);
 
-  // Sync the dropdown with the saved background
+  // Sync the dropdown with the saved chara
   if (characterSelect) {
-    characterSelect.value = savedImage; // Set the dropdown to the saved selection
-    updateCharacter(savedImage);
+    characterSelect.value = characterImage; // Set the dropdown to the saved selection
+    updateCharacter(characterImage);
     characterSelect.addEventListener("change", function () {
       const selectedCharacter = this.value;
       updateCharacter(characterSelect);
