@@ -51,11 +51,24 @@ document.getElementById('characterSelect').addEventListener('change', function()
      characterSelect.value = savedOption;
      
     // Set image preview for character select page
-    updateCharacter(selectedCharacter);
-  };
-  
-  
+    updateCharacter(savedCharacter);
 
-  
-  
+    
+      // Sync the dropdown with the saved background
+    if (characterSelect) {
+      characterSelect.value = savedImage; // Set the dropdown to the saved selection
+      updateCharacter(savedImage); 
+      characterSelect.addEventListener('change', function () {
+        const selectedCharacter = this.value;
+        updateBackground(selectedCharacter);
+        
+        // Save the new selection to localStorage
+        const selectedOption = this.querySelector(`option[value="${selectedCharacter}"]`);
+        const characterImage = selectedOption.getAttribute('data-img');
+        localStorage.setItem('SelectedCharacter', selectedCharacter); 
+        localStorage.setItem('CharacterImage', characterImage); 
+      });
+
+
+  };}
   
