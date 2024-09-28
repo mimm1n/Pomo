@@ -17,13 +17,13 @@
     </label>
   </div>
 
-  <div id="custom-opt">
+  <div id="custom-opt" class="Sound">
     <label for="sound-options">Sound Options:</label>
-    <select id="sound-options" class="form-select" aria-label="options">
-      <option value="1" sound="{{url_for('static', filename='A Lonely Cherry Tree.mp3')}}">A lonely Cherry Tree</option>
-      <option value="2" sound="{{url_for('static', filename='A Lost Soul.mp3')}}">A Lost Soul</option>
-      <option value="3" sound="{{url_for('static', filename='No Destination.mp3')}}">No Destination</option>
-      <option value="4" sound="{{url_for('static', filename='Begin Your Journey.mp3')}}">Begin Your Journey</option>
+    <select id="SoundSelect" class="form-select" aria-label="options">
+      <option value="A Lonely Cherry Tree" sound="{{url_for('static', filename='A Lonely Cherry Tree.mp3')}}">A Lonely Cherry Tree</option>
+      <option value="A Lost Soul" sound="{{url_for('static', filename='A Lost Soul.mp3')}}">A Lost Soul</option>
+      <option value="No Destination" sound="{{url_for('static', filename='No Destination.mp3')}}">No Destination</option>
+      <option value="Begin Your Journey" sound="{{url_for('static', filename='Begin Your Journey.mp3')}}">Begin Your Journey</option>
     </select>
   </div>
 
@@ -38,7 +38,7 @@
     <br />
 
     <div class="Background" id="custom-opt">
-      <labe>Select a Background:</label>
+      <label>Select a Background:</label>
       <select id="BackgroundSelect" class="form-select" aria-label="options">
         <option value="pixel_camp" background-img="{{ url_for('static', filename='pixel_camp.jpg') }}">Pixel Camp</option>
         <option value="campside" background-img="{{ url_for('static', filename='campside.jpg') }}">Campside</option>
