@@ -5,12 +5,12 @@ from flask_migrate import Migrate
 
 
 db = SQLAlchemy()
-DB_NAME = "database.db" 
+DB_NAME = "database1.db" 
 
 def create_app():
 
     app = Flask(__name__, template_folder="templates", static_folder="static")
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database1.db'
     app.config["SECRET_KEY"] = "W3AR3TH3COD3RS"
     
     
