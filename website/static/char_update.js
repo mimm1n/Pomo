@@ -20,7 +20,8 @@ document.getElementById('characterSelect').addEventListener('change', function()
 
   updateCharacter(selectedCharacter);
   localStorage.setItem('SelectedCharacter', selectedCharacter); // Save the selection to localStorage
-  localStorage.setItem('CharacterImage', characterImage);       // Save the image to localStorage
+  localStorage.setItem('CharacterImage', characterImage);     // Save the image to localStorage
+  localStorage.setItem('SelectedOption', selectedOption);  
 });
 
   // loads the selected character
@@ -29,6 +30,7 @@ document.getElementById('characterSelect').addEventListener('change', function()
     const characterElement = document.getElementById('char');
     const characterSelect = document.getElementById('characterSelect');
     const savedImage = localStorage.getItem('CharacterImage') || '/static/css/astro_run.png';
+    const savedOption = localStorage.getItem('SelectedOption'); 
     
 
     // Choose the correct character animation for the game
@@ -46,14 +48,27 @@ document.getElementById('characterSelect').addEventListener('change', function()
     characterElement.style.backgroundImage = `url('${savedImage}')`;
 
      // Set the dropdown to the saved character
-     characterSelect.value = savedCharacter;
+     characterSelect.value = savedOption;
      
-    // Set image preview for character select page
-    updateCharacter(savedCharacter);
-  };
-  
-  
+    // // Set image preview for character select page
+    // updateCharacter(savedCharacter);
 
-  
-  
+    
+      // Sync the dropdown with the saved background
+    if (characterSelect) {
+      characterSelect.value = savedImage; // Set the dropdown to the saved selection
+      updateCharacter(savedImage); 
+      characterSelect.addEventListener('change', function () {
+        const selectedCharacter = this.value;
+        updateCharacter(characterSelect);
+        
+        // Save the new selection to localStorage
+        const selectedOption = this.querySelector(`option[value="${selectedCharacter}"]`);
+        const characterImage = selectedOption.getAttribute('data-img');
+        localStorage.setItem('SelectedCharacter', selectedCharacter); 
+        localStorage.setItem('CharacterImage', characterImage); 
+      });
+
+
+  };}
   
