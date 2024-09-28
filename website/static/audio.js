@@ -38,8 +38,6 @@ window.addEventListener("load", () => {
 });
 
 
-
-
 // window.onload = function () {
 //   console.log("please bro im ab to pass out and die");
 //   checkPermAudio();
