@@ -28,11 +28,11 @@ h1 {
   align-items: center;
 }
 
-#test-bg{
-  width:400px;
-  height:300px;
-  outline:1px dotted gray;
-  margin:0 auto;
+#test-bg {
+  width: 400px;
+  height: 300px;
+  outline: 1px dotted gray;
+  margin: 0 auto;
 }
 
 /* ----------------------------------- landing ----------------------------------- */
@@ -97,7 +97,7 @@ a {
   transition: all 0.35s ease-in-out;
   display: flex;
   flex-direction: column;
-  background-color: #341c4c;
+  background-color: #350b44;
   position: relative;
 }
 
@@ -459,7 +459,8 @@ input[type="checkbox"]:checked + div .toggle-c {
   background-color: #5e4080;
   border-color: #4f2d59;
 }
-.custom-opt {
+
+#custom-opt {
   text-align: center;
 }
 
@@ -478,12 +479,12 @@ input[type="checkbox"]:checked + div .toggle-c {
   margin: 0.3em 0;
   border-radius: 0.5em;
   cursor: pointer;
-} 
+}
 
 .dropdown-item:active {
   background-color: #86759b !important;
   color: #ffffff !important;
-} 
+}
 
 #volbar {
   accent-color: #62567d;
@@ -680,13 +681,12 @@ input[type="password"] {
 /* ----------------------------------- profile.html -----------------------------------*/
 
 .p-container {
-  position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
   width: 500px;
-  display: flex;
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 1);
+
+  display: flex;
 
   font-family: "mainFont";
   font-size: 20px;
@@ -750,8 +750,6 @@ input[type="password"] {
   background-color: #86759b !important;
   color: #ffffff !important;
 }
-
-
 
 /* ----------------------------------- game.html ----------------------------------- */
 
@@ -832,7 +830,6 @@ input[type="password"] {
 
   animation: block 1.5s infinite linear;
 }
-
 
 @keyframes block {
   0% {
