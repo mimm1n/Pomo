@@ -25,17 +25,6 @@
     </div>
 
     <div class="forget">
-      <div id="rememberid">
-        <label for="remember">
-          <input
-            type="checkbox"
-            value="remember-me"
-            id="remember"
-            name="rememberMe"
-          />
-          Remember me
-        </label>
-      </div>
       <div>
         <a href="{{ url_for( 'auth.forgot_password' ) }}">Forgot password?</a>
       </div>
@@ -55,5 +44,3 @@
 </div>
 
 {% endblock %}
-
-

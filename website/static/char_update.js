@@ -36,6 +36,7 @@ window.onload = function () {
   const characterSelect = document.getElementById("characterSelect");
   const savedImage =
     localStorage.getItem("CharacterImage") || "/static/css/astro_run.png";
+  const savedOption = localStorage.getItem("SelectedOption");
 
   // Choose the correct character animation for the game
   if (savedCharacter == "Astro") {
@@ -51,28 +52,28 @@ window.onload = function () {
   // Use the saved image to set the character in the game
   characterElement.style.backgroundImage = `url('${savedImage}')`;
 
-     // Set the dropdown to the saved character
-     characterSelect.value = savedOption;
-     
-    // // Set image preview for character select page
-    // updateCharacter(savedCharacter);
+  // Set the dropdown to the saved character
+  characterSelect.value = savedOption;
 
-    
-      // Sync the dropdown with the saved background
-    if (characterSelect) {
-      characterSelect.value = savedImage; // Set the dropdown to the saved selection
-      updateCharacter(savedImage); 
-      characterSelect.addEventListener('change', function () {
-        const selectedCharacter = this.value;
-        updateCharacter(characterSelect);
-        
-        // Save the new selection to localStorage
-        const selectedOption = this.querySelector(`option[value="${selectedCharacter}"]`);
-        const characterImage = selectedOption.getAttribute('data-img');
-        localStorage.setItem('SelectedCharacter', selectedCharacter); 
-        localStorage.setItem('CharacterImage', characterImage); 
-      });
+  // // Set image preview for character select page
+  updateCharacter(savedCharacter);
 
+  // Sync the dropdown with the saved background
+  if (characterSelect) {
+    characterSelect.value = savedImage; // Set the dropdown to the saved selection
+    updateCharacter(savedImage);
+    characterSelect.addEventListener("change", function () {
+      const selectedCharacter = this.value;
+      updateCharacter(characterSelect);
 
-  };}
-  
+      // Save the new selection to localStorage
+      const selectedOption = this.querySelector(
+        `option[value="${selectedCharacter}"]`
+      );
+      const characterImage = selectedOption.getAttribute("data-img");
+      localStorage.setItem("SelectedCharacter", selectedCharacter);
+      localStorage.setItem("CharacterImage", characterImage);
+    });
+  }
+};
+

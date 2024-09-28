@@ -48,8 +48,6 @@ h1 {
   width: 500px;
   display: flex;
   flex-direction: column;
-  /* justify-content: center;
-  align-items: center; */
 
   font-family: "mainFont";
   font-size: 20px;
@@ -556,19 +554,14 @@ input[type="checkbox"]:checked + div .toggle-c {
 
 .forget {
   display: flex;
-  align-items: center;
+  margin-left: 50px;
 
   color: #4f2d59;
   font-family: "mainFont";
   font-size: 20px;
 }
 
-.forget label {
-  display: flex;
-  align-items: center;
-}
-
-.forget label p {
+.forget p {
   margin-left: 8px;
 }
 
