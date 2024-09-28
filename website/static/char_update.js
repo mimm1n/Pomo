@@ -8,6 +8,7 @@ function updateCharacter(selectedCharacter) {
     `option[value="${selectedCharacter}"]`
   );
   const characterImage = selectedOption.getAttribute("data-img");
+      localStorage.setItem("CharacterImage", characterImage);
 
   // Update the preview image based on the selection
   characterPreview.src = characterImage;
