@@ -153,11 +153,3 @@ function showTask() {
 }
 
 showTask();
-
-//
-// var bgArray = ["pixel_camp.jpg", "campsite.jpg", "mountainside.jpg"];
-
-// $("#bg-choices").on("click", function () {
-//   value = $(this).val() - 1;
-//   $("body").css({ "background-image": "url(" + bgArray[value] + ")" });
-// });

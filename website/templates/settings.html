@@ -17,9 +17,9 @@
     </label>
   </div>
 
-  <div class="custom-opt">
+  <div id="custom-opt">
     <label for="sound-options">Sound Options:</label>
-    <select id="sound-options" class="form-select" aria-label="Sound options">
+    <select id="sound-options" class="form-select" aria-label="options">
       <option value="1" sound="{{url_for('static', filename='A Lonely Cherry Tree.mp3')}}">A lonely Cherry Tree</option>
       <option value="2" sound="{{url_for('static', filename='A Lost Soul.mp3')}}">A Lost Soul</option>
       <option value="3" sound="{{url_for('static', filename='No Destination.mp3')}}">No Destination</option>
@@ -37,9 +37,9 @@
 
     <br />
 
-    <div class="Background">
-      <h4>Select a Background:</h4>
-      <select id="BackgroundSelect">
+    <div class="Background" id="custom-opt">
+      <labe>Select a Background:</label>
+      <select id="BackgroundSelect" class="form-select" aria-label="options">
         <option value="pixel_camp" background-img="{{ url_for('static', filename='pixel_camp.jpg') }}">Pixel Camp</option>
         <option value="campside" background-img="{{ url_for('static', filename='campside.jpg') }}">Campside</option>
         <option value="mountainside" background-img="{{ url_for('static', filename='mountainside.jpg') }}">Mountainside</option>
@@ -48,6 +48,7 @@
       </select>
     </div>
 
+    <br /> 
 
     <div class="stg-btn">
       <input type="submit" class="btn btn-primary btn-block" id="save" value="Save" />
