@@ -37,17 +37,6 @@
 
     <br />
 
-    <div>
-      <label for="togg-bg" class="togg-label">
-        <span>Background</span>
-        <input type="checkbox" name="togg-bg" id="togg-bg" checked />
-        <div class="toggle-container">
-          <span class="toggle"></span>
-          <span class="toggle-c"></span>
-        </div>
-      </label>
-    </div>
-
     <div class="Background">
       <h4>Select a Background:</h4>
       <select id="BackgroundSelect">
@@ -55,6 +44,7 @@
         <option value="campside" background-img="{{ url_for('static', filename='campside.jpg') }}">Campside</option>
         <option value="mountainside" background-img="{{ url_for('static', filename='mountainside.jpg') }}">Mountainside</option>
         <option value="purplespace" background-img="{{ url_for('static', filename='purplespace.png') }}">Purple Space</option>
+        <option value="Plain" background-img="{{ url_for('static', filename='plain.png') }}">Plain</option>
       </select>
     </div>
 
