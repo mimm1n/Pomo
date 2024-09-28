@@ -88,9 +88,9 @@ def login():
 
 @auth.route('/forgot_password', methods=["GET", "POST"])
 def forgot_password():
-    user = User.query.get(1) #getting the 1 id to simplyfy it
-
     if request.method == 'POST':
+        user = User.query.get(1) #getting the 1 id to simplyfy it
+        
         new_password1 = request.form.get("password1")
         newcon_password = request.form.get("password2")
 
@@ -132,10 +132,10 @@ def logout():
 
 @auth.route('/profile', methods=['GET', 'POST'])
 def profile_change():
-    
-    user = User.query.get(1) #getting the 1 id to simplyfy it
 
     if request.method == 'POST':
+        user = User.query.get(1) #getting the 1 id to simplyfy it
+        
         new_email = request.form.get("email")
         new_username = request.form.get("username")
 
@@ -149,7 +149,7 @@ def profile_change():
         user.email = new_email
         user.username = new_username
         db.session.commit()
-
+   
         flash('Profile updated successfully!')
         return redirect(url_for('views.profile'))
 

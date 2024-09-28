@@ -1,6 +1,18 @@
 //game.js//
 
+
+// Ensure the selected character is loaded at the start
+const selectedCharacter = localStorage.getItem('SelectedCharacter') || 'Astro';
 const char = document.getElementById("char");
+
+if (selectedCharacter === 'Astro') {
+  char.style.backgroundImage = "url('/static/css/astro_run.png')";
+} else if (selectedCharacter === 'Girl') {
+  char.style.backgroundImage = "url('/static/css/girl_run.png')";
+} else if (selectedCharacter === 'Guy') {
+  char.style.backgroundImage = "url('/static/css/guy_run.png')";
+}
+
 const ufo = document.getElementById("ufo");
 const gameOverText = document.getElementById("gameover");
 const scoreDisplay = document.getElementById("score");
@@ -25,7 +37,7 @@ function detectCollisions() {
   let ufoLeft = parseInt(window.getComputedStyle(ufo).getPropertyValue("left"));
 
   // Detect if the character hits the UFO
-  if (ufoLeft < 50 && ufoLeft > 0 && charTop >= 80) {
+  if (ufoLeft < 50 && ufoLeft > 0 && charTop >= 60) {
     gameOver = true;  // Set gameOver to true when collision happens
   }
 }
@@ -68,24 +80,3 @@ document.addEventListener("keydown", function (event) {
     jump();
   }
 });
-
-//user's option on the character
-
-window.onload = function() {
-  const SelectedCharacter = localStorage.getItem('SelectedCharacter') || 'astro';
-  var characterElement = document.getElementById('char');
-
-  switch (SelectedCharacter) {
-    case 'astro':
-      characterElement.style.backgroundImage = "url('/static/css/astro_run.png')";
-      break;
-    case 'girl':
-      characterElement.style.backgroundImage = "url('/static/css/girl_run.png')";
-      break;
-    case 'guy':
-      characterElement.style.backgroundImage = "url('/static/css/guy_run.png)";
-      break;
-    default:
-      characterElement.style.backgroundImage = "url('/static/css/pixel_camp.jpg')";
-  }
-};
