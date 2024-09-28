@@ -80,7 +80,7 @@
         </nav>
       </div>
 
-      <div class="base-container" onload="loadCheckboxState()">
+      <div class="base-container">
         {% with messages = get_flashed_messages(with_categories=true) %} {% if
         messages %} {% for category, message in messages %} {% if category ==
         "error" %}
@@ -124,13 +124,13 @@
       </div>
     </div>
 
-    <audio
-      id="bgm"
-      src="{{ url_for ('static', filename='A Lonely Cherry Tree.mp3') }}"
-      type="audio/mpeg"
-      autoplay
-      loop
-    ></audio>
+    <audio id="bgm" autoplay loop>
+      <source
+        id="track"
+        src="{{ url_for ('static', filename='Sound1.mp3') }} "
+        type="audio/mpeg"
+      />
+    </audio>
 
     <script src="{{ url_for('static', filename='audio.js')}}"></script>
     <script src="{{ url_for('static', filename='char_update.js')}}"></script>

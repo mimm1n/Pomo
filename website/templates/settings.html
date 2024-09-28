@@ -17,16 +17,15 @@
     </label>
   </div>
 
-  <div id="custom-opt" class="Sound">
+  <div class="Sound" id="custom-opt">
     <label for="SoundSelect">Sound Options:</label>
-    <select id="SoundSelect" class="form-select" aria-label="options">
-      <option value="A Lonely Cherry Tree" sound="{{url_for('static', filename='A Lonely Cherry Tree.mp3')}}">A Lonely Cherry Tree</option>
-      <option value="A Lost Soul" sound="{{url_for('static', filename='A Lost Soul.mp3')}}">A Lost Soul</option>
-      <option value="No Destination" sound="{{url_for('static', filename='No Destination.mp3')}}">No Destination</option>
-      <option value="Begin Your Journey" sound="{{url_for('static', filename='Begin Your Journey.mp3')}}">Begin Your Journey</option>
+    <select id="SoundSelect" class="form-select" aria-label="SoundSelect">
+      <option value="Sound1" sound-data="{{url_for('static', filename='Sound1.mp3')}}">A Lonely Cherry Tree</option>
+      <option  value="Sound2" sound-data="{{url_for('static', filename='Sound2.mp3')}}">A Lost Soul</option>
+      <option  value="Sound3" sound-data="{{url_for('static', filename='Sound3.mp3')}}">No Destination</option>
+      <option  value="Sound4" sound-data="{{url_for('static', filename='Sound4.mp3')}}">Begin Your Journey</option>
     </select>
   </div>
-
 
     <br />
 
@@ -38,8 +37,8 @@
     <br />
 
     <div class="Background" id="custom-opt">
-      <label for="BackgroundSelect">Select a Background:</label>
-      <select id="BackgroundSelect" class="form-select" aria-label="options">
+      <label>Select a Background:</label>
+      <select id="BackgroundSelect" class="form-select">
         <option value="pixel_camp" background-img="{{ url_for('static', filename='pixel_camp.jpg') }}">Pixel Camp</option>
         <option value="campside" background-img="{{ url_for('static', filename='campside.jpg') }}">Campside</option>
         <option value="mountainside" background-img="{{ url_for('static', filename='mountainside.jpg') }}">Mountainside</option>
@@ -49,10 +48,8 @@
     </div>
 
     <br /> 
+    <br /> 
 
-    <div class="stg-btn">
-      <input type="submit" class="btn btn-primary btn-block" id="save" value="Save" />
-    </div>
   </div>
 
   <script src="{{ url_for('static', filename='audio.js')}}"></script>

@@ -3,8 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
 from flask_migrate import Migrate
 
-db = SQLAlchemy()
-DB_NAME = "database1.db" 
+db = SQLAlchemy() 
 
 def create_app():
 
