@@ -1,9 +1,10 @@
-
 window.addEventListener("load", () => {
-  const bgm = document.getElementById("bgm"); // background music
+  const bgm = document.getElementById("bgm"); // Background music
   const checkboxSound = document.querySelector("input[name=togg-s]");
+  const SoundSelect = document.getElementById("SoundSelect");
+  const volume = document.querySelector("#volbar");
 
-  // Load the saved sound state from localStorage
+  // Function to load the saved sound state from localStorage
   function loadSoundState() {
     const soundState = localStorage.getItem("soundEnabled");
     if (soundState === "false") {
@@ -12,10 +13,24 @@ window.addEventListener("load", () => {
         checkboxSound.checked = false;
       }
     } else {
-      bgm.play();
       if (checkboxSound) {
         checkboxSound.checked = true;
       }
+      bgm.play().catch(error => {
+        console.error("Error playing audio:", error);
+      });
+    }
+  }
+
+  // Load saved volume from localStorage and apply it
+  function loadVolume() {
+    const savedVolume = localStorage.getItem("bgmVolume");
+    if (savedVolume) {
+      bgm.volume = savedVolume; // Set volume from saved value
+      volume.value = savedVolume * 100; // Update volume slider
+    } else {
+      bgm.volume = 1; // Default volume (100%)
+      volume.value = 100; // Default slider value
     }
   }
 
@@ -23,19 +38,19 @@ window.addEventListener("load", () => {
   if (checkboxSound) {
     checkboxSound.addEventListener("change", function () {
       if (this.checked) {
-        bgm.play();
         localStorage.setItem("soundEnabled", "true");
+        bgm.play().catch(error => {
+          console.error("Error playing audio:", error);
+        });
       } else {
-        bgm.pause();
         localStorage.setItem("soundEnabled", "false");
+        bgm.pause();
       }
     });
   }
 
   // Function to update the sound based on the selected option
   function updateSound(selectedSound) {
-    const SoundSelect = document.getElementById("SoundSelect");
-
     const selectedSoundOption = SoundSelect.querySelector(
       `option[value="${selectedSound}"]`
     );
@@ -53,7 +68,11 @@ window.addEventListener("load", () => {
   function applySound(soundBgm) {
     bgm.src = soundBgm; // Set the source of the audio
     bgm.load(); // Preload the audio
-    bgm.play(); // Play the audio
+    if (localStorage.getItem("soundEnabled") === "true") {
+      bgm.play().catch(error => {
+        console.error("Error playing audio:", error);
+      }); // Play the audio if enabled
+    }
   }
 
   // Load the saved background from localStorage on the page
@@ -67,7 +86,6 @@ window.addEventListener("load", () => {
   }
 
   // Sync the dropdown with the saved background
-  const SoundSelect = document.getElementById("SoundSelect");
   if (SoundSelect) {
     SoundSelect.value = savedSound; // Set the dropdown to the saved selection
     updateSound(savedSound); // Update the sound based on the saved selection
@@ -86,12 +104,14 @@ window.addEventListener("load", () => {
   }
 
   // Volume control
-  let volume = document.querySelector("#volbar");
-  volume.addEventListener("change", function (e) {
-    bgm.volume = e.currentTarget.value / 100; 
-  });
+  if (volume) {
+    volume.addEventListener("change", function (e) {
+      bgm.volume = e.currentTarget.value / 100; 
+      localStorage.setItem("bgmVolume", bgm.volume); // Save volume to localStorage
+    });
+  }
 
-  // Load the sound state when the page loads
+  // Load the sound state and volume when the page loads
   loadSoundState();
+  loadVolume();
 });
-
