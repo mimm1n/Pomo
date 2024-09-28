@@ -3,12 +3,6 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
 from flask_migrate import Migrate
 
-STATIC_ROOT = ''
-
-STATIC_URL = '/static/'
-
-STATICFILES_DIRS = ('static',)
-
 db = SQLAlchemy()
 DB_NAME = "database1.db" 
 

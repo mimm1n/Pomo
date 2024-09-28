@@ -18,7 +18,7 @@
   </div>
 
   <div id="custom-opt" class="Sound">
-    <label for="sound-options">Sound Options:</label>
+    <label for="SoundSelect">Sound Options:</label>
     <select id="SoundSelect" class="form-select" aria-label="options">
       <option value="A Lonely Cherry Tree" sound="{{url_for('static', filename='A Lonely Cherry Tree.mp3')}}">A Lonely Cherry Tree</option>
       <option value="A Lost Soul" sound="{{url_for('static', filename='A Lost Soul.mp3')}}">A Lost Soul</option>
@@ -38,7 +38,7 @@
     <br />
 
     <div class="Background" id="custom-opt">
-      <label>Select a Background:</label>
+      <label for="BackgroundSelect">Select a Background:</label>
       <select id="BackgroundSelect" class="form-select" aria-label="options">
         <option value="pixel_camp" background-img="{{ url_for('static', filename='pixel_camp.jpg') }}">Pixel Camp</option>
         <option value="campside" background-img="{{ url_for('static', filename='campside.jpg') }}">Campside</option>
