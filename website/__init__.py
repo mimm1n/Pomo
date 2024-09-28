@@ -3,9 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
 from flask_migrate import Migrate
 
-
-db = SQLAlchemy()
-DB_NAME = "database1.db" 
+db = SQLAlchemy() 
 
 def create_app():
 
@@ -33,7 +31,7 @@ def create_app():
 
     @login_manager.user_loader
     def load_user(id):
-        return User.query.get(int(id))
+        return User.query.get(id)
     
     migrate = Migrate(app, db)
     
