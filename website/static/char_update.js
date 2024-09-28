@@ -50,8 +50,8 @@ document.getElementById('characterSelect').addEventListener('change', function()
      // Set the dropdown to the saved character
      characterSelect.value = savedOption;
      
-    // Set image preview for character select page
-    updateCharacter(savedCharacter);
+    // // Set image preview for character select page
+    // updateCharacter(savedCharacter);
 
     
       // Sync the dropdown with the saved background
@@ -60,7 +60,7 @@ document.getElementById('characterSelect').addEventListener('change', function()
       updateCharacter(savedImage); 
       characterSelect.addEventListener('change', function () {
         const selectedCharacter = this.value;
-        updateBackground(selectedCharacter);
+        updateCharacter(characterSelect);
         
         // Save the new selection to localStorage
         const selectedOption = this.querySelector(`option[value="${selectedCharacter}"]`);
