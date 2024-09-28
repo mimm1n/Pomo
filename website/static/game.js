@@ -37,7 +37,7 @@ function detectCollisions() {
   let ufoLeft = parseInt(window.getComputedStyle(ufo).getPropertyValue("left"));
 
   // Detect if the character hits the UFO
-  if (ufoLeft < 50 && ufoLeft > 0 && charTop >= 80) {
+  if (ufoLeft < 50 && ufoLeft > 0 && charTop >= 60) {
     gameOver = true;  // Set gameOver to true when collision happens
   }
 }
