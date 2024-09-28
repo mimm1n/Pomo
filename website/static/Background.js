@@ -28,21 +28,21 @@ window.onload = function () {
     applyBackground(savedImageBg);
   }
 
-  // Sync the dropdown with the saved background
-  const BackgroundSelect = document.getElementById("BackgroundSelect");
-  if (BackgroundSelect) {
-    BackgroundSelect.value = savedBackground; // Set the dropdown to the saved selection
-    updateBackground(savedBackground); 
-    BackgroundSelect.addEventListener('change', function () {
-      const selectedBackground = this.value;
-      updateBackground(selectedBackground);
-      
-      // Save the new selection to localStorage
-      const selectedOption = this.querySelector(`option[value="${selectedBackground}"]`);
-      const backgroundImage = selectedOption.getAttribute('background-img');
-      localStorage.setItem('selectedBackground', selectedBackground);
-      localStorage.setItem('backgroundImage', backgroundImage);
-    });
+    // Sync the dropdown with the saved background
+    const BackgroundSelect = document.getElementById("BackgroundSelect");
+    if (BackgroundSelect) {
+      BackgroundSelect.value = savedBackground; // Set the dropdown to the saved selection
+      updateBackground(savedBackground); 
+      BackgroundSelect.addEventListener('change', function () {
+        const selectedBackground = this.value;
+        updateBackground(selectedBackground);
+        
+        // Save the new selection to localStorage
+        const selectedOption = this.querySelector(`option[value="${selectedBackground}"]`);
+        const backgroundImage = selectedOption.getAttribute('background-img');
+        localStorage.setItem('selectedBackground', selectedBackground);
+        localStorage.setItem('backgroundImage', backgroundImage);
+      });
   }
 };
 
