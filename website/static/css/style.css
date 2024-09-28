@@ -48,8 +48,6 @@ h1 {
   width: 500px;
   display: flex;
   flex-direction: column;
-  /* justify-content: center;
-  align-items: center; */
 
   font-family: "mainFont";
   font-size: 20px;

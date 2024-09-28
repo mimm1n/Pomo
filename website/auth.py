@@ -88,8 +88,9 @@ def login():
 
 @auth.route('/forgot_password', methods=["GET", "POST"])
 def forgot_password():
+    user = User.query.get(1) #getting the 1 id to simplyfy it
+        
     if request.method == 'POST':
-        user = User.query.get(1) #getting the 1 id to simplyfy it
         
         new_password1 = request.form.get("password1")
         newcon_password = request.form.get("password2")
@@ -117,7 +118,6 @@ def forgot_password():
         else:
             flash('Username does not exist.', category='error')
 
-        # existing_user = User.query.filter_by(username=username).first()
     return render_template('forgot_password.html', user=user)
 
 # ---------------------------------- LOGOUT ----------------------------------
