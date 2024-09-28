@@ -6,6 +6,7 @@
 body {
   font-family: "mainFont";
   background-image: url("pixel_camp.jpg");
+  background-color: #62567d;
   object-fit: cover;
   background-size: cover;
   background-position: center;
@@ -95,7 +96,7 @@ a {
   transition: all 0.35s ease-in-out;
   display: flex;
   flex-direction: column;
-  background-color: #350b44;
+  background-color: #3c134b;
   position: relative;
 }
 
