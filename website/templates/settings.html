@@ -17,92 +17,41 @@
     </label>
   </div>
 
-  <div class="custom-opt">
-    <div class="dropdown-center">
-      <button
-        class="btn btn-primary dropdown-toggle"
-        type="button"
-        data-bs-toggle="dropdown"
-        aria-expanded="false"
-      >
-        Sound Options
-      </button>
-      <ul class="dropdown-menu">
-        <li>
-          <button class="dropdown-item" type="button">Sound 1</button>
-        </li>
-        <li>
-          <button class="dropdown-item" type="button">Sound 2</button>
-        </li>
-        <li>
-          <button class="dropdown-item" type="button">Sound 3</button>
-        </li>
-        <li>
-          <button class="dropdown-item" type="button">Sound 4</button>
-        </li>
-      </ul>
-    </div>
+  <div id="custom-opt" class="Sound">
+    <label for="SoundSelect">Sound Options:</label>
+    <select id="SoundSelect" class="form-select" aria-label="options">
+      <option value="A Lonely Cherry Tree" sound="{{url_for('static', filename='A Lonely Cherry Tree.mp3')}}">A Lonely Cherry Tree</option>
+      <option value="A Lost Soul" sound="{{url_for('static', filename='A Lost Soul.mp3')}}">A Lost Soul</option>
+      <option value="No Destination" sound="{{url_for('static', filename='No Destination.mp3')}}">No Destination</option>
+      <option value="Begin Your Journey" sound="{{url_for('static', filename='Begin Your Journey.mp3')}}">Begin Your Journey</option>
+    </select>
+  </div>
+
 
     <br />
 
     <div>
       <span>Volume</span>
       <input type="range" id="volbar" name="vol" min="0" max="100" />
-      <!-- <audio id="audio" src=""></audio> -->
     </div>
 
     <br />
 
-    <div>
-      <label for="togg-bg" class="togg-label">
-        <span>Background</span>
-        <input type="checkbox" name="togg-bg" id="togg-bg" checked />
-        <div class="toggle-container">
-          <span class="toggle"></span>
-          <span class="toggle-c"></span>
-        </div>
-      </label>
+    <div class="Background" id="custom-opt">
+      <label for="BackgroundSelect">Select a Background:</label>
+      <select id="BackgroundSelect" class="form-select" aria-label="options">
+        <option value="pixel_camp" background-img="{{ url_for('static', filename='pixel_camp.jpg') }}">Pixel Camp</option>
+        <option value="campside" background-img="{{ url_for('static', filename='campside.jpg') }}">Campside</option>
+        <option value="mountainside" background-img="{{ url_for('static', filename='mountainside.jpg') }}">Mountainside</option>
+        <option value="purplespace" background-img="{{ url_for('static', filename='purplespace.png') }}">Purple Space</option>
+        <option value="Plain" background-img="{{ url_for('static', filename='plain.png') }}">Plain</option>
+      </select>
     </div>
 
-    <div class="custom-opt">
-      <div class="dropdown-center">
-        <button
-          class="btn btn-primary dropdown-toggle"
-          type="button"
-          data-bs-toggle="dropdown"
-          aria-expanded="false"
-          id="bg-choices"
-        >
-          Background Options
-        </button>
-        <ul class="dropdown-menu" id="bg-choices">
-          <li>
-            <button value="1" class="dropdown-item" type="button">
-              Background 1
-            </button>
-          </li>
-          <li>
-            <button value="2" class="dropdown-item" type="button">
-              Background 2
-            </button>
-          </li>
-          <li>
-            <button value="3" class="dropdown-item" type="button">
-              Background 3
-            </button>
-          </li>
-          <li>
-            <button value="4" class="dropdown-item" type="button">
-              Background 4
-            </button>
-          </li>
-        </ul>
-      </div>
-      <br />
-    </div>
+    <br /> 
 
     <div class="stg-btn">
-      <input type="submit" class="btn btn-primary btn-block" value="Save" />
+      <input type="submit" class="btn btn-primary btn-block" id="save" value="Save" />
     </div>
   </div>
 
