@@ -3,7 +3,9 @@
 window.addEventListener("load", () => {
   const bgm = document.getElementById("bgm"); //background music
   const checkboxSound = document.querySelector("input[name=togg-s]");
-  
+
+  localStorage.setItem("bgm", bgm);
+
   // loads the saved sound state from localStorage
   function loadSoundState() {
     const soundState = localStorage.getItem("soundEnabled");
@@ -37,6 +39,43 @@ window.addEventListener("load", () => {
   loadSoundState();
 });
 
+// Event listener for character selection
+document
+  .getElementById("sound-options")
+  .addEventListener("change", function () {
+    const selectedBGM = this.value;
+    const selectedBGMOption = this.querySelector(
+      `option[value="${selectedBGM}"]`
+    );
+    const bgmSrc = document.getElementById("bgmSRC");
+    const bgmChoice = selectedBGMOption.getAttribute("src");
+
+    localStorage.setItem("selectedBGM", selectedBGM); // Save the selection to localStorage
+    localStorage.setItem("bgmChoice", bgmChoice);
+    localStorage.setItem("bgmSRC", bgmSrc); // Save the image to localStorage
+  });
+
+window.onload = function () {
+  const SoundChoice = localStorage.getItem("selectedBGM");
+  const storedBGM = localStorage.getItem("bgmSRC");
+  const SoundSelect = document.getElementById("sound-options");
+
+  // Choose the correct character animation for the game
+  if (SoundChoice == "1") {
+    storedBGM.src = "url('/static/A Lonely Cherry Tree.mp3')";
+  } else if (SoundChoice == "2") {
+    storedBGM.src = "url('/static/A Lost Soul.mp3')";
+  } else if (SoundChoice == "3") {
+    storedBGM.src = "url('/static/No Destination.mp3')";
+  } else if (SoundChoice == "4") {
+    storedBGM.src = "url('/static/Begin Your Journey.mp3')";
+  } else {
+    storedBGM.src = "url('/static/A Lonely Cherry Tree.mp3')";
+  }
+
+  // Set the dropdown to the saved character
+  SoundChoice.value = SoundSelect;
+};
 
 // window.onload = function () {
 //   console.log("please bro im ab to pass out and die");
