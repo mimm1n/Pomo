@@ -18,30 +18,15 @@
   </div>
 
   <div class="custom-opt">
-    <div class="dropdown-center">
-      <button
-        class="btn btn-primary dropdown-toggle"
-        type="button"
-        data-bs-toggle="dropdown"
-        aria-expanded="false"
-      >
-        Sound Options
-      </button>
-      <ul class="dropdown-menu">
-        <li>
-          <button class="dropdown-item" type="button">Sound 1</button>
-        </li>
-        <li>
-          <button class="dropdown-item" type="button">Sound 2</button>
-        </li>
-        <li>
-          <button class="dropdown-item" type="button">Sound 3</button>
-        </li>
-        <li>
-          <button class="dropdown-item" type="button">Sound 4</button>
-        </li>
-      </ul>
-    </div>
+    <label for="sound-options">Sound Options:</label>
+    <select id="sound-options" class="form-select" aria-label="Sound options">
+      <option value="1" sound="{{url_for('static', filename='A Lonely Cherry Tree.mp3')}}">A lonely Cherry Tree</option>
+      <option value="2" sound="{{url_for('static', filename='A Lost Soul.mp3')}}">A Lost Soul</option>
+      <option value="3" sound="{{url_for('static', filename='No Destination.mp3')}}">No Destination</option>
+      <option value="4" sound="{{url_for('static', filename='Begin Your Journey.mp3')}}">Begin Your Journey</option>
+    </select>
+  </div>
+
 
     <br />
 
