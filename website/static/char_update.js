@@ -20,7 +20,8 @@ document.getElementById('characterSelect').addEventListener('change', function()
 
   updateCharacter(selectedCharacter);
   localStorage.setItem('SelectedCharacter', selectedCharacter); // Save the selection to localStorage
-  localStorage.setItem('CharacterImage', characterImage);       // Save the image to localStorage
+  localStorage.setItem('CharacterImage', characterImage);     // Save the image to localStorage
+  localStorage.setItem('SelectedOption', selectedOption);  
 });
 
   // loads the selected character
@@ -29,6 +30,7 @@ document.getElementById('characterSelect').addEventListener('change', function()
     const characterElement = document.getElementById('char');
     const characterSelect = document.getElementById('characterSelect');
     const savedImage = localStorage.getItem('CharacterImage') || '/static/css/astro_run.png';
+    const savedOption = localStorage.getItem('SelectedOption'); 
     
 
     // Choose the correct character animation for the game
@@ -38,7 +40,6 @@ document.getElementById('characterSelect').addEventListener('change', function()
       characterElement.style.backgroundImage = "url('/static/css/girl_run.png')";
     } else if (savedCharacter == 'Guy') {
       characterElement.style.backgroundImage = "url('/static/css/guy_run.png')";
-      characterElement.style.backgroundSize = "90px 120px"
     } else {
       characterElement.style.backgroundImage = "url('/static/css/astro_run.png')";
     }
@@ -47,7 +48,7 @@ document.getElementById('characterSelect').addEventListener('change', function()
     characterElement.style.backgroundImage = `url('${savedImage}')`;
 
      // Set the dropdown to the saved character
-     characterSelect.value = savedCharacter;
+     characterSelect.value = savedOption;
      
     // Set image preview for character select page
     updateCharacter(savedCharacter);
