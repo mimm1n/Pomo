@@ -1,8 +1,50 @@
-window.onload = function () {
-  console.log("please bro im ab to pass out and die");
-  checkPermAudio();
-  loadCheckboxState();
-};
+//testing//
+
+window.addEventListener("load", () => {
+  const bgm = document.getElementById("bgm"); //background music
+  const checkboxSound = document.querySelector("input[name=togg-s]");
+  
+  // loads the saved sound state from localStorage
+  function loadSoundState() {
+    const soundState = localStorage.getItem("soundEnabled");
+    if (soundState === "false") {
+      bgm.pause();
+      if (checkboxSound) {
+        checkboxSound.checked = false;
+      }
+    } else {
+      bgm.play();
+      if (checkboxSound) {
+        checkboxSound.checked = true;
+      }
+    }
+  }
+
+  // Event listener for toggling sound using the checkbox
+  if (checkboxSound) {
+    checkboxSound.addEventListener("change", function () {
+      if (this.checked) {
+        bgm.play();
+        localStorage.setItem("soundEnabled", "true");
+      } else {
+        bgm.pause();
+        localStorage.setItem("soundEnabled", "false");
+      }
+    });
+  }
+
+  // Load the sound state when the page loads
+  loadSoundState();
+});
+
+
+
+
+// window.onload = function () {
+//   console.log("please bro im ab to pass out and die");
+//   checkPermAudio();
+//   loadCheckboxState();
+// };
 
 // window.addEventListener("load", () => {
 //   console.log("please bro im ab to pass out and die");
@@ -12,23 +54,23 @@ window.onload = function () {
 
 // sound toggle button
 
-var checkboxSound = document.getElementById("togg-s");
-var checkboxBG = document.querySelector("input[name=togg-bg]");
-var background = document.getElementsByTagName("body")[0];
+// var checkboxSound = document.getElementById("togg-s");
+// var checkboxBG = document.querySelector("input[name=togg-bg]");
+// var background = document.getElementsByTagName("body")[0];
 
-window.checkPermAudio = function () {
-  var bgm = document.getElementById("bgm");
-  console.log("WORKS");
+// window.checkPermAudio = function () {
+//   var bgm = document.getElementById("bgm");
+//   console.log("WORKS");
 
-  if (bgm.paused) {
-    let play = document.getElementById("play");
+//   if (bgm.paused) {
+//     let play = document.getElementById("play");
 
-    play.onclick();
-    {
-      bgm.play();
-    }
-  }
-};
+//     play.onclick();
+//     {
+//       bgm.play();
+//     }
+//   }
+// };
 
 // checkboxSound.addEventListener("change", function () {
 //   if (this.checked) {
@@ -42,59 +84,56 @@ window.checkPermAudio = function () {
 //   }
 // });
 
-window.loadCheckboxState = function () {
-  checkboxSound.addEventListener("change", function () {
-    const checkboxResult = this.value;
-    if (this.checked) {
-      console.log("Checkbox is checked..");
-      bgm.play();
-      localStorage.setItem("togg-s", checkboxResult);
-    } else {
-      console.log("Checkbox is not checked..");
-      bgm.pause();
-      localStorage.setItem("togg-s", checkboxResult);
-    }
-  });
+// window.loadCheckboxState = function () {
+//   checkboxSound.addEventListener("change", function () {
+//     const checkboxResult = this.value;
+//     if (this.checked) {
+//       console.log("Checkbox is checked..");
+//       bgm.play();
+//       localStorage.setItem("togg-s", checkboxResult);
+//     } else {
+//       console.log("Checkbox is not checked..");
+//       bgm.pause();
+//       localStorage.setItem("togg-s", checkboxResult);
+//     }
+//   });
 
-<<<<<<< HEAD
-checkboxSound.addEventListener("change", function () {
-  if (this.checked) {
-    console.log("Checkbox is checked..");
-    bgm.play();
-    localStorage.setItem("togg-s", "true");
-  } else {
-    console.log("Checkbox is not checked..");
-    bgm.pause();
-    localStorage.setItem("togg-s", "false");
-=======
-  const savedState = localStorage.getItem("togg-s");
-  if (checkboxSound.checked) {
-    bgm.play(); // Play music if it's checked
-    console.log("please");
-  } else {
-    bgm.pause(); // Pause music if it's not checked
-    console.log("gonna kill myself tn");
->>>>>>> 10627897780d1b12ca0f8161d291c336d1c05d22
-  }
-};
+// checkboxSound.addEventListener("change", function () {
+//   if (this.checked) {
+//     console.log("Checkbox is checked..");
+//     bgm.play();
+//     localStorage.setItem("togg-s", "true");
+//   } else {
+//     console.log("Checkbox is not checked..");
+//     bgm.pause();
+//     localStorage.setItem("togg-s", "false");
+//   const savedState = localStorage.getItem("togg-s");
+//   if (checkboxSound.checked) {
+//     bgm.play(); // Play music if it's checked
+//     console.log("please");
+//   } else {
+//     bgm.pause(); // Pause music if it's not checked
+//     console.log("gonna kill myself tn");
+//   }
+// };
 
 // Call this function on page load
 
 // window.onload = loadCheckboxState;
 
-function loadCheckboxState() {
-  const savedState = localStorage.getItem("togg-s");
-  if (savedState !== null) {
-    checkboxSound.checked = savedState === "true"; // Set the checkbox state
-    if (checkboxSound.checked) {
-      bgm.play(); // Play music if it's checked
-      console.log("please");
-    } else {
-      bgm.pause(); // Pause music if it's not checked
-      console.log("gonna kill myself tn");
-    }
-  }
-}
+// function loadCheckboxState() {
+//   const savedState = localStorage.getItem("togg-s");
+//   if (savedState !== null) {
+//     checkboxSound.checked = savedState === "true"; // Set the checkbox state
+//     if (checkboxSound.checked) {
+//       bgm.play(); // Play music if it's checked
+//       console.log("please");
+//     } else {
+//       bgm.pause(); // Pause music if it's not checked
+//       console.log("gonna kill myself tn");
+//     }
+//   }
+// }
 
 // Call this function on page load
 // window.addEventListener("load", () => {
@@ -102,32 +141,30 @@ function loadCheckboxState() {
 //   loadCheckboxState();
 // });
 
-window.onload = loadCheckboxState;
+// window.onload = loadCheckboxState;
 
-checkboxBG.addEventListener("change", function () {
-  if (this.checked) {
-    console.log("Checkbox is checked..");
-    body.style.background =
-      "url('/static/css/pixel_camp.jpg') no-repeat center";
-    body.style.objectFit = "cover";
-    body.style.backgroundSize = "cover";
-  } else {
-    console.log("Checkbox is not checked..");
-    body.style.background = "url('/static/css/plain.png') no-repeat center";
-    body.style.objectFit = "cover";
-    body.style.backgroundSize = "cover";
-  }
-});
+// checkboxBG.addEventListener("change", function () {
+//   if (this.checked) {
+//     console.log("Checkbox is checked..");
+//     body.style.background =
+//       "url('/static/css/pixel_camp.jpg') no-repeat center";
+//     body.style.objectFit = "cover";
+//     body.style.backgroundSize = "cover";
+//   } else {
+//     console.log("Checkbox is not checked..");
+//     body.style.background = "url('/static/css/plain.png') no-repeat center";
+//     body.style.objectFit = "cover";
+//     body.style.backgroundSize = "cover";
+//   }
+// });
 
-// volbar
+// // volbar
 
-let volume = document.querySelector("#volbar");
+// let volume = document.querySelector("#volbar");
 
-volume.addEventListener("change", function (e) {
-  bgm.volume = e.currentTarget.value / 100;
-});
-<<<<<<< HEAD
-=======
+// volume.addEventListener("change", function (e) {
+//   bgm.volume = e.currentTarget.value / 100;
+// });
 
 // // Event listener for character selection
 // document.getElementById("bg-choices").addEventListener("change", function () {
@@ -164,4 +201,3 @@ volume.addEventListener("change", function (e) {
 // window.onload = function () {
 //   const savedBackground = localStorage.getItem("SelectedBackgruond");
 // };
->>>>>>> 10627897780d1b12ca0f8161d291c336d1c05d22
