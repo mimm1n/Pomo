@@ -1,9 +1,9 @@
-// Function to update character image preview based on selection
+// update character image preview from what user picks
 function updateCharacter(selectedCharacter) {
     const characterSelect = document.getElementById('characterSelect');
     const characterPreview = document.getElementById('characterPreview');
   
-    // Find the corresponding image for the selected character
+    // Find the image to the option picked
     const selectedOption = characterSelect.querySelector(`option[value="${selectedCharacter}"]`);
     const characterImage = selectedOption.getAttribute('data-img');
 
@@ -17,13 +17,13 @@ document.getElementById('characterSelect').addEventListener('change', function()
   const selectedOption = this.querySelector(`option[value="${selectedCharacter}"]`);
   const characterImage = selectedOption.getAttribute('data-img');
 
-  // Update preview image and store the selected character in localStorage
+
   updateCharacter(selectedCharacter);
   localStorage.setItem('SelectedCharacter', selectedCharacter); // Save the selection to localStorage
   localStorage.setItem('CharacterImage', characterImage);       // Save the image to localStorage
 });
 
-  // loads the selected character's appearance
+  // loads the selected character
   window.onload = function() {
     const savedCharacter = localStorage.getItem('SelectedCharacter') || 'astro';
     const characterElement = document.getElementById('char');
@@ -43,7 +43,7 @@ document.getElementById('characterSelect').addEventListener('change', function()
       characterElement.style.backgroundImage = "url('/static/css/astro_run.png')";
     }
     
-    // Use the saved image to set the character's animation in the game
+    // Use the saved image to set the character in the game
     characterElement.style.backgroundImage = `url('${savedImage}')`;
 
      // Set the dropdown to the saved character
