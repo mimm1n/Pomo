@@ -459,7 +459,8 @@ input[type="checkbox"]:checked + div .toggle-c {
   background-color: #5e4080;
   border-color: #4f2d59;
 }
-.custom-opt {
+
+#custom-opt {
   text-align: center;
 }
 
