@@ -1,42 +1,49 @@
+// Function to update the background across all pages
 function updateBackground(selectedBackground) {
   const BackgroundSelect = document.getElementById("BackgroundSelect");
 
-  // Get the selected option and its background image
+ // Find the image to the option picked
   const selectedOption = BackgroundSelect.querySelector(`option[value="${selectedBackground}"]`);
   const backgroundImage = selectedOption ? selectedOption.getAttribute('background-img') : null;
 
-  // Check if the background image is valid
-  if (backgroundImage) {
-    const body = document.getElementsByTagName("body")[0];
-    body.style.backgroundImage = `url('${backgroundImage}')`;
-    body.style.backgroundSize = 'cover'; // Ensure it covers the entire page
-    body.style.backgroundPosition = 'center';
-    body.style.backgroundRepeat = 'no-repeat';
-
-    // Save to localStorage
-    localStorage.setItem('selectedBackground', selectedBackground);
-    localStorage.setItem('backgroundImage', backgroundImage);
-  } else {
-    console.error("Background image not found!");
-  }
+  
+  applyBackground(backgroundImage); // apply the background
+ 
 }
 
-// Load saved background from localStorage on page load
+// Function to apply the background to the body
+function applyBackground(backgroundImage) {
+  const body = document.getElementsByTagName("body")[0];
+  body.style.backgroundImage = `url('${backgroundImage}')`;
+  body.style.backgroundSize = 'cover'; // Ensure it covers the entire page
+}
+
+// Loads the saved background from localStorage on the page
 window.onload = function () {
   const savedBackground = localStorage.getItem('selectedBackground') || 'pixel_camp';
   const savedImageBg = localStorage.getItem('backgroundImage') || '{{ url_for("static", filename="pixel_camp.jpg") }}';
 
-  // Apply the saved background
-  updateBackground(savedBackground); // Call to update background immediately
+  // Apply the saved background 
+  if (savedImageBg) {
+    applyBackground(savedImageBg);
+  }
 
-  // Update dropdown to reflect saved selection
+  // Sync the dropdown with the saved background
   const BackgroundSelect = document.getElementById("BackgroundSelect");
   if (BackgroundSelect) {
-    BackgroundSelect.value = savedBackground;
-    // Add event listener for dropdown change
+    BackgroundSelect.value = savedBackground; // Set the dropdown to the saved selection
+    updateBackground(savedBackground); // Update the background immediately
     BackgroundSelect.addEventListener('change', function () {
-      updateBackground(this.value);
+      const selectedBackground = this.value;
+      updateBackground(selectedBackground);
+      
+      // Save the new selection to localStorage
+      const selectedOption = this.querySelector(`option[value="${selectedBackground}"]`);
+      const backgroundImage = selectedOption.getAttribute('background-img');
+      localStorage.setItem('selectedBackground', selectedBackground);
+      localStorage.setItem('backgroundImage', backgroundImage);
     });
   }
 };
+
 
