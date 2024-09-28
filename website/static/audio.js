@@ -30,7 +30,7 @@ window.addEventListener("load", () => {
       volume.value = savedVolume * 100; // Update volume slider
     } else {
       bgm.volume = 1; // Default volume (100%)
-      volume.value = 100; // Default slider value
+      volume.value = 100; 
     }
   }
 
@@ -64,10 +64,9 @@ window.addEventListener("load", () => {
     }
   }
 
-  // Apply the sound
   function applySound(soundBgm) {
     bgm.src = soundBgm; // Set the source of the audio
-    bgm.load(); // Preload the audio
+    bgm.load(); 
     if (localStorage.getItem("soundEnabled") === "true") {
       bgm.play().catch(error => {
         console.error("Error playing audio:", error);
@@ -88,10 +87,10 @@ window.addEventListener("load", () => {
   // Sync the dropdown with the saved background
   if (SoundSelect) {
     SoundSelect.value = savedSound; // Set the dropdown to the saved selection
-    updateSound(savedSound); // Update the sound based on the saved selection
+    updateSound(savedSound); 
     SoundSelect.addEventListener("change", function () {
       const selectedSound = this.value;
-      updateSound(selectedSound); // Update sound when selection changes
+      updateSound(selectedSound); 
 
       // Save the new selection to localStorage
       const selectedSoundOption = this.querySelector(
@@ -103,11 +102,12 @@ window.addEventListener("load", () => {
     });
   }
 
-  // Volume control
+//VOLBAR
+
   if (volume) {
     volume.addEventListener("change", function (e) {
       bgm.volume = e.currentTarget.value / 100; 
-      localStorage.setItem("bgmVolume", bgm.volume); // Save volume to localStorage
+      localStorage.setItem("bgmVolume", bgm.volume);
     });
   }
 
