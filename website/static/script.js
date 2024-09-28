@@ -161,3 +161,57 @@ showTask();
 //   value = $(this).val() - 1;
 //   $("body").css({ "background-image": "url(" + bgArray[value] + ")" });
 // });
+
+
+// 
+
+// Function to update the background based on user selection
+function updateBackground(selectedBackground) {
+  const BackgroundSelect = document.getElementById("BackgroundSelect");
+
+  // Find the selected option
+  const selectedOption = BackgroundSelect.querySelector(`option[value="${selectedBackground}"]`);
+  const backgroundImage = selectedOption.getAttribute('background-img'); // Get the background image URL from the selected option
+
+  // Check if the background image is valid
+  if (backgroundImage) {
+    // Update the body background
+    const body = document.getElementsByTagName("body")[0];
+    body.style.backgroundImage = `url('${backgroundImage}')`;
+    body.style.backgroundSize = 'cover'; // Ensure it covers the entire page
+    body.style.backgroundPosition = 'center';
+    body.style.backgroundRepeat = 'no-repeat';
+
+    // Save the selection to localStorage so it persists
+    localStorage.setItem('selectedBackground', selectedBackground);
+    localStorage.setItem('backgroundImage', backgroundImage);
+  } else {
+    console.error("Background image not found!");
+  }
+}
+
+// Event listener for Background selection change
+document.getElementById("BackgroundSelect").addEventListener('change', function () {
+  const selectedBackground = this.value;
+  updateBackground(selectedBackground);  // Update background when user selects a new option
+});
+
+// Load saved background from localStorage on page load
+window.onload = function () {
+  const savedBackground = localStorage.getItem('selectedBackground') || 'pixel_camp';
+  const savedImageBg = localStorage.getItem('backgroundImage') || '{{ url_for("static", filename="pixel_camp.jpg") }}';
+
+  const BackgroundElement = document.getElementsByTagName("body")[0];
+  const BackgroundSelect = document.getElementById("BackgroundSelect");
+
+  // Set the body background to the saved background image
+  if (savedImageBg) {
+    BackgroundElement.style.backgroundImage = `url('${savedImageBg}')`;
+    BackgroundElement.style.backgroundSize = 'cover'; // Ensure it covers the entire page
+    BackgroundElement.style.backgroundPosition = 'center';
+    BackgroundElement.style.backgroundRepeat = 'no-repeat';
+  }
+
+  // Set the dropdown value to the saved background option
+  BackgroundSelect.value = savedBackground;
+};

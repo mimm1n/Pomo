@@ -54,7 +54,3 @@ document.getElementById('characterSelect').addEventListener('change', function()
   };
   
   
-
-  
-  
-  
