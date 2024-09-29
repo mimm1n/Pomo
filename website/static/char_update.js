@@ -8,7 +8,7 @@ function updateCharacter(selectedCharacter) {
     `option[value="${selectedCharacter}"]`
   );
   const characterImage = selectedOption.getAttribute("data-img");
-      localStorage.setItem("CharacterImage", characterImage);
+  localStorage.setItem("CharacterImage", characterImage);
 
   // Update the preview image based on the selection
   characterPreview.src = characterImage;
@@ -61,8 +61,8 @@ window.onload = function () {
 
   // Sync the dropdown with the saved chara
   if (characterSelect) {
-    characterSelect.value = characterImage; // Set the dropdown to the saved selection
-    updateCharacter(characterImage);
+    characterSelect.value = savedImage; // Set the dropdown to the saved selection
+    updateCharacter(savedImage);
     characterSelect.addEventListener("change", function () {
       const selectedCharacter = this.value;
       updateCharacter(characterSelect);
@@ -77,4 +77,3 @@ window.onload = function () {
     });
   }
 };
-
