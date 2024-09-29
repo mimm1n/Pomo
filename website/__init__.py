@@ -1,7 +1,7 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
-from flask_migrate import Migrate
+# from flask_migrate import Migrate
 
 db = SQLAlchemy() 
 
@@ -33,7 +33,7 @@ def create_app():
     def load_user(id):
         return User.query.get(id)
     
-    migrate = Migrate(app, db)
+    # migrate = Migrate(app, db)
     
 
     return app

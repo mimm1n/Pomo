@@ -6,7 +6,7 @@
 body {
   font-family: "mainFont";
   background-image: url("pixel_camp.jpg");
-  background-color: #62567d;
+  background-color: #62567d!important;
   object-fit: cover;
   background-size: cover;
   background-position: center;
